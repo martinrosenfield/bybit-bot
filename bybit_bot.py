@@ -16,6 +16,8 @@ If dry_run=false in config, real demo orders are placed only when env
 CONFIRM_LIVE=YES is set — an explicit human gate.
 """
 
+from __future__ import annotations
+
 import json
 import os
 import sys
@@ -79,7 +81,7 @@ session = HTTP(
     api_key=os.environ["BYBIT_API_KEY"],
     api_secret=os.environ["BYBIT_API_SECRET"],
     recv_window=30000,
-    log_level="WARNING",
+    logging_level=logging.WARNING,
 )
 
 
