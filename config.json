@@ -1,0 +1,16 @@
+{
+  "dry_run": false,
+  "symbols": ["BTCUSDT", "ETHUSDT"],
+  "timeframe": "15",
+  "ema_fast": 20,
+  "ema_slow": 50,
+  "atr_period": 14,
+  "risk_per_trade": 0.0025,
+  "daily_loss_limit": 0.01,
+  "max_orders_per_day": 3,
+  "leverage": 3,
+  "atr_stop_mult": 1.5,
+  "atr_tp_mult": 2.25,
+  "max_notional_pct_equity": 0.5,
+  "poll_seconds": 20
+}
