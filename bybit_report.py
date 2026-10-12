@@ -11,7 +11,10 @@ Bybit demo API for closed PnL and current state. Read-only, safe to run
 while the bot is working.
 """
 
+from __future__ import annotations
+
 import json
+import logging
 import os
 import sys
 from datetime import datetime, timezone
@@ -50,7 +53,7 @@ def main():
         api_key=os.environ["BYBIT_API_KEY"],
         api_secret=os.environ["BYBIT_API_SECRET"],
         recv_window=30000,
-        log_level="WARNING",
+        logging_level=logging.WARNING,
     )
 
     bal = session.get_wallet_balance(accountType="UNIFIED")
