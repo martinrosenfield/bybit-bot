@@ -196,7 +196,7 @@ def set_leverage(symbol: str):
             category="linear", symbol=symbol,
             buyLeverage=str(LEVERAGE), sellLeverage=str(LEVERAGE)), f"leverage {symbol}")
         log.info(f"{symbol}: leverage set to x{LEVERAGE}")
-    except RuntimeError as e:
+    except Exception as e:
         if "110043" in str(e) or "not modified" in str(e).lower():
             log.info(f"{symbol}: leverage already x{LEVERAGE}")
         else:
