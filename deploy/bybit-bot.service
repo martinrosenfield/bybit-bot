@@ -1,0 +1,24 @@
+[Unit]
+Description=Bybit demo trading bot (BTC/ETH M15, dry demo only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bybitbot
+Group=bybitbot
+WorkingDirectory=/opt/bybit-bot
+EnvironmentFile=/etc/bybit-bot.env
+ExecStart=/usr/bin/python3 /opt/bybit-bot/bybit_bot.py
+Restart=always
+RestartSec=30
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/bybit-bot/logs
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
