@@ -3,8 +3,10 @@
 Bybit demo trading bot — BTCUSDT / ETHUSDT, linear perpetuals, M15.
 
 Strategy: EMA20/EMA50 cross on CLOSED candles + ATR14 for stops.
-Risk: 0.25% of equity per trade, daily loss limit 1%, max 3 entries/day,
-leverage cap x3, one position per symbol.
+Risk: 0.25% of equity per trade (stop distance + round-trip taker fees),
+daily loss limit 1%, max 3 entries/day, leverage cap x3,
+one position per symbol. TP = 3.0 x ATR (gross R:R 1:2; net ~1.2:1
+after taker fees — see calc_qty).
 
 SAFETY: this bot ONLY connects to the Bybit DEMO environment (demo=True).
 It can never hit the live API even if live keys are supplied.
@@ -65,8 +67,9 @@ DAILY_LOSS_LIMIT = float(CFG["daily_loss_limit"])        # 0.01
 MAX_ORDERS_PER_DAY = int(CFG["max_orders_per_day"])      # 3
 LEVERAGE = int(CFG["leverage"])                          # 3
 ATR_STOP_MULT = float(CFG["atr_stop_mult"])              # 1.5
-ATR_TP_MULT = float(CFG["atr_tp_mult"])                  # 2.25 (RR ~1.5)
+ATR_TP_MULT = float(CFG["atr_tp_mult"])                  # 3.0 (RR ~2.0 gross)
 MAX_NOTIONAL_PCT = float(CFG["max_notional_pct_equity"]) # 0.5
+TAKER_FEE = float(CFG.get("taker_fee_rate", 0.00055))    # per side, taker
 POLL_SECONDS = int(CFG.get("poll_seconds", 20))
 KLINES_NEEDED = EMA_SLOW + ATR_PERIOD + 10
 
@@ -171,11 +174,17 @@ def instrument_filters(symbol: str) -> dict:
 
 
 def calc_qty(symbol: str, equity: float, price: float, atr_val: float) -> Decimal | None:
+    """Size the position so that STOP + ROUND-TRIP TAKER FEES fit the risk budget.
+
+    Lesson from trade #1 (13.10): fees were ~35% of stop nominal because qty
+    was sized from the stop distance alone. Denominator now includes both.
+    """
     stop_dist = atr_val * ATR_STOP_MULT
     risk_amount = equity * RISK_PER_TRADE
-    qty = risk_amount / stop_dist                      # size from risk
+    fee_per_unit = 2.0 * TAKER_FEE * price                 # entry + exit
+    qty = risk_amount / (stop_dist + fee_per_unit)         # full-risk sizing
     notional_cap = equity * MAX_NOTIONAL_PCT
-    if qty * price > notional_cap:                     # leverage/notional cap
+    if qty * price > notional_cap:                         # leverage/notional cap
         qty = notional_cap / price
     flt = instrument_filters(symbol)
     q = round_qty(qty, flt["qty_step"])
@@ -184,9 +193,12 @@ def calc_qty(symbol: str, equity: float, price: float, atr_val: float) -> Decima
         return None
     if q > flt["max_qty"]:
         q = flt["max_qty"]
-    if float(q) * price < 5.0:                         # min notional 5 USDT
+    if float(q) * price < 5.0:                             # min notional 5 USDT
         log.warning(f"{symbol}: notional below $5 — skip")
         return None
+    planned_risk = float(q) * (stop_dist + fee_per_unit)
+    log.info(f"{symbol}: qty={q} planned_risk={planned_risk:.2f} "
+             f"({planned_risk / equity * 100:.3f}% equity incl. fees)")
     return q
 
 
@@ -289,7 +301,7 @@ def preflight():
         a = atr(rows, ATR_PERIOD)
         last = rows[-1]["close"]
         log.info(f"{s}: last={last} ATR={a:.2f} ({a / last * 100:.3f}%) "
-                 f"stop={a * ATR_STOP_MULT:.2f} candles={len(rows)}")
+                 f"stop={a * ATR_STOP_MULT:.2f} tp={a * ATR_TP_MULT:.2f} candles={len(rows)}")
     log.info("=================")
 
 
@@ -343,7 +355,7 @@ def main():
                     continue
                 state[s]["last_candle_start"] = cur_start
 
-                # rows[-1] is the still-forming candle; the just-closed one is rows[-2]
+                # rows[-1] is the still-forming candle; the just-closed one is rows[:-1]
                 closed_rows = rows[:-1]
                 sig = detect_signal(closed_rows)
                 if not sig:
