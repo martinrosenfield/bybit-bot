@@ -1,5 +1,5 @@
 #!/bin/bash
-# REMOTE_TASK.sh — плановая проверка dry-run лога Bybit-бота (Kimi, 15.10). Только чтение.
+# REMOTE_TASK.sh — плановая проверка лога Bybit-бота (Kimi, 15.10). Только чтение.
 LOG="logs/bot.log"
 
 echo "=== 1. ПРОЦЕСС (два замера за 8 сек) ==="
@@ -33,11 +33,12 @@ if [ -f "$LOG" ]; then
   echo "пропусков SIGNAL SKIPPED: $(printf '%s\n' "$SEG" | grep -c 'SIGNAL SKIPPED')"
   echo "сигналов SIGNAL Buy/Sell: $(printf '%s\n' "$SEG" | grep -cE 'SIGNAL (Buy|Sell)')"
   echo "входов LIVE-DEMO: $(printf '%s\n' "$SEG" | grep -c 'LIVE-DEMO')"
+  echo "строк planned_risk: $(printf '%s\n' "$SEG" | grep -c 'planned_risk')"
   echo "ошибок (ERROR/Traceback/сеть): $(printf '%s\n' "$SEG" | grep -cE 'ERROR|Traceback|FailedRequestError|ConnectionError|ReadTimeout|loop error')"
   echo "дневных стопов: $(printf '%s\n' "$SEG" | grep -c 'DAILY LOSS')"
 
-  echo "=== 6. СИГНАЛЫ / ПРОПУСКИ / ОШИБКИ (все с запуска) ==="
-  printf '%s\n' "$SEG" | grep -E 'SIGNAL|DRY|LIVE-DEMO|ERROR|Traceback|FailedRequestError|ConnectionError|ReadTimeout|loop error|DAILY LOSS' | tail -80
+  echo "=== 6. СИГНАЛЫ / ВХОДЫ / РИСК / ОШИБКИ (все с запуска) ==="
+  printf '%s\n' "$SEG" | grep -E 'SIGNAL|DRY|LIVE-DEMO|planned_risk|ERROR|Traceback|FailedRequestError|ConnectionError|ReadTimeout|loop error|DAILY LOSS' | tail -80
 
   echo "=== 7. SNAPSHOT И ХВОСТ ==="
   printf '%s\n' "$SEG" | grep -i 'snapshot' | tail -3
