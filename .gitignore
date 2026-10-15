@@ -1,0 +1,9 @@
+logs/
+bot.out
+instance.lock
+__pycache__/
+*.tmp
+.env
+.env.*
+reconciliation_private/
+runtime_state.json

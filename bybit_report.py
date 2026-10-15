@@ -70,13 +70,13 @@ def main():
             params["cursor"] = cursor
         r = session.get_closed_pnl(**params)
         for p in r["result"]["list"]:
-            if p["updatedTime"][:10] == day:
+            if datetime.fromtimestamp(int(p["updatedTime"]) / 1000, timezone.utc).strftime("%Y-%m-%d") == day:
                 pnl_today += float(p["closedPnl"])
         cursor = r["result"].get("nextPageCursor")
         if not cursor:
             break
 
-    entries = [e for e in events if e.get("event") == "ENTRY"]
+    entries = [e for e in events if e.get("event") == "ENTRY" and e.get("dry_run") is False]
     signals = [e for e in events if e.get("event") == "SIGNAL"]
     errors = [e for e in events if e.get("event") == "ERROR"]
     stops = [e for e in events if e.get("event") == "DAILY_STOP"]

@@ -1,6 +1,9 @@
 {
-  "dry_run": false,
-  "symbols": ["BTCUSDT", "ETHUSDT"],
+  "dry_run": true,
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT"
+  ],
   "timeframe": "15",
   "ema_fast": 20,
   "ema_slow": 50,

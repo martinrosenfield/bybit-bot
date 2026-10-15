@@ -3,10 +3,8 @@
 Bybit demo trading bot — BTCUSDT / ETHUSDT, linear perpetuals, M15.
 
 Strategy: EMA20/EMA50 cross on CLOSED candles + ATR14 for stops.
-Risk: 0.25% of equity per trade (stop distance + round-trip taker fees),
-daily loss limit 1%, max 3 entries/day, leverage cap x3,
-one position per symbol. TP = 3.0 x ATR (gross R:R 1:2; net ~1.2:1
-after taker fees — see calc_qty).
+Risk: 0.25% of equity per trade, daily loss limit 1%, max 3 entries/day,
+leverage cap x3, one position per symbol.
 
 SAFETY: this bot ONLY connects to the Bybit DEMO environment (demo=True).
 It can never hit the live API even if live keys are supplied.
@@ -28,6 +26,8 @@ import logging
 from datetime import datetime, timezone
 from decimal import Decimal, ROUND_DOWN
 from pathlib import Path
+import fcntl
+import hashlib
 
 from pybit.unified_trading import HTTP
 
@@ -55,6 +55,26 @@ def load_config() -> dict:
 
 CFG = load_config()
 
+INSTANCE_LOCK = open(BASE_DIR / "instance.lock", "a")
+try:
+    fcntl.flock(INSTANCE_LOCK, fcntl.LOCK_EX | fcntl.LOCK_NB)
+except BlockingIOError:
+    raise SystemExit("Another managed instance is running")
+STATE_PATH = BASE_DIR / "runtime_state.json"
+RUNTIME = json.loads(STATE_PATH.read_text()) if STATE_PATH.exists() else {"attempts": {}, "halted": [], "entries_paused": True}
+
+for pending_symbol in RUNTIME.get("pending", {}):
+    if pending_symbol not in RUNTIME["halted"]:
+        RUNTIME["halted"].append(pending_symbol)
+
+def save_state():
+    temp = STATE_PATH.with_suffix(".tmp")
+    with open(temp, "w") as fh:
+        json.dump(RUNTIME, fh)
+        fh.flush()
+        os.fsync(fh.fileno())
+    os.replace(temp, STATE_PATH)
+
 DRY_RUN = bool(CFG["dry_run"])
 CONFIRMED = os.environ.get("CONFIRM_LIVE", "") == "YES"
 SYMBOLS = CFG["symbols"]
@@ -67,14 +87,14 @@ DAILY_LOSS_LIMIT = float(CFG["daily_loss_limit"])        # 0.01
 MAX_ORDERS_PER_DAY = int(CFG["max_orders_per_day"])      # 3
 LEVERAGE = int(CFG["leverage"])                          # 3
 ATR_STOP_MULT = float(CFG["atr_stop_mult"])              # 1.5
-ATR_TP_MULT = float(CFG["atr_tp_mult"])                  # 3.0 (RR ~2.0 gross)
+ATR_TP_MULT = float(CFG["atr_tp_mult"])                  # 3.0 x ATR
 MAX_NOTIONAL_PCT = float(CFG["max_notional_pct_equity"]) # 0.5
-TAKER_FEE = float(CFG.get("taker_fee_rate", 0.00055))    # per side, taker
+TAKER_FEE = float(CFG.get("taker_fee_rate", 0.00055))
 POLL_SECONDS = int(CFG.get("poll_seconds", 20))
 KLINES_NEEDED = EMA_SLOW + ATR_PERIOD + 10
 
-if not DRY_RUN and not CONFIRMED:
-    log.error("dry_run=false but CONFIRM_LIVE=YES not set. Refusing to start.")
+if not DRY_RUN and (not CONFIRMED or RUNTIME.get("entries_paused", True)):
+    log.error("Demo execution is paused or CONFIRM_LIVE=YES is absent. Refusing to start.")
     sys.exit(1)
 
 # ---------------------------------------------------------------- session
@@ -85,7 +105,11 @@ session = HTTP(
     api_secret=os.environ["BYBIT_API_SECRET"],
     recv_window=30000,
     logging_level=logging.WARNING,
+    timeout=10,
+    max_retries=1,
 )
+if session.endpoint != "https://api-demo.bybit.com":
+    raise SystemExit("Only the official demo endpoint is permitted")
 
 
 def checked(resp: dict, ctx: str) -> dict:
@@ -163,28 +187,27 @@ def detect_signal(rows: list[dict]) -> str | None:
 
 
 def round_qty(qty: float, step: str) -> Decimal:
-    return Decimal(str(qty)).quantize(Decimal(step), rounding=ROUND_DOWN)
+    increment = Decimal(step)
+    return (Decimal(str(qty)) / increment).to_integral_value(rounding=ROUND_DOWN) * increment
 
 
 def instrument_filters(symbol: str) -> dict:
     r = checked(session.get_instruments_info(category="linear", symbol=symbol), f"instrument {symbol}")
     f = r["result"]["list"][0]["lotSizeFilter"]
     return {"qty_step": f["qtyStep"], "min_qty": Decimal(f["minOrderQty"]),
-            "max_qty": Decimal(f["maxOrderQty"])}
+            "max_qty": Decimal(f.get("maxMktOrderQty", f["maxOrderQty"])),
+            "min_notional": Decimal(f.get("minNotionalValue", "5")),
+            "tick_size": r["result"]["list"][0]["priceFilter"]["tickSize"]}
 
 
 def calc_qty(symbol: str, equity: float, price: float, atr_val: float) -> Decimal | None:
-    """Size the position so that STOP + ROUND-TRIP TAKER FEES fit the risk budget.
-
-    Lesson from trade #1 (13.10): fees were ~35% of stop nominal because qty
-    was sized from the stop distance alone. Denominator now includes both.
-    """
     stop_dist = atr_val * ATR_STOP_MULT
+    if stop_dist <= 0 or equity <= 0 or price <= 0:
+        raise ValueError("Invalid sizing data")
     risk_amount = equity * RISK_PER_TRADE
-    fee_per_unit = 2.0 * TAKER_FEE * price                 # entry + exit
-    qty = risk_amount / (stop_dist + fee_per_unit)         # full-risk sizing
+    qty = risk_amount / (stop_dist + 2 * TAKER_FEE * price)
     notional_cap = equity * MAX_NOTIONAL_PCT
-    if qty * price > notional_cap:                         # leverage/notional cap
+    if qty * price > notional_cap:                     # leverage/notional cap
         qty = notional_cap / price
     flt = instrument_filters(symbol)
     q = round_qty(qty, flt["qty_step"])
@@ -192,13 +215,10 @@ def calc_qty(symbol: str, equity: float, price: float, atr_val: float) -> Decima
         log.warning(f"{symbol}: qty {q} below min {flt['min_qty']} — skip")
         return None
     if q > flt["max_qty"]:
-        q = flt["max_qty"]
-    if float(q) * price < 5.0:                             # min notional 5 USDT
+        q = round_qty(flt["max_qty"], flt["qty_step"])
+    if q * Decimal(str(price)) < flt["min_notional"]:
         log.warning(f"{symbol}: notional below $5 — skip")
         return None
-    planned_risk = float(q) * (stop_dist + fee_per_unit)
-    log.info(f"{symbol}: qty={q} planned_risk={planned_risk:.2f} "
-             f"({planned_risk / equity * 100:.3f}% equity incl. fees)")
     return q
 
 
@@ -224,23 +244,24 @@ def open_position(symbol: str) -> dict | None:
 
 
 def daily_realized_pnl() -> float:
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    now = datetime.now(timezone.utc)
+    start = int(now.replace(hour=0, minute=0, second=0, microsecond=0).timestamp() * 1000)
     total = 0.0
     cursor = None
-    for _ in range(10):
-        params = dict(category="linear", limit=100)
+    seen_cursors = set()
+    while True:
+        params = dict(category="linear", limit=100, startTime=start, endTime=int(now.timestamp()*1000))
         if cursor:
             params["cursor"] = cursor
         r = checked(session.get_closed_pnl(**params), "closed pnl")
         for p in r["result"]["list"]:
-            if p["updatedTime"][:10] > today:
-                continue
-            if p["updatedTime"][:10] < today:
-                return total
             total += float(p["closedPnl"])
         cursor = r["result"].get("nextPageCursor")
         if not cursor:
             break
+        if cursor in seen_cursors:
+            raise RuntimeError("Repeated closed-PnL cursor")
+        seen_cursors.add(cursor)
     return total
 
 
@@ -261,32 +282,88 @@ def entries_today(symbol: str | None = None) -> int:
 
 # ---------------------------------------------------------------- trading
 
-def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: float):
+def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: float, link_id: str):
     stop_dist = atr_val * ATR_STOP_MULT
     tp_dist = atr_val * ATR_TP_MULT
     if side == "Buy":
-        sl = round(price - stop_dist, 1)
-        tp = round(price + tp_dist, 1)
+        sl = price - stop_dist
+        tp = price + tp_dist
     else:
-        sl = round(price + stop_dist, 1)
-        tp = round(price - tp_dist, 1)
+        sl = price + stop_dist
+        tp = price - tp_dist
+    tick = instrument_filters(symbol)["tick_size"]
+    sl, tp = str(round_qty(sl, tick)), str(round_qty(tp, tick))
+    # Tick rounding must not increase the planned loss beyond the budget.
+    equity = get_equity()
+    loss_per_unit = abs(price - float(sl)) + TAKER_FEE * (price + float(sl))
+    filters = instrument_filters(symbol)
+    qty = round_qty(min(qty, Decimal(str(equity * RISK_PER_TRADE / loss_per_unit)),
+                        Decimal(str(equity * MAX_NOTIONAL_PCT / price)), filters["max_qty"]),
+                    filters["qty_step"])
+    if qty < filters["min_qty"] or qty * Decimal(str(price)) < filters["min_notional"]:
+        jlog("SKIP", symbol=symbol, reason="Risk budget below minimum including fee allowance")
+        return
 
     if DRY_RUN:
         log.info(f"[DRY] {side} {qty} {symbol} @~{price} SL={sl} TP={tp}")
-        jlog("ENTRY", symbol=symbol, side=side, qty=str(qty), price=price,
-             sl=sl, tp=tp, dry_run=True)
+        jlog("DRY_RUN", symbol=symbol, side=side, qty=str(qty), price=price,
+             sl=sl, tp=tp, dry_run=True, planned_risk=float(qty)*loss_per_unit)
         return
 
-    r = checked(session.place_order(
-        category="linear", symbol=symbol, side=side,
-        orderType="Market", qty=str(qty),
-        stopLoss=str(sl), takeProfit=str(tp),
-        slTriggerBy="LastPrice", tpTriggerBy="LastPrice",
-        positionIdx=0, timeInForce="IOC",
-    ), f"place order {symbol}")
-    log.info(f"LIVE-DEMO {side} {qty} {symbol} @~{price} SL={sl} TP={tp} id={r['result']['orderId']}")
-    jlog("ENTRY", symbol=symbol, side=side, qty=str(qty), price=price,
-         sl=sl, tp=tp, dry_run=False, order_id=r["result"]["orderId"])
+    if RUNTIME.get("entries_paused", True) or symbol in RUNTIME["halted"]:
+        raise RuntimeError("New entries require explicit user confirmation here")
+    # Also re-read config at the transmission boundary, so a pause takes effect without restart.
+    if load_config().get("dry_run") is not False:
+        raise RuntimeError("Order transmission blocked by current dry_run config")
+    key = f"{datetime.now(timezone.utc):%Y-%m-%d}:{symbol}:{link_id}"
+    if link_id in RUNTIME["attempts"].values():
+        raise RuntimeError("Order attempt already reserved; reconcile before retry")
+    RUNTIME["attempts"][key] = link_id
+    RUNTIME.setdefault("pending", {})[symbol] = link_id
+    save_state()
+    planned_risk = float(qty) * loss_per_unit
+    log.info("%s planned_risk=%.8f equity=%.8f", symbol, planned_risk, equity)
+    try:
+        r = checked(session.place_order(
+            category="linear", symbol=symbol, side=side, orderType="Market", qty=str(qty),
+            stopLoss=sl, takeProfit=tp, slTriggerBy="LastPrice", tpTriggerBy="LastPrice",
+            positionIdx=0, timeInForce="IOC", orderLinkId=link_id, tpslMode="Full",
+        ), "place order")
+        order_id = r["result"]["orderId"]
+        jlog("ORDER_ACCEPTED", symbol=symbol, order_id=order_id,
+             order_link_id=link_id, dry_run=False, planned_risk=planned_risk)
+        for _ in range(10):
+            time.sleep(1)
+            position = open_position(symbol)
+            executions = checked(session.get_executions(category="linear", symbol=symbol,
+                                 orderId=order_id, limit=100), "execution verification")["result"]
+            fills = [e for e in executions["list"] if e.get("orderId") == order_id
+                     and e.get("symbol") == symbol and e.get("side") == side
+                     and e.get("execType") == "Trade"]
+            filled = sum((Decimal(e["execQty"]) for e in fills), Decimal("0"))
+            if (not executions.get("nextPageCursor") and filled == qty and position
+                    and position["side"] == side and Decimal(position["size"]) == qty
+                    and int(position.get("positionIdx", -1)) == 0
+                    and Decimal(position.get("stopLoss") or "0") == Decimal(sl)
+                    and Decimal(position.get("takeProfit") or "0") == Decimal(tp)):
+                actual_price = sum(Decimal(e["execPrice"]) * Decimal(e["execQty"])
+                                   for e in fills) / filled
+                jlog("ENTRY", symbol=symbol, side=side, qty=str(filled), price=str(actual_price),
+                     sl=position["stopLoss"], tp=position["takeProfit"], dry_run=False,
+                     order_id=order_id, order_link_id=link_id, planned_risk=planned_risk,
+                     execution_ids=[e["execId"] for e in fills], verification="execution_and_server_sltp")
+                del RUNTIME["pending"][symbol]
+                save_state()
+                log.info("DEMO EXECUTION VERIFIED %s with server SL/TP", symbol)
+                return
+        raise RuntimeError("Execution or server SL/TP not confirmed")
+    except Exception:
+        if symbol not in RUNTIME["halted"]:
+            RUNTIME["halted"].append(symbol)
+        save_state()
+        jlog("ACTION_REQUIRED", symbol=symbol, order_link_id=link_id,
+             reason="Unconfirmed order/execution/protection; further entries halted")
+        raise RuntimeError("Demo execution/protection requires review") from None
 
 
 # ---------------------------------------------------------------- main loop
@@ -296,19 +373,20 @@ def preflight():
     log.info(f"=== PREFLIGHT === env=demo dry_run={DRY_RUN} equity={eq:.2f} USDT-eq")
     jlog("PREFLIGHT", equity=eq, dry_run=DRY_RUN)
     for s in SYMBOLS:
-        set_leverage(s)
+        if not DRY_RUN:
+            set_leverage(s)
         rows = get_klines(s)
         a = atr(rows, ATR_PERIOD)
         last = rows[-1]["close"]
         log.info(f"{s}: last={last} ATR={a:.2f} ({a / last * 100:.3f}%) "
-                 f"stop={a * ATR_STOP_MULT:.2f} tp={a * ATR_TP_MULT:.2f} candles={len(rows)}")
+                 f"stop={a * ATR_STOP_MULT:.2f} candles={len(rows)}")
     log.info("=================")
 
 
 def main():
     preflight()
     state = {s: {"last_candle_start": None} for s in SYMBOLS}
-    day_anchor = {"date": None, "equity": None}
+    day_anchor = RUNTIME.get("day_anchor", {"date": None, "equity": None})
     last_snapshot = 0.0
 
     while True:
@@ -318,6 +396,8 @@ def main():
 
             if day_anchor["date"] != today:
                 day_anchor = {"date": today, "equity": get_equity()}
+                RUNTIME["day_anchor"] = day_anchor
+                save_state()
                 log.info(f"New day {today}, anchor equity={day_anchor['equity']:.2f}")
 
             if now - last_snapshot >= 3600:
@@ -330,7 +410,9 @@ def main():
             # daily loss guard (realized + open unrealized vs anchor)
             eq_now = get_equity()
             day_pnl_pct = (eq_now - day_anchor["equity"]) / day_anchor["equity"]
-            if day_pnl_pct <= -DAILY_LOSS_LIMIT:
+            if day_pnl_pct <= -DAILY_LOSS_LIMIT or RUNTIME.get("halt_day") == today:
+                RUNTIME["halt_day"] = today
+                save_state()
                 if not state.get("daily_stop_logged"):
                     log.warning(f"DAILY LOSS LIMIT hit: {day_pnl_pct:.2%}. No new entries today.")
                     jlog("DAILY_STOP", pnl_pct=day_pnl_pct)
@@ -340,13 +422,24 @@ def main():
             state["daily_stop_logged"] = False
 
             for s in SYMBOLS:
+                if s in RUNTIME["halted"] or s in RUNTIME.get("pending", {}):
+                    continue
                 if open_position(s):
+                    continue
+                pending = checked(session.get_open_orders(category="linear", symbol=s, openOnly=0), "open orders")
+                if pending["result"]["list"]:
                     continue
                 if entries_today(s) >= MAX_ORDERS_PER_DAY:
                     continue
 
                 rows = get_klines(s)
-                cur_start = rows[-1]["start"]
+                server_ms = int(checked(session.get_server_time(), "server time")["time"])
+                closed_rows = [row for row in rows if row["start"] + int(TIMEFRAME)*60000 <= server_ms]
+                if len(closed_rows) < EMA_SLOW + 2:
+                    continue
+                cur_start = closed_rows[-1]["start"]
+                if server_ms - cur_start > 2*int(TIMEFRAME)*60000:
+                    continue
                 # act once per new closed candle
                 if state[s]["last_candle_start"] is None:
                     state[s]["last_candle_start"] = cur_start
@@ -355,14 +448,14 @@ def main():
                     continue
                 state[s]["last_candle_start"] = cur_start
 
-                # rows[-1] is the still-forming candle; the just-closed one is rows[:-1]
-                closed_rows = rows[:-1]
+                # rows[-1] is the still-forming candle; the just-closed one is rows[-2]
                 sig = detect_signal(closed_rows)
                 if not sig:
                     continue
 
                 a = atr(closed_rows, ATR_PERIOD)
-                price = closed_rows[-1]["close"]
+                ticker = checked(session.get_tickers(category="linear", symbol=s), "ticker")["result"]["list"][0]
+                price = float(ticker["ask1Price"] if sig == "Buy" else ticker["bid1Price"])
                 equity = get_equity()
                 qty = calc_qty(s, equity, price, a)
                 if qty is None:
@@ -370,12 +463,18 @@ def main():
 
                 log.info(f"SIGNAL {sig} {s} @~{price} ATR={a:.2f} qty={qty}")
                 jlog("SIGNAL", symbol=s, side=sig, price=price, atr=a, qty=str(qty))
-                place_entry(s, sig, qty, price, a)
+                key = f"{today}:{s}:{cur_start}:{sig}"
+                attempts = RUNTIME["attempts"]
+                if key in attempts or sum(k.startswith(today+":"+s+":") for k in attempts) >= MAX_ORDERS_PER_DAY:
+                    continue
+                link_id = "demo-" + hashlib.sha256(key.encode()).hexdigest()[:30]
+                # Persist before network transmission; ambiguity never triggers a new ID/retry.
+                place_entry(s, sig, qty, price, a, link_id)
 
             time.sleep(POLL_SECONDS)
         except Exception as e:
-            log.exception(f"loop error: {e}")
-            jlog("ERROR", error=str(e))
+            log.error("loop error type=%s (request details suppressed)", type(e).__name__)
+            jlog("ERROR", error_type=type(e).__name__)
             time.sleep(60)
 
 
