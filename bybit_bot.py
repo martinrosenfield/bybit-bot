@@ -28,6 +28,7 @@ from decimal import Decimal, ROUND_DOWN
 from pathlib import Path
 import fcntl
 import hashlib
+import subprocess
 
 from pybit.unified_trading import HTTP
 
@@ -323,6 +324,7 @@ def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: flo
     save_state()
     planned_risk = float(qty) * loss_per_unit
     log.info("%s planned_risk=%.8f equity=%.8f", symbol, planned_risk, equity)
+    verify_errors = 0
     try:
         r = checked(session.place_order(
             category="linear", symbol=symbol, side=side, orderType="Market", qty=str(qty),
@@ -332,11 +334,20 @@ def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: flo
         order_id = r["result"]["orderId"]
         jlog("ORDER_ACCEPTED", symbol=symbol, order_id=order_id,
              order_link_id=link_id, dry_run=False, planned_risk=planned_risk)
-        for _ in range(10):
-            time.sleep(1)
-            position = open_position(symbol)
-            executions = checked(session.get_executions(category="linear", symbol=symbol,
-                                 orderId=order_id, limit=100), "execution verification")["result"]
+        verify_errors = 0
+        for attempt in range(12):
+            time.sleep(1.5)
+            try:
+                position = open_position(symbol)
+                executions = checked(session.get_executions(category="linear", symbol=symbol,
+                                     orderId=order_id, limit=100), "execution verification")["result"]
+            except Exception as exc:
+                # A transient API failure must not be mistaken for an unprotected
+                # position: keep polling instead of halting the symbol.
+                verify_errors += 1
+                log.warning("verification %s attempt %d/12: %s",
+                            symbol, attempt + 1, type(exc).__name__)
+                continue
             fills = [e for e in executions["list"] if e.get("orderId") == order_id
                      and e.get("symbol") == symbol and e.get("side") == side
                      and e.get("execType") == "Trade"]
@@ -356,13 +367,41 @@ def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: flo
                 save_state()
                 log.info("DEMO EXECUTION VERIFIED %s with server SL/TP", symbol)
                 return
+        # All attempts exhausted without a positive confirmation. Reconcile once
+        # more against the exchange: the checks may have kept failing while the
+        # order in fact filled and the position is protected server-side.
+        try:
+            position = open_position(symbol)
+            hist = checked(session.get_order_history(category="linear", symbol=symbol, limit=10),
+                           "order status")["result"]
+            rec = next((o for o in hist["list"] if o.get("orderId") == order_id), None)
+            if (position and rec and rec.get("orderStatus") == "Filled"
+                    and rec.get("symbol") == symbol and rec.get("side") == side
+                    and rec.get("orderLinkId") == link_id
+                    and Decimal(rec.get("cumExecQty") or "0") == qty
+                    and position["side"] == side and Decimal(position["size"]) == qty
+                    and int(position.get("positionIdx", -1)) == 0
+                    and Decimal(position.get("stopLoss") or "0") == Decimal(sl)
+                    and Decimal(position.get("takeProfit") or "0") == Decimal(tp)):
+                jlog("ENTRY", symbol=symbol, side=side, qty=str(qty), price=rec.get("avgPrice"),
+                     sl=position["stopLoss"], tp=position["takeProfit"], dry_run=False,
+                     order_id=order_id, order_link_id=link_id, planned_risk=planned_risk,
+                     verification="reconciled_after_retry", verify_errors=verify_errors)
+                del RUNTIME["pending"][symbol]
+                save_state()
+                log.info("DEMO EXECUTION RECONCILED %s: filled with server SL/TP "
+                         "(%d transient errors during verification)", symbol, verify_errors)
+                return
+        except Exception:
+            pass
         raise RuntimeError("Execution or server SL/TP not confirmed")
     except Exception:
         if symbol not in RUNTIME["halted"]:
             RUNTIME["halted"].append(symbol)
         save_state()
         jlog("ACTION_REQUIRED", symbol=symbol, order_link_id=link_id,
-             reason="Unconfirmed order/execution/protection; further entries halted")
+             reason="Unconfirmed order/execution/protection; further entries halted",
+             verify_errors=verify_errors)
         raise RuntimeError("Demo execution/protection requires review") from None
 
 
@@ -384,7 +423,14 @@ def preflight():
 
 
 def main():
+    # The child exits with this bot; no API credentials are passed to it.
+    awake = None
+    if sys.platform == "darwin":
+        awake = subprocess.Popen(
+            ["/usr/bin/caffeinate", "-is", "-w", str(os.getpid())], env={})
+        log.info("Sleep protection started pid=%d", awake.pid)
     preflight()
+    jlog("READY", pid=os.getpid(), protection_verification="exact_sltp_v2")
     state = {s: {"last_candle_start": None} for s in SYMBOLS}
     day_anchor = RUNTIME.get("day_anchor", {"date": None, "equity": None})
     last_snapshot = 0.0

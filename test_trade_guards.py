@@ -61,6 +61,39 @@ class Guards(unittest.TestCase):
         self.verified();self.position['stopLoss']='79849.9'
         with self.assertRaises(RuntimeError): self.entry()
         self.assertNotIn('ENTRY',[e for e,d in self.events])
+    def fallback(self):
+        self.verified()
+        self.raise_verify=True
+        self.history={'orderId':'mock-id','orderLinkId':'demo-mock',
+                      'symbol':'BTCUSDT','side':'Buy','orderStatus':'Filled',
+                      'cumExecQty':'0.01','avgPrice':'80001'}
+        self.api.get_order_history=lambda **kw:{'result':{'list':[self.history]}}
+    def test_fallback_exact_protection_recovers_without_second_order(self):
+        self.fallback();self.entry()
+        entry=[d for e,d in self.events if e=='ENTRY'][0]
+        self.assertEqual(entry['verification'],'reconciled_after_retry')
+        self.assertEqual(self.ns['RUNTIME']['pending'],{})
+        self.assertEqual(self.ns['RUNTIME']['halted'],[])
+        self.assertEqual(len(self.orders),1)
+    def test_fallback_mismatches_halt_and_keep_pending(self):
+        cases=[('position','stopLoss','1'),('position','stopLoss','79849.9'),
+               ('position','takeProfit','80300.1'),('position','stopLoss',''),
+               ('position','takeProfit',None),('position','positionIdx',1),
+               ('position','side','Sell'),('position','size','0.005'),
+               ('history','symbol','ETHUSDT'),('history','side','Sell'),
+               ('history','orderLinkId','other'),('history','cumExecQty','0.005'),
+               ('history','orderStatus','PartiallyFilled'),('history','orderId','other')]
+        for target,field,value in cases:
+            with self.subTest(target=target,field=field,value=value):
+                self.setUp();self.fallback()
+                obj=self.position if target=='position' else self.history
+                obj[field]=value
+                with self.assertRaises(RuntimeError):self.entry()
+                self.assertNotIn('ENTRY',[e for e,d in self.events])
+                self.assertIn('ACTION_REQUIRED',[e for e,d in self.events])
+                self.assertIn('BTCUSDT',self.ns['RUNTIME']['halted'])
+                self.assertEqual(self.ns['RUNTIME']['pending']['BTCUSDT'],'demo-mock')
+                self.assertEqual(len(self.orders),1)
     def test_unrelated_execution_halts(self):
         self.verified();self.fills[0]['orderId']='other'
         with self.assertRaises(RuntimeError): self.entry()
