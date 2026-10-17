@@ -41,7 +41,7 @@ echo "=== 8. СОБЫТИЯ СЕГОДНЯ (UTC) ==="
 f="logs/events_$(date -u +%F).jsonl"
 [ -f "$f" ] && cat "$f" || echo "нет $f"
 
-echo "=== 9. ПОЗИЦИИ / ОРДЕРА / EXECUTIONS (нужны РЕАЛЬНЫЕ ключи в env) ==="
+echo "=== 9. ПОЗИЦИИ / ОРДЕРА (нужны РЕАЛЬНЫЕ ключи в env) ==="
 KEY_OK=1
 case "$BYBIT_API_KEY" in *[!A-Za-z0-9_-]*) KEY_OK=0;; "" ) KEY_OK=0;; esac
 case "$BYBIT_API_SECRET" in *[!A-Za-z0-9_-]*) KEY_OK=0;; "" ) KEY_OK=0;; esac
@@ -55,7 +55,7 @@ print("--- POSITIONS ---")
 for p in (pos.get("result") or {}).get("list") or []:
     if float(p.get("size") or 0) > 0:
         print(json.dumps({k: p.get(k) for k in ("symbol","side","size","avgPrice","markPrice","stopLoss","takeProfit","unrealisedPnl","createdTime")}, ensure_ascii=False))
-ords = s.get_open_orders(category="linear", settleCoin="USTD" if False else "USDT")
+ords = s.get_open_orders(category="linear", settleCoin="USDT")
 print("--- OPEN ORDERS ---")
 for o in (ords.get("result") or {}).get("list") or []:
     print(json.dumps({k: o.get(k) for k in ("symbol","orderType","side","qty","price","stopOrderType","orderStatus","createdTime")}, ensure_ascii=False))
