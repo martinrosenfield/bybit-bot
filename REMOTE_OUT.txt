@@ -1,0 +1,466 @@
+=== REMOTE RUN 2026-10-17 23:04:14 MSK | host: DmitryVladimirovich.local ===
+--- git ---
+de32594 REMOTE_TASK: проверка живости 18.10 — процесс, свежесть лога, входы/ошибки с 15.10, позиции и ордера через API
+d2ed952 Restore verified demo execution guards and pause new entries
+18a7353 REMOTE_TASK: добавлен planned_risk в выборку и счётчики (проверка лимита 0,25%)
+ M bybit_bot.py
+ M test_trade_guards.py
+?? BACKTEST_COMPARISON.json
+?? BACKTEST_COMPARISON.md
+?? CHECK_2026-10-16.md
+?? CHECK_2026-10-16_2004.md
+?? CHECK_2026-10-17.md
+?? REMOTE_OUT.txt
+?? backtest_comparison.py
+?? restart_demo.command
+?? restore_demo_bot.py
+?? start_demo.command
+?? test_restore_demo_bot.py
+--- TASK OUTPUT ---
+=== 1. ПРОЦЕСС (два замера за 8 сек) ===
+21853 четверг, 15 октября 2026 г. 20:05:09   2:01.80   0,0 /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/khdmvld/Documents/ChatGPT/Трейдинг/bybit-bot/bybit_bot.py
+--- повторный замер (у живого бота CPU-time растёт) ---
+21853 четверг, 15 октября 2026 г. 20:05:09   2:01.80   0,0 /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/khdmvld/Documents/ChatGPT/Трейдинг/bybit-bot/bybit_bot.py
+=== 2. СВЕЖЕСТЬ ЛОГА ===
+total 160
+-rw-r--r--@ 1 khdmvld  staff   3580 17 окт.  22:33 events_2026-10-17.jsonl
+-rw-r--r--@ 1 khdmvld  staff  16610 17 окт.  22:33 managed_console.log
+-rw-r--r--@ 1 khdmvld  staff  16769 17 окт.  22:33 bot.log
+-rw-r--r--@ 1 khdmvld  staff  10865 17 окт.  02:31 events_2026-10-16.jsonl
+-rw-r--r--@ 1 khdmvld  staff   5858 16 окт.  02:14 events_2026-10-15.jsonl
+-rw-r--r--@ 1 khdmvld  staff   7542 15 окт.  06:41 events_2026-10-14.jsonl
+-rw-r--r--@ 1 khdmvld  staff   3149 15 окт.  06:41 events_2026-10-13.jsonl
+bot.log изменён: Oct 17 22:33:25 2026
+сейчас на Mac: 2026-10-17 23:04:22 MSK
+=== 3. РЕЖИМ И КОД ===
+  "dry_run": true,
+  "symbols": [
+  "risk_per_trade": 0.0025,
+  "atr_stop_mult": 1.5,
+  "atr_tp_mult": 3.0,
+  "taker_fee_rate": 0.00055,
+--- md5 кода и конфига ---
+4296f460470c7c541e3df049e2d358d3
+dca9d1ba16122a152c4476c2c2ded68a
+--- соответствие main репо ---
+de32594 REMOTE_TASK: проверка живости 18.10 — процесс, свежесть лога, входы/ошибки с 15.10, позиции и ордера через API
+=== 4. ПОСЛЕДНИЙ ЗАПУСК (лог считаем со строки 39) ===
+2026-10-15 20:05:10,574 INFO === PREFLIGHT === env=demo dry_run=False equity=183237.37 USDT-eq
+2026-10-15 20:05:10,824 INFO BTCUSDT: leverage already x3
+2026-10-15 20:05:11,077 INFO BTCUSDT: last=82120.0 ATR=483.69 (0.589%) stop=725.54 candles=74
+=== 5. СЧЁТЧИКИ С МОМЕНТА ЗАПУСКА ===
+всего строк: 156
+строк bar=: 0
+сигналов SIGNAL Buy/Sell: 1
+входов LIVE-DEMO: 0
+строк planned_risk: 1
+ACTION_REQUIRED: 0
+пропусков SIGNAL SKIPPED: 0
+дневных стопов: 0
+ошибок (ERROR/Traceback/сеть): 103
+=== 6. ВХОДЫ / ACTION_REQUIRED / ОШИБКИ / DAILY LOSS (с запуска) ===
+2026-10-15 23:47:26,763 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 01:23:39,282 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 02:13:59,519 ERROR invalid request, please check your server timestamp or recv_window param: req_timestamp[1792105102086],server_timestamp[1792106039382],recv_window[30000] (ErrCode: 10002). Added 2.5 seconds to recv_window. Retrying...
+2026-10-16 02:14:02,528 ERROR loop error type=Exception (request details suppressed)
+2026-10-16 03:41:28,197 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 05:28:50,435 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 11:27:37,841 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-16 11:33:01,801 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-16 11:51:12,499 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 11:52:13,051 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 11:53:13,146 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 11:54:13,238 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 11:55:13,340 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 11:56:13,435 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 11:57:13,541 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 11:58:13,641 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 11:59:13,736 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:00:13,834 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:01:13,940 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:02:14,046 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:03:14,147 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:04:14,245 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:05:14,351 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:06:14,453 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:07:14,565 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:08:14,667 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:09:14,760 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:10:14,861 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:11:14,962 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:12:15,063 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:13:15,166 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:14:15,265 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:15:15,371 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:16:15,473 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:17:15,578 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:18:15,684 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:19:15,781 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:20:15,880 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:21:15,981 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:22:16,080 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:23:16,177 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:24:16,275 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:25:16,376 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:26:16,478 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:27:16,579 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:28:16,676 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:29:16,774 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:30:16,876 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:31:16,977 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:32:17,076 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:33:17,183 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:34:17,282 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:35:17,382 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:36:17,480 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:37:17,575 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:38:17,671 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:39:17,775 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:40:17,876 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:41:17,975 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:42:18,081 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:43:18,178 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:44:18,276 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:45:18,382 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:46:18,476 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:47:18,577 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:48:18,675 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:49:18,772 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:50:18,868 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:51:18,971 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:52:19,070 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:53:19,167 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:54:19,266 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:55:19,370 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 12:56:19,467 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 13:13:40,366 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-16 14:27:18,342 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-16 14:33:57,519 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-16 15:04:41,677 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-16 15:36:59,582 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-16 16:26:29,027 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 17:41:52,749 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 19:00:34,534 INFO SIGNAL Sell ETHUSDT @~2428.3 ATR=12.62 qty=21.17
+2026-10-16 19:12:15,770 WARNING verification ETHUSDT attempt 10/12: ConnectionError
+2026-10-16 21:46:08,474 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-16 22:36:20,629 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 23:11:05,295 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-16 23:54:46,103 ERROR loop error type=FailedRequestError (request details suppressed)
+2026-10-17 01:27:40,950 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 02:31:19,875 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 03:31:33,199 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 04:13:06,363 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 05:32:28,287 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 08:11:58,891 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 08:29:10,283 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 08:45:59,649 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 10:02:15,126 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 11:06:54,133 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 13:10:53,442 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 15:06:05,646 ERROR loop error type=ConnectionError (request details suppressed)
+2026-10-17 19:01:51,671 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 20:34:56,756 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 21:30:20,028 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 21:40:31,630 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 22:33:25,806 ERROR loop error type=ReadTimeout (request details suppressed)
+=== 7. SNAPSHOT И ХВОСТ ===
+2026-10-17 20:22:53,658 INFO snapshot equity=183082.08 day_realized_pnl=0.00
+2026-10-17 21:22:58,241 INFO snapshot equity=183087.82 day_realized_pnl=0.00
+2026-10-17 22:23:07,521 INFO snapshot equity=183118.78 day_realized_pnl=0.00
+--- последние 8 строк лога ---
+2026-10-17 19:22:42,425 INFO snapshot equity=183060.64 day_realized_pnl=0.00
+2026-10-17 20:22:53,658 INFO snapshot equity=183082.08 day_realized_pnl=0.00
+2026-10-17 20:34:56,756 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 21:22:58,241 INFO snapshot equity=183087.82 day_realized_pnl=0.00
+2026-10-17 21:30:20,028 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 21:40:31,630 ERROR loop error type=ReadTimeout (request details suppressed)
+2026-10-17 22:23:07,521 INFO snapshot equity=183118.78 day_realized_pnl=0.00
+2026-10-17 22:33:25,806 ERROR loop error type=ReadTimeout (request details suppressed)
+=== 8. СОСТОЯНИЕ РАНТАЙМА ===
+--- runtime_state.json ---
+{"attempts": {"2026-10-13:BTCUSDT:1791918000000:Sell": "demo-5649ddedc82d16a6961598c8d16827", "2026-10-14:ETHUSDT:1791964800000:Buy": "demo-26b4011a4dc76f20bad9d9a48d6a38", "2026-10-14:BTCUSDT:1791979200000:Buy": "demo-6aa4389316ae5f7ccf6aad03ffd3c1", "2026-10-15:BTCUSDT:demo-f2c105fa2cfd93dd657109a43fc3e8": "demo-f2c105fa2cfd93dd657109a43fc3e8", "2026-10-15:ETHUSDT:demo-ac360179ff3c22573855228e218646": "demo-ac360179ff3c22573855228e218646", "2026-10-16:ETHUSDT:demo-3aad99028633dc708ce3761c7ac428": "demo-3aad99028633dc708ce3761c7ac428"}, "halted": [], "day_anchor": {"date": "2026-10-17", "equity": 183072.78031527}, "halt_day": "2026-10-14", "entries_paused": false, "pause_reason": null, "pending": {}, "demo_autotrading_authorized_at": "2026-10-15T03:53:50.885056+00:00", "authorization_scope": "User explicitly allows automatic demo entries without per-trade confirmation; real funds excluded"}state.json нет
+baseline.json нет
+=== 9. СОБЫТИЯ JSONL (последние 4 дня, UTC) ===
+--- logs/events_2026-10-14.jsonl ---
+{"ts": "2026-10-14T00:42:41.867249+00:00", "event": "SNAPSHOT", "equity": 185150.93867771, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T01:00:30.397910+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T02:17:21.434584+00:00", "event": "SNAPSHOT", "equity": 185150.93867771, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T02:44:33.302221+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-14T03:19:55.011909+00:00", "event": "SNAPSHOT", "equity": 185627.65668847, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T03:45:34.215146+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-14T04:19:57.862375+00:00", "event": "SNAPSHOT", "equity": 185627.65668847, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T04:35:02.780614+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-14T04:36:03.834514+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:37:04.043242+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:38:04.252745+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:39:04.449007+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:40:04.682706+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:41:05.012268+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:42:05.053729+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T04:43:05.986160+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:44:06.149596+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:45:06.327494+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:46:06.495653+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:47:06.731728+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:48:06.894169+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:49:07.065668+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:50:07.239831+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:51:07.409271+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:52:07.577268+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:53:07.750676+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:54:07.922228+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:55:08.091054+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:56:08.325343+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:57:08.498704+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:58:08.663518+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T04:59:08.832408+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T05:00:08.999579+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T05:01:09.166685+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-14T05:02:09.185241+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T05:20:15.930730+00:00", "event": "SNAPSHOT", "equity": 185627.65668847, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T06:20:17.485978+00:00", "event": "SNAPSHOT", "equity": 185401.63372287, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T07:20:20.233508+00:00", "event": "SNAPSHOT", "equity": 185401.63372287, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T08:15:02.109994+00:00", "event": "SIGNAL", "symbol": "ETHUSDT", "side": "Buy", "price": 2520.97, "atr": 7.116428571428547, "qty": "36.77"}
+{"ts": "2026-10-14T08:15:03.435998+00:00", "event": "ORDER_ACCEPTED", "symbol": "ETHUSDT", "order_id": "e8dad7d6-7347-41b2-b079-2238d2935faa", "order_link_id": "demo-26b4011a4dc76f20bad9d9a48d6a38", "dry_run": false}
+{"ts": "2026-10-14T08:15:14.373523+00:00", "event": "ENTRY", "symbol": "ETHUSDT", "side": "Buy", "qty": "33.81", "price": "2521.24", "sl": "2510.29", "tp": "2536.98", "dry_run": false, "order_id": "e8dad7d6-7347-41b2-b079-2238d2935faa"}
+{"ts": "2026-10-14T08:20:21.053371+00:00", "event": "SNAPSHOT", "equity": 185592.95626994, "day_realized_pnl": 0.0}
+{"ts": "2026-10-14T09:20:22.951951+00:00", "event": "SNAPSHOT", "equity": 185214.76555171, "day_realized_pnl": -467.83828466}
+{"ts": "2026-10-14T10:20:37.893402+00:00", "event": "SNAPSHOT", "equity": 185214.76555171, "day_realized_pnl": -467.83828466}
+{"ts": "2026-10-14T11:20:55.120785+00:00", "event": "SNAPSHOT", "equity": 185214.76555171, "day_realized_pnl": -467.83828466}
+{"ts": "2026-10-14T12:15:17.925085+00:00", "event": "SIGNAL", "symbol": "BTCUSDT", "side": "Buy", "price": 83765.9, "atr": 173.75000000000207, "qty": "1.103"}
+{"ts": "2026-10-14T12:15:20.472370+00:00", "event": "ORDER_ACCEPTED", "symbol": "BTCUSDT", "order_id": "0a3c8f55-67c3-4c4c-9811-0cca7503bf20", "order_link_id": "demo-6aa4389316ae5f7ccf6aad03ffd3c1", "dry_run": false}
+{"ts": "2026-10-14T12:15:26.012626+00:00", "event": "ENTRY", "symbol": "BTCUSDT", "side": "Buy", "qty": "1.103", "price": "83754.9", "sl": "83505.2", "tp": "84156.8", "dry_run": false, "order_id": "0a3c8f55-67c3-4c4c-9811-0cca7503bf20"}
+{"ts": "2026-10-14T12:21:03.467294+00:00", "event": "SNAPSHOT", "equity": 185013.45758438, "day_realized_pnl": -467.83828466}
+{"ts": "2026-10-14T13:21:25.575353+00:00", "event": "SNAPSHOT", "equity": 184370.797836, "day_realized_pnl": -849.79673374}
+{"ts": "2026-10-14T14:02:26.853280+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T14:21:33.034925+00:00", "event": "SNAPSHOT", "equity": 184370.797836, "day_realized_pnl": -849.79673374}
+{"ts": "2026-10-14T15:11:53.894944+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T16:02:29.883128+00:00", "event": "SNAPSHOT", "equity": 182967.61622884, "day_realized_pnl": -849.79673374}
+{"ts": "2026-10-14T16:02:30.774605+00:00", "event": "DAILY_STOP", "pnl_pct": -0.011792121954458333}
+{"ts": "2026-10-14T16:19:53.771376+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T17:17:50.301726+00:00", "event": "SNAPSHOT", "equity": 182967.61622884, "day_realized_pnl": -849.79673374}
+{"ts": "2026-10-14T17:28:12.867438+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T18:29:47.016098+00:00", "event": "SNAPSHOT", "equity": 182967.61622884, "day_realized_pnl": -849.79673374}
+{"ts": "2026-10-14T18:45:08.958776+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T19:57:31.022635+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-14T19:58:38.516429+00:00", "event": "SNAPSHOT", "equity": 182678.84948566, "day_realized_pnl": -849.79673374}
+{"ts": "2026-10-14T20:32:54.137477+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T21:05:46.942180+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-14T21:54:42.629558+00:00", "event": "ERROR", "error_type": "Exception"}
+{"ts": "2026-10-14T23:13:38.144248+00:00", "event": "SNAPSHOT", "equity": 182878.52340521, "day_realized_pnl": -849.79673374}
+{"ts": "2026-10-14T23:40:21.620291+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+--- logs/events_2026-10-15.jsonl ---
+{"ts": "2026-10-15T00:59:22.961780+00:00", "event": "SNAPSHOT", "equity": 182797.40677563, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T01:16:31.739810+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-15T02:31:43.483636+00:00", "event": "SNAPSHOT", "equity": 182797.40677563, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T02:43:20.622349+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-15T03:21:43.163585+00:00", "event": "PREFLIGHT", "equity": 182797.40677563, "dry_run": false}
+{"ts": "2026-10-15T03:21:45.017496+00:00", "event": "SNAPSHOT", "equity": 182797.40677563, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T03:55:32.887390+00:00", "event": "PREFLIGHT", "equity": 181995.39841008, "dry_run": false}
+{"ts": "2026-10-15T03:55:34.434582+00:00", "event": "SNAPSHOT", "equity": 181995.39841008, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T04:55:35.566770+00:00", "event": "SNAPSHOT", "equity": 181995.39841008, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T05:55:54.229959+00:00", "event": "SNAPSHOT", "equity": 181995.39841008, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T06:56:14.631613+00:00", "event": "SNAPSHOT", "equity": 181895.83366981, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T07:56:20.581011+00:00", "event": "SNAPSHOT", "equity": 181895.83366981, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T08:56:21.679290+00:00", "event": "SNAPSHOT", "equity": 181895.83366981, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T09:56:10.355457+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-15T09:57:11.152220+00:00", "event": "SNAPSHOT", "equity": 182236.08213884, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T10:57:17.915333+00:00", "event": "SNAPSHOT", "equity": 182236.08213884, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T11:57:29.275584+00:00", "event": "SNAPSHOT", "equity": 182236.08213884, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T12:57:46.454488+00:00", "event": "SNAPSHOT", "equity": 182008.9269233, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T13:58:09.842590+00:00", "event": "SNAPSHOT", "equity": 182008.9269233, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T14:05:06.940007+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-15T14:06:18.201688+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-15T14:58:21.506204+00:00", "event": "SNAPSHOT", "equity": 182008.9269233, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T15:30:14.648923+00:00", "event": "SIGNAL", "symbol": "BTCUSDT", "side": "Buy", "price": 82284.6, "atr": 539.5214285714277, "qty": "0.509"}
+{"ts": "2026-10-15T15:30:15.603664+00:00", "event": "ORDER_ACCEPTED", "symbol": "BTCUSDT", "order_id": "bb0a3481-3158-422d-b1ea-3ca13b1858b6", "order_link_id": "demo-f2c105fa2cfd93dd657109a43fc3e8", "dry_run": false, "planned_risk": 457.77828400500147}
+{"ts": "2026-10-15T15:30:31.081830+00:00", "event": "ACTION_REQUIRED", "symbol": "BTCUSDT", "order_link_id": "demo-f2c105fa2cfd93dd657109a43fc3e8", "reason": "Unconfirmed order/execution/protection; further entries halted"}
+{"ts": "2026-10-15T15:30:31.082790+00:00", "event": "ERROR", "error_type": "RuntimeError"}
+{"ts": "2026-10-15T15:31:32.953278+00:00", "event": "SIGNAL", "symbol": "ETHUSDT", "side": "Buy", "price": 2421.51, "atr": 21.412857142857156, "qty": "13.16"}
+{"ts": "2026-10-15T15:31:33.981469+00:00", "event": "ORDER_ACCEPTED", "symbol": "ETHUSDT", "order_id": "80d38d18-b87b-40bb-927f-0eea93defbd3", "order_link_id": "demo-ac360179ff3c22573855228e218646", "dry_run": false, "planned_risk": 457.5204942000045}
+{"ts": "2026-10-15T15:31:48.928336+00:00", "event": "ACTION_REQUIRED", "symbol": "ETHUSDT", "order_link_id": "demo-ac360179ff3c22573855228e218646", "reason": "Unconfirmed order/execution/protection; further entries halted"}
+{"ts": "2026-10-15T15:31:48.929412+00:00", "event": "ERROR", "error_type": "RuntimeError"}
+{"ts": "2026-10-15T15:58:32.776923+00:00", "event": "SNAPSHOT", "equity": 183914.33699793, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T16:58:48.586426+00:00", "event": "SNAPSHOT", "equity": 183226.11953051, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T17:05:10.574498+00:00", "event": "PREFLIGHT", "equity": 183237.36848218, "dry_run": false}
+{"ts": "2026-10-15T17:05:15.449580+00:00", "event": "SNAPSHOT", "equity": 183237.36848218, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T17:06:05.417982+00:00", "event": "ENTRY", "symbol": "BTCUSDT", "side": "Buy", "qty": "0.509", "price": "82290.6", "sl": "81475.3", "tp": "83903.1", "dry_run": false, "order_id": "bb0a3481-3158-422d-b1ea-3ca13b1858b6", "order_link_id": "demo-f2c105fa2cfd93dd657109a43fc3e8", "planned_risk": 457.77828400500147, "verification": "manual_exchange_reconciliation_2026-10-15T20:05Z"}
+{"ts": "2026-10-15T17:06:05.417982+00:00", "event": "ENTRY", "symbol": "ETHUSDT", "side": "Buy", "qty": "13.16", "price": "2421.19", "sl": "2389.39", "tp": "2485.74", "dry_run": false, "order_id": "80d38d18-b87b-40bb-927f-0eea93defbd3", "order_link_id": "demo-ac360179ff3c22573855228e218646", "planned_risk": 457.5204942000045, "verification": "manual_exchange_reconciliation_2026-10-15T20:05Z"}
+{"ts": "2026-10-15T18:05:12.433957+00:00", "event": "SNAPSHOT", "equity": 183554.94889805, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T19:05:19.675848+00:00", "event": "SNAPSHOT", "equity": 183990.78792037, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T20:15:30.975482+00:00", "event": "SNAPSHOT", "equity": 183782.59720043, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T20:47:26.766076+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-15T21:22:55.902755+00:00", "event": "SNAPSHOT", "equity": 183775.60143533, "day_realized_pnl": 0.0}
+{"ts": "2026-10-15T22:23:39.283659+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-15T23:14:02.529378+00:00", "event": "ERROR", "error_type": "Exception"}
+--- logs/events_2026-10-16.jsonl ---
+{"ts": "2026-10-16T00:07:28.911365+00:00", "event": "SNAPSHOT", "equity": 183621.90915788, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T00:41:28.197834+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-16T01:56:38.272240+00:00", "event": "SNAPSHOT", "equity": 183081.0014708, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T02:28:50.435984+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-16T03:21:23.004320+00:00", "event": "SNAPSHOT", "equity": 183280.30025224, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T04:21:35.167393+00:00", "event": "SNAPSHOT", "equity": 183183.96267058, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T05:21:45.876115+00:00", "event": "SNAPSHOT", "equity": 183491.15675439, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T06:21:58.644933+00:00", "event": "SNAPSHOT", "equity": 183137.41210706, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T07:29:25.234932+00:00", "event": "SNAPSHOT", "equity": 183664.51289803, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T08:27:37.842134+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-16T08:33:01.801990+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-16T08:34:02.562618+00:00", "event": "SNAPSHOT", "equity": 183667.72194323, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T08:51:12.501158+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-16T08:52:13.051912+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T08:53:13.146684+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T08:54:13.239233+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T08:55:13.340610+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T08:56:13.436066+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T08:57:13.541649+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T08:58:13.641477+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T08:59:13.737188+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:00:13.834429+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:01:13.940922+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:02:14.046450+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:03:14.148228+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:04:14.246059+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:05:14.352082+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:06:14.453896+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:07:14.565581+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:08:14.667487+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:09:14.760567+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:10:14.862140+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:11:14.962653+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:12:15.064279+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:13:15.167663+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:14:15.266339+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:15:15.371886+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:16:15.474038+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:17:15.578454+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:18:15.684745+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:19:15.782102+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:20:15.881073+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:21:15.981459+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:22:16.080745+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:23:16.177881+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:24:16.275440+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:25:16.376613+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:26:16.479212+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:27:16.579978+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:28:16.677335+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:29:16.774427+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:30:16.876646+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:31:16.977638+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:32:17.076439+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:33:17.184104+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:34:17.282895+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:35:17.383199+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:36:17.481265+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:37:17.575934+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:38:17.671912+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:39:17.775410+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:40:17.876839+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:41:17.976281+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:42:18.081734+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:43:18.178485+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:44:18.276798+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:45:18.382854+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:46:18.476800+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:47:18.577840+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:48:18.675391+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:49:18.772730+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:50:18.868490+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:51:18.972300+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:52:19.071155+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:53:19.167667+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:54:19.266529+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:55:19.370499+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T09:56:19.467595+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T10:13:40.368325+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-16T10:14:41.158748+00:00", "event": "SNAPSHOT", "equity": 183079.57029132, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T11:27:18.343487+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-16T11:28:19.273790+00:00", "event": "SNAPSHOT", "equity": 185042.94620655, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T11:33:57.521930+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-16T12:04:41.680355+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-16T12:36:59.584701+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-16T13:09:28.085346+00:00", "event": "SNAPSHOT", "equity": 183635.94308522, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T13:26:29.028557+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-16T14:10:16.139860+00:00", "event": "SNAPSHOT", "equity": 183524.78343284, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T14:41:52.750292+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-16T15:28:53.328935+00:00", "event": "SNAPSHOT", "equity": 182995.00886041, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T16:00:34.534625+00:00", "event": "SIGNAL", "symbol": "ETHUSDT", "side": "Sell", "price": 2428.3, "atr": 12.620714285714323, "qty": "21.17"}
+{"ts": "2026-10-16T16:00:35.462108+00:00", "event": "ORDER_ACCEPTED", "symbol": "ETHUSDT", "order_id": "778cf79b-bf1d-481b-8462-696a82c86a39", "order_link_id": "demo-3aad99028633dc708ce3761c7ac428", "dry_run": false, "planned_risk": 457.30021813999656}
+{"ts": "2026-10-16T16:12:20.484318+00:00", "event": "ENTRY", "symbol": "ETHUSDT", "side": "Sell", "qty": "21.16", "price": "2428.25", "sl": "2447.23", "tp": "2390.43", "dry_run": false, "order_id": "778cf79b-bf1d-481b-8462-696a82c86a39", "order_link_id": "demo-3aad99028633dc708ce3761c7ac428", "planned_risk": 457.30021813999656, "verification": "reconciled_after_retry", "verify_errors": 1}
+{"ts": "2026-10-16T16:34:46.064260+00:00", "event": "SNAPSHOT", "equity": 182713.91570727, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T17:34:58.466925+00:00", "event": "SNAPSHOT", "equity": 182985.23537789, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T18:35:10.322428+00:00", "event": "SNAPSHOT", "equity": 182983.08925053, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T18:46:08.475473+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-16T19:36:20.630319+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T20:11:05.295691+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T20:54:46.104088+00:00", "event": "ERROR", "error_type": "FailedRequestError"}
+{"ts": "2026-10-16T21:38:09.192887+00:00", "event": "SNAPSHOT", "equity": 183275.31019153, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T22:27:40.951105+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-16T22:56:47.211327+00:00", "event": "SNAPSHOT", "equity": 183224.89915731, "day_realized_pnl": 0.0}
+{"ts": "2026-10-16T23:31:19.875270+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+--- logs/events_2026-10-17.jsonl ---
+{"ts": "2026-10-17T00:14:06.524968+00:00", "event": "SNAPSHOT", "equity": 183072.78031527, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T00:31:33.199723+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-17T01:13:06.363850+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-17T01:58:37.821678+00:00", "event": "SNAPSHOT", "equity": 183038.44318884, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T02:32:28.288824+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-17T02:58:34.899939+00:00", "event": "SNAPSHOT", "equity": 182947.67690182, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T03:58:36.245203+00:00", "event": "SNAPSHOT", "equity": 182909.44267347, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T04:58:51.764908+00:00", "event": "SNAPSHOT", "equity": 182914.08403251, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T05:11:58.892757+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-17T05:29:10.286502+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-17T05:45:59.650430+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-17T05:59:11.863499+00:00", "event": "SNAPSHOT", "equity": 182904.9097362, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T07:02:15.127665+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-17T07:07:50.312797+00:00", "event": "SNAPSHOT", "equity": 182868.67865404, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T08:06:54.135087+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-17T08:07:55.312332+00:00", "event": "SNAPSHOT", "equity": 182946.23859916, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T09:08:04.239908+00:00", "event": "SNAPSHOT", "equity": 182917.03696926, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T10:10:53.444154+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-17T10:11:54.710521+00:00", "event": "SNAPSHOT", "equity": 182794.83593084, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T11:12:04.700922+00:00", "event": "SNAPSHOT", "equity": 182780.26502681, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T12:06:05.647981+00:00", "event": "ERROR", "error_type": "ConnectionError"}
+{"ts": "2026-10-17T12:21:54.003251+00:00", "event": "SNAPSHOT", "equity": 182863.90260932, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T13:22:07.112649+00:00", "event": "SNAPSHOT", "equity": 182922.69616003, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T14:22:10.664484+00:00", "event": "SNAPSHOT", "equity": 182926.85611487, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T15:22:26.932420+00:00", "event": "SNAPSHOT", "equity": 183082.7823925, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T16:01:51.672626+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-17T16:22:42.426940+00:00", "event": "SNAPSHOT", "equity": 183060.63707614, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T17:22:53.660170+00:00", "event": "SNAPSHOT", "equity": 183082.08037801, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T17:34:56.756912+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-17T18:22:58.242853+00:00", "event": "SNAPSHOT", "equity": 183087.82227185, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T18:30:20.030280+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-17T18:40:31.632281+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+{"ts": "2026-10-17T19:23:07.523230+00:00", "event": "SNAPSHOT", "equity": 183118.78152935, "day_realized_pnl": 0.0}
+{"ts": "2026-10-17T19:33:25.809528+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
+=== 10. bot.out ===
+2026-10-15 06:21:43,906 INFO ETHUSDT: leverage already x3
+2026-10-15 06:21:44,153 INFO ETHUSDT: last=2368.64 ATR=20.29 (0.856%) stop=30.43 tp=60.86 candles=74
+2026-10-15 06:21:44,154 INFO =================
+2026-10-15 06:21:44,401 INFO New day 2026-10-15, anchor equity=182797.41
+2026-10-15 06:21:45,017 INFO snapshot equity=182797.41 day_realized_pnl=0.00
+=== 11. ПОЗИЦИИ И ОРДЕРА (demo API, если ключи в env) ===
+/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/pybit/_v5_position.py", line 22, in get_positions
+    return self._submit_request(
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/pybit/_http_manager.py", line 194, in _submit_request
+    response = self.client.send(request, timeout=self.timeout)
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 499, in request
+    self.putheader(header, value)
+  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/urllib3/connection.py", line 413, in putheader
+    super().putheader(header, *values)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1230, in putheader
+    values[i] = one_value.encode('latin-1')
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 0-2: ordinal not in range(256)
+=== END ===
