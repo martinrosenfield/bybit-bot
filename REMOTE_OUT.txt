@@ -1,8 +1,8 @@
-=== REMOTE RUN 2026-10-17 23:13:49 MSK | host: DmitryVladimirovich.local ===
+=== REMOTE RUN 2026-10-17 23:21:41 MSK | host: DmitryVladimirovich.local ===
 --- git ---
+fc46b8e REMOTE_TASK: offline-тесты → коммит diff (bybit_bot.py + test_trade_guards.py) в main → push; проверка caffeinate
+b70b69f remote run 10-17 23:14
 ffa2c45 REMOTE_TASK: мелкая правка settleCoin в API-сверке
-d6d3de7 REMOTE_TASK: сверка локального diff с репо + контроль ключей + повторная API-сверка позиций (18.10)
-7947529 remote run 10-17 23:04
  M REMOTE_OUT.txt
  M bybit_bot.py
  M test_trade_guards.py
@@ -17,7 +17,7 @@ d6d3de7 REMOTE_TASK: сверка локального diff с репо + кон
 ?? start_demo.command
 ?? test_restore_demo_bot.py
 --- TASK OUTPUT ---
-=== 1. git status и diff --stat ===
+=== 1. СОСТОЯНИЕ ДО ===
  M REMOTE_OUT.txt
  M bybit_bot.py
  M test_trade_guards.py
@@ -31,386 +31,84 @@ d6d3de7 REMOTE_TASK: сверка локального diff с репо + кон
 ?? restore_demo_bot.py
 ?? start_demo.command
 ?? test_restore_demo_bot.py
- REMOTE_OUT.txt       | 471 +++------------------------------------------------
- bybit_bot.py         |  58 ++++++-
- test_trade_guards.py |  33 ++++
- 3 files changed, 104 insertions(+), 458 deletions(-)
---- md5 рабочих файлов vs HEAD ---
-4296f460470c7c541e3df049e2d358d3
-dca9d1ba16122a152c4476c2c2ded68a
-2246931d094852e93aa3e97b1d5de6e7
-dca9d1ba16122a152c4476c2c2ded68a
-=== 2. ПОЛНЫЙ diff bybit_bot.py ===
-diff --git a/bybit_bot.py b/bybit_bot.py
-index 7702068..bf7b6b3 100644
---- a/bybit_bot.py
-+++ b/bybit_bot.py
-@@ -28,6 +28,7 @@ from decimal import Decimal, ROUND_DOWN
- from pathlib import Path
- import fcntl
- import hashlib
-+import subprocess
- 
- from pybit.unified_trading import HTTP
- 
-@@ -323,6 +324,7 @@ def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: flo
-     save_state()
-     planned_risk = float(qty) * loss_per_unit
-     log.info("%s planned_risk=%.8f equity=%.8f", symbol, planned_risk, equity)
-+    verify_errors = 0
-     try:
-         r = checked(session.place_order(
-             category="linear", symbol=symbol, side=side, orderType="Market", qty=str(qty),
-@@ -332,11 +334,20 @@ def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: flo
-         order_id = r["result"]["orderId"]
-         jlog("ORDER_ACCEPTED", symbol=symbol, order_id=order_id,
-              order_link_id=link_id, dry_run=False, planned_risk=planned_risk)
--        for _ in range(10):
--            time.sleep(1)
--            position = open_position(symbol)
--            executions = checked(session.get_executions(category="linear", symbol=symbol,
--                                 orderId=order_id, limit=100), "execution verification")["result"]
-+        verify_errors = 0
-+        for attempt in range(12):
-+            time.sleep(1.5)
-+            try:
-+                position = open_position(symbol)
-+                executions = checked(session.get_executions(category="linear", symbol=symbol,
-+                                     orderId=order_id, limit=100), "execution verification")["result"]
-+            except Exception as exc:
-+                # A transient API failure must not be mistaken for an unprotected
-+                # position: keep polling instead of halting the symbol.
-+                verify_errors += 1
-+                log.warning("verification %s attempt %d/12: %s",
-+                            symbol, attempt + 1, type(exc).__name__)
-+                continue
-             fills = [e for e in executions["list"] if e.get("orderId") == order_id
-                      and e.get("symbol") == symbol and e.get("side") == side
-                      and e.get("execType") == "Trade"]
-@@ -356,13 +367,41 @@ def place_entry(symbol: str, side: str, qty: Decimal, price: float, atr_val: flo
-                 save_state()
-                 log.info("DEMO EXECUTION VERIFIED %s with server SL/TP", symbol)
-                 return
-+        # All attempts exhausted without a positive confirmation. Reconcile once
-+        # more against the exchange: the checks may have kept failing while the
-+        # order in fact filled and the position is protected server-side.
-+        try:
-+            position = open_position(symbol)
-+            hist = checked(session.get_order_history(category="linear", symbol=symbol, limit=10),
-+                           "order status")["result"]
-+            rec = next((o for o in hist["list"] if o.get("orderId") == order_id), None)
-+            if (position and rec and rec.get("orderStatus") == "Filled"
-+                    and rec.get("symbol") == symbol and rec.get("side") == side
-+                    and rec.get("orderLinkId") == link_id
-+                    and Decimal(rec.get("cumExecQty") or "0") == qty
-+                    and position["side"] == side and Decimal(position["size"]) == qty
-+                    and int(position.get("positionIdx", -1)) == 0
-+                    and Decimal(position.get("stopLoss") or "0") == Decimal(sl)
-+                    and Decimal(position.get("takeProfit") or "0") == Decimal(tp)):
-+                jlog("ENTRY", symbol=symbol, side=side, qty=str(qty), price=rec.get("avgPrice"),
-+                     sl=position["stopLoss"], tp=position["takeProfit"], dry_run=False,
-+                     order_id=order_id, order_link_id=link_id, planned_risk=planned_risk,
-+                     verification="reconciled_after_retry", verify_errors=verify_errors)
-+                del RUNTIME["pending"][symbol]
-+                save_state()
-+                log.info("DEMO EXECUTION RECONCILED %s: filled with server SL/TP "
-+                         "(%d transient errors during verification)", symbol, verify_errors)
-+                return
-+        except Exception:
-+            pass
-         raise RuntimeError("Execution or server SL/TP not confirmed")
-     except Exception:
-         if symbol not in RUNTIME["halted"]:
-             RUNTIME["halted"].append(symbol)
-         save_state()
-         jlog("ACTION_REQUIRED", symbol=symbol, order_link_id=link_id,
--             reason="Unconfirmed order/execution/protection; further entries halted")
-+             reason="Unconfirmed order/execution/protection; further entries halted",
-+             verify_errors=verify_errors)
-         raise RuntimeError("Demo execution/protection requires review") from None
- 
- 
-@@ -384,7 +423,14 @@ def preflight():
- 
- 
- def main():
-+    # The child exits with this bot; no API credentials are passed to it.
-+    awake = None
-+    if sys.platform == "darwin":
-+        awake = subprocess.Popen(
-+            ["/usr/bin/caffeinate", "-is", "-w", str(os.getpid())], env={})
-+        log.info("Sleep protection started pid=%d", awake.pid)
-     preflight()
-+    jlog("READY", pid=os.getpid(), protection_verification="exact_sltp_v2")
-     state = {s: {"last_candle_start": None} for s in SYMBOLS}
-     day_anchor = RUNTIME.get("day_anchor", {"date": None, "equity": None})
-     last_snapshot = 0.0
-=== 3. ПОЛНЫЙ diff test_trade_guards.py ===
-diff --git a/test_trade_guards.py b/test_trade_guards.py
-index 8619c36..30ea609 100644
---- a/test_trade_guards.py
-+++ b/test_trade_guards.py
-@@ -61,6 +61,39 @@ class Guards(unittest.TestCase):
-         self.verified();self.position['stopLoss']='79849.9'
-         with self.assertRaises(RuntimeError): self.entry()
-         self.assertNotIn('ENTRY',[e for e,d in self.events])
-+    def fallback(self):
-+        self.verified()
-+        self.raise_verify=True
-+        self.history={'orderId':'mock-id','orderLinkId':'demo-mock',
-+                      'symbol':'BTCUSDT','side':'Buy','orderStatus':'Filled',
-+                      'cumExecQty':'0.01','avgPrice':'80001'}
-+        self.api.get_order_history=lambda **kw:{'result':{'list':[self.history]}}
-+    def test_fallback_exact_protection_recovers_without_second_order(self):
-+        self.fallback();self.entry()
-+        entry=[d for e,d in self.events if e=='ENTRY'][0]
-+        self.assertEqual(entry['verification'],'reconciled_after_retry')
-+        self.assertEqual(self.ns['RUNTIME']['pending'],{})
-+        self.assertEqual(self.ns['RUNTIME']['halted'],[])
-+        self.assertEqual(len(self.orders),1)
-+    def test_fallback_mismatches_halt_and_keep_pending(self):
-+        cases=[('position','stopLoss','1'),('position','stopLoss','79849.9'),
-+               ('position','takeProfit','80300.1'),('position','stopLoss',''),
-+               ('position','takeProfit',None),('position','positionIdx',1),
-+               ('position','side','Sell'),('position','size','0.005'),
-+               ('history','symbol','ETHUSDT'),('history','side','Sell'),
-+               ('history','orderLinkId','other'),('history','cumExecQty','0.005'),
-+               ('history','orderStatus','PartiallyFilled'),('history','orderId','other')]
-+        for target,field,value in cases:
-+            with self.subTest(target=target,field=field,value=value):
-+                self.setUp();self.fallback()
-+                obj=self.position if target=='position' else self.history
-+                obj[field]=value
-+                with self.assertRaises(RuntimeError):self.entry()
-+                self.assertNotIn('ENTRY',[e for e,d in self.events])
-+                self.assertIn('ACTION_REQUIRED',[e for e,d in self.events])
-+                self.assertIn('BTCUSDT',self.ns['RUNTIME']['halted'])
-+                self.assertEqual(self.ns['RUNTIME']['pending']['BTCUSDT'],'demo-mock')
-+                self.assertEqual(len(self.orders),1)
-     def test_unrelated_execution_halts(self):
-         self.verified();self.fills[0]['orderId']='other'
-         with self.assertRaises(RuntimeError): self.entry()
-=== 4. diff config.json (если есть) ===
-=== 5. Недобавленные файлы (Codex?) — даты и первые строки ===
---- CHECK_2026-10-16_2004.md (изменён Oct 16 20:04:39 2026) ---
-# Проверка Bybit DEMO — 16 октября 2026, 20:03–20:04 МСК
+fc46b8e REMOTE_TASK: offline-тесты → коммит diff (bybit_bot.py + test_trade_guards.py) в main → push; проверка caffeinate
+b70b69f remote run 10-17 23:14
+=== 2. OFFLINE-ТЕСТЫ ===
+test_acceptance_alone_halts (test_trade_guards.Guards) ... ok
+test_current_config_blocks (test_trade_guards.Guards) ... ok
+test_dry_preflight_never_changes_leverage (test_trade_guards.Guards) ... ok
+test_dry_run_never_orders_or_entry (test_trade_guards.Guards) ... ok
+test_duplicate_never_retries (test_trade_guards.Guards) ... ok
+test_fallback_exact_protection_recovers_without_second_order (test_trade_guards.Guards) ... ok
+test_fallback_mismatches_halt_and_keep_pending (test_trade_guards.Guards) ... ok
+test_fee_in_size (test_trade_guards.Guards) ... ok
+test_increment (test_trade_guards.Guards) ... ok
+test_millisecond_pnl_pagination (test_trade_guards.Guards) ... ok
+test_partial_execution_halts (test_trade_guards.Guards) ... ok
+test_pause_blocks_even_with_live_env (test_trade_guards.Guards) ... ok
+test_send_timeout_persists_halt (test_trade_guards.Guards) ... ok
+test_unrelated_execution_halts (test_trade_guards.Guards) ... ok
+test_verified_execution (test_trade_guards.Guards) ... ok
+test_verify_exception_persists_halt (test_trade_guards.Guards) ... ok
+test_wrong_stop_halts (test_trade_guards.Guards) ... ok
 
-Проверка чтением. Код, настройки, ордера и позиции не менялись.
+----------------------------------------------------------------------
+Ran 17 tests in 0.018s
 
-Процесс PID 21853 существует, время работы около 24 часов; lsof подтверждает рабочую папку bybit-bot. Последний SNAPSHOT 19:34:46 МСК. Снимки записываются раз в час, поэтому возраст около 30 минут сам по себе не доказывает зависание. entries_paused=false, halted=[], pending={}. Код подключения содержит demo=True.
+OK
+test_failed_credentials_keep_old_process (test_restore_demo_bot.Restart) ... ok
+test_live_endpoint_never_stops_or_starts (test_restore_demo_bot.Restart) ... ok
+test_multiple_processes_abort (test_restore_demo_bot.Restart) ... ok
+test_old_process_not_stopped_keeps_entries_blocked (test_restore_demo_bot.Restart) ... ok
+test_restart_preserves_unresolved_state_and_risk (test_restore_demo_bot.Restart) ... ok
+test_spawn_failure_keeps_entries_blocked (test_restore_demo_bot.Restart) ... ok
 
-Обновлённый авторизованный Bybit UI: режим «Демо трейдинг», одна позиция ETHUSDT SHORT 21.16 ETH, вход 2428.25; TP 2390.43 / SL 2447.23 совпадают с ENTRY. Один открытый ордер по счётчику UI. Плавающий PnL на одном снимке +39.1460 USDT, реализованные расходы -28.2599 USDT. Это изменяющийся снимок, не закрытая прибыль.
+----------------------------------------------------------------------
+Ran 6 tests in 0.010s
 
-В обновлённой истории торговли последняя операция — открытие ETH SHORT 19:00:35, комиссия 28.25997350. Новых закрытий после BTC 18:05:55 в загруженной истории за 7 дней нет.
+OK
+=== 3. КОММИТ И PUSH ===
+[main 2eb6e9f] Verification loop v2: tolerate transient API errors, strict reconciled_after_retry fallback with exact SL/TP checks, caffeinate sleep guard, READY event
+ Committer: Дмитрий Владимирович <khdmvld@DmitryVladimirovich.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
 
-Закрытые сегодня позиции, открытые 15 октября:
+    git config --global --edit
 
-- ETH LONG 13.16: 2421.19 → 2486.28, закрытие 14:13:25. Комиссии 17.52457322 + 17.99569464; финансирование 7.09600446; чистый результат +813.96812768 USDT.
-- BTC LONG 0.509: 82290.60 → 81472.40, закрытие 18:05:55. Комиссии 23.03725347 + 22.80819838; финансирование 8.98712609; чистый результат -471.29637794 USDT.
-- Сумма двух закрытий +342.67174974 USDT. С учётом прежних трёх закрытий -1236.48483280 накопленный итог -893.81308306 USDT.
+After doing this, you may fix the identity used for this commit with:
 
-Открытые проблемы:
+    git commit --amend --reset-author
 
-1. В резервной ветке reconciled_after_retry защита сравнивается только с нулём, а не с рассчитанными SL/TP. По текущему коду дефект остаётся. Текущая ETH позиция проверена отдельно на бирже, SL/TP совпадают.
-2. Последний локальный day_realized_pnl=0.00 противоречит истории закрытий; использовать его как отчёт о прибыли нельзя. Причина расхождения этой проверкой не установлена.
---- CHECK_2026-10-16.md (изменён Oct 16 19:38:19 2026) ---
-# Проверка Bybit Demo — 16 октября 2026, около 06:45 МСК
-
-Проверен только бот Bybit. Торговых действий при проверке не выполнялось.
-
-## Работа бота
-
-- Один найденный процесс bybit_bot.py, PID 21853. Рабочая папка подтверждена через lsof. Проверка процесса около 06:43 МСК: время работы 10:38:28, состояние Ss.
-- Локальная конфигурация: demo, dry_run=false, entries_paused=false, BTCUSDT/ETHUSDT, M15, плечо 3. Это параметры, а не подтверждение текущих позиций на бирже.
-- runtime_state.json: pending пуст, halted пуст; halt_day=2026-10-14 относится к прошлой дате.
-- Последний снимок: 16.10 06:21:23 МСК; totalEquity=183280.30025224, day_realized_pnl=0.0. Текущий биржевой баланс заново не получен.
-- За 16 октября UTC в журнале: три снимка, две ошибки ConnectionError, нет SIGNAL/ORDER_ACCEPTED/ENTRY. После обеих ошибок есть более поздние снимки. Непрерывность соединения не подтверждена.
-
-## Закрытые результаты
-
-Ниже ранее сверенная история из RECONCILIATION_2026-10-15.md, заново прочитанная при этой проверке. Текущая биржевая история не обновлена.
-
-1. BTCUSDT SHORT, 1.115 BTC, 13.10: вход 83150.10, выход 83405.30; комиссии 50.99179883 + 51.14830023; чистый результат −386.68809906 USDT.
-2. ETHUSDT LONG, 33.81 ETH, 14.10: вход 2521.24, выход 2510.17; комиссии 46.88371842 + 46.67786624; чистый результат −467.83828466 USDT.
-3. BTCUSDT LONG, 1.103 BTC, 14.10: вход 83754.90, выход 83500.60; комиссии 50.80991009 + 50.65563899; чистый результат −381.95844908 USDT.
-
---- CHECK_2026-10-17.md (изменён Oct 17 16:24:30 2026) ---
-17.10.2026 около 16:24 МСК: восстановлена авторизованная серверная сверка Bybit Demo через Safari. История всех рынков за 7 дней прочитана от новых записей до перекрытия с предыдущей сверкой: после 16.10 19:38 новых Trade-исполнений и закрытий нет. ETHUSDT SHORT 21.16 по 2428.25 остаётся открыт. В позиции и защитном ордере на всю позицию подтверждены точные TP 2390.43 / SL 2447.23, направление Купить / Закрыть шорт, статус Неактивировано. Других лимитных/рыночных ордеров не показано; счётчик открытых ордеров 1. Funding начислен 17.10 03:00 +3.15576714 и 11:00 +3.11575329 USDT, всего +6.27152043 USDT; комиссия входа 28.25997350, чистые реализованные расходы открытой позиции −21.98845307 USDT. Плавающий PnL на снимке +104.9536 USDT отдельно. Накопленный чистый итог пяти закрытых сделок остаётся −893.81308306 USDT; расходы и funding открытой позиции туда не включены. Известный дефект fallback не исправлялся. Локальный SNAPSHOT 16:22:07 МСК; runtime halted/pending пусты. MT5 новых записей нет; истёкшее окно не продлевалось. Защита caffeinate не восстановлена по доступным данным. Монитор ничего не запускал и не менял в торговле.
---- restore_demo_bot.py (изменён Oct 16 20:09:45 2026) ---
-"""Restore the existing Bybit demo bot with locally entered credentials in RAM."""
-import getpass
-import json
-import os
-from pathlib import Path
-import subprocess
-import sys
-import signal
-import time
-
-base = Path(__file__).resolve().parent
-
-def main():
-    restart = sys.argv[1:] == ["--restart"]
-    if sys.argv[1:] and not restart:
-        raise RuntimeError("Unknown launch option")
-    check = subprocess.run(["/usr/bin/pgrep", "-f", str(base / "bybit_bot.py")], capture_output=True, text=True)
-    old_pids = [int(pid) for pid in check.stdout.split()] if check.returncode == 0 else []
-    if check.returncode == 0 and not restart:
-        print("Бот уже запущен. Второй экземпляр не создан.")
---- start_demo.command (изменён Oct 15 06:53:50 2026) ---
-#!/bin/bash
-cd "$(dirname "$0")" || exit 1
-python3 restore_demo_bot.py
-read -r -p "Нажмите Enter, чтобы закрыть окно."
---- restart_demo.command (изменён Oct 16 20:08:47 2026) ---
-#!/bin/bash
-cd "$(dirname "$0")" || exit 1
-/usr/bin/python3 restore_demo_bot.py --restart
-read -r -p "Нажмите Enter, чтобы закрыть окно."
---- backtest_comparison.py (изменён Oct 17 17:26:39 2026) ---
-#!/usr/bin/env python3
-"""Public-data comparison: current Bybit bot vs slower long/cash trend variant.
-
-Downloads public Bybit linear candles/funding only. Never reads credentials and
-never submits orders. Output is a reproducible historical simulation, not a
-forecast.
-"""
-from __future__ import annotations
-
-import csv
-import json
-import math
-import time
-import urllib.parse
-import urllib.request
-from datetime import datetime, timezone, timedelta
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent
-CACHE = Path('/private/tmp/bybit_backtest_cache')
---- BACKTEST_COMPARISON.json (изменён Oct 17 17:27:19 2026) ---
-{
-  "data_source": "Bybit public linear market API; no API key or account login used",
-  "data_cutoff_utc": "2026-10-17T12:30:00+00:00",
-  "symbols": [
-    "BTCUSDT",
-    "ETHUSDT"
-  ],
-  "candle_interval_source": "15m; alternative bars aggregated to 4h UTC",
-  "windows": {
-    "1y": {
-      "start_utc": "2025-10-17T06:30:00+00:00",
-      "end_utc": "2026-10-17T12:30:00+00:00",
-      "bot": {
-        "start_equity": 10000.0,
-        "end_equity": 7490.844491264321,
-        "return_pct": -25.091555087356788,
-        "annualized_pct": -25.091555087356788,
-        "max_drawdown_pct": 25.946053348599595,
-        "trades": 1107,
-        "win_rate_pct": 32.068654019873534,
---- BACKTEST_COMPARISON.md (изменён Oct 17 17:27:19 2026) ---
-# Bybit bot strategy backtest comparison
-
-Market data runs through 2026-10-17 12:30 UTC using Bybit public market data. This is a candle-based simulation, not a forecast or a demo-account reconciliation.
-
-Two equal sleeves start with 10,000 USDT total: 5,000 BTCUSDT and 5,000 ETHUSDT. Amounts scale linearly under the same risk sizing.
-
-| Window | Strategy | Return | Annualized | Max drawdown | Trades | Win rate | Profit factor | Fees USDT | Funding cost USDT | End balance |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1y | Current bot | -25.09% | -25.09% | 25.95% | 1107 | 32.07% | 0.67 | 2081.72 | 8.79 | 7490.84 |
-| 1y | Slower long/cash | -0.02% | -0.02% | 0.94% | 10 | 20.00% | 0.98 | 5.54 | 4.92 | 9997.64 |
-| 3y | Current bot | -49.77% | -20.51% | 49.95% | 3371 | 33.82% | 0.74 | 5275.39 | -6.92 | 5022.52 |
-| 3y | Slower long/cash | 4.42% | 1.45% | 3.84% | 34 | 23.53% | 2.28 | 18.01 | 125.98 | 10442.36 |
-| 5y | Current bot | -66.59% | -19.69% | 66.59% | 5617 | 33.90% | 0.76 | 7483.21 | -6.34 | 3341.15 |
-| 5y | Slower long/cash | 9.53% | 1.84% | 3.81% | 60 | 23.33% | 2.56 | 29.70 | 210.51 | 10952.53 |
-
-## Rules compared
-
-- **Current bot:** EMA20/50 fresh cross on closed 15-minute candles; next-candle open entry; simple rolling ATR14; stop 1.5×ATR and target 3×ATR; long and short; risk budget 0.25% of equity including fee allowance; max notional 50% of equity; daily loss guard at −1%; up to three entries per day per symbol.
-- **Slower long/cash:** EMA50/200 cross on closed 4-hour candles; long only while trend is up, otherwise cash; next 4-hour open entry; 2×ATR fixed stop; no take-profit; exit on a downward cross; 0.25% stop-risk sizing and max notional 50% of equity, with no leverage assumed.
-
---- test_restore_demo_bot.py (изменён Oct 16 20:09:45 2026) ---
-"""Offline restart tests: mocked credentials, API, signals and child processes."""
-import json
-import sys
-import tempfile
-import unittest
-from pathlib import Path
-from types import SimpleNamespace
-from unittest.mock import patch, Mock
-
-import restore_demo_bot as restore
-
-
-class Restart(unittest.TestCase):
-    def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.addCleanup(self.tmp.cleanup)
-        self.base = Path(self.tmp.name)
-        (self.base / 'logs').mkdir()
-        (self.base / 'config.json').write_text(json.dumps({'dry_run': True, 'risk_per_trade': .0025}))
-        self.state = {'entries_paused': False, 'pending': {'BTCUSDT': 'unresolved'},
-=== 6. ПРОЦЕСС (два замера за 10 сек) ===
-21853 четверг, 15 октября 2026 г. 20:05:09   2:02.47   0,0 /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/khdmvld/Documents/ChatGPT/Трейдинг/bybit-bot/bybit_bot.py
-21853 четверг, 15 октября 2026 г. 20:05:09   2:02.50   0,0 /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/khdmvld/Documents/ChatGPT/Трейдинг/bybit-bot/bybit_bot.py
-=== 7. Хвост bot.log и managed_console.log ===
-2026-10-17 18:22:26,930 INFO snapshot equity=183082.78 day_realized_pnl=0.00
-2026-10-17 19:01:51,671 ERROR loop error type=ReadTimeout (request details suppressed)
-2026-10-17 19:22:42,425 INFO snapshot equity=183060.64 day_realized_pnl=0.00
-2026-10-17 20:22:53,658 INFO snapshot equity=183082.08 day_realized_pnl=0.00
-2026-10-17 20:34:56,756 ERROR loop error type=ReadTimeout (request details suppressed)
+ 2 files changed, 85 insertions(+), 6 deletions(-)
+To https://github.com/martinrosenfield/bybit-bot.git
+   fc46b8e..2eb6e9f  main -> main
+PUSH OK
+=== 4. СОСТОЯНИЕ ПОСЛЕ ===
+ M REMOTE_OUT.txt
+?? BACKTEST_COMPARISON.json
+?? BACKTEST_COMPARISON.md
+?? CHECK_2026-10-16.md
+?? CHECK_2026-10-16_2004.md
+?? CHECK_2026-10-17.md
+?? backtest_comparison.py
+?? restart_demo.command
+?? restore_demo_bot.py
+?? start_demo.command
+?? test_restore_demo_bot.py
+2eb6e9f Verification loop v2: tolerate transient API errors, strict reconciled_after_retry fallback with exact SL/TP checks, caffeinate sleep guard, READY event
+fc46b8e REMOTE_TASK: offline-тесты → коммит diff (bybit_bot.py + test_trade_guards.py) в main → push; проверка caffeinate
+=== 5. ПРОВЕРКИ ===
+--- процесс бота ---
+21853 четверг, 15 октября 2026 г. 20:05:09   2:03.04 /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/khdmvld/Documents/ChatGPT/Трейдинг/bybit-bot/bybit_bot.py
+--- caffeinate ---
+caffeinate НЕ НАЙДЕН
+--- хвост bot.log ---
 2026-10-17 21:22:58,241 INFO snapshot equity=183087.82 day_realized_pnl=0.00
 2026-10-17 21:30:20,028 ERROR loop error type=ReadTimeout (request details suppressed)
 2026-10-17 21:40:31,630 ERROR loop error type=ReadTimeout (request details suppressed)
 2026-10-17 22:23:07,521 INFO snapshot equity=183118.78 day_realized_pnl=0.00
 2026-10-17 22:33:25,806 ERROR loop error type=ReadTimeout (request details suppressed)
---- managed_console.log ---
-нет
-=== 8. СОБЫТИЯ СЕГОДНЯ (UTC) ===
-{"ts": "2026-10-17T00:14:06.524968+00:00", "event": "SNAPSHOT", "equity": 183072.78031527, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T00:31:33.199723+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-{"ts": "2026-10-17T01:13:06.363850+00:00", "event": "ERROR", "error_type": "ConnectionError"}
-{"ts": "2026-10-17T01:58:37.821678+00:00", "event": "SNAPSHOT", "equity": 183038.44318884, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T02:32:28.288824+00:00", "event": "ERROR", "error_type": "ConnectionError"}
-{"ts": "2026-10-17T02:58:34.899939+00:00", "event": "SNAPSHOT", "equity": 182947.67690182, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T03:58:36.245203+00:00", "event": "SNAPSHOT", "equity": 182909.44267347, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T04:58:51.764908+00:00", "event": "SNAPSHOT", "equity": 182914.08403251, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T05:11:58.892757+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-{"ts": "2026-10-17T05:29:10.286502+00:00", "event": "ERROR", "error_type": "ConnectionError"}
-{"ts": "2026-10-17T05:45:59.650430+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-{"ts": "2026-10-17T05:59:11.863499+00:00", "event": "SNAPSHOT", "equity": 182904.9097362, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T07:02:15.127665+00:00", "event": "ERROR", "error_type": "ConnectionError"}
-{"ts": "2026-10-17T07:07:50.312797+00:00", "event": "SNAPSHOT", "equity": 182868.67865404, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T08:06:54.135087+00:00", "event": "ERROR", "error_type": "ConnectionError"}
-{"ts": "2026-10-17T08:07:55.312332+00:00", "event": "SNAPSHOT", "equity": 182946.23859916, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T09:08:04.239908+00:00", "event": "SNAPSHOT", "equity": 182917.03696926, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T10:10:53.444154+00:00", "event": "ERROR", "error_type": "ConnectionError"}
-{"ts": "2026-10-17T10:11:54.710521+00:00", "event": "SNAPSHOT", "equity": 182794.83593084, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T11:12:04.700922+00:00", "event": "SNAPSHOT", "equity": 182780.26502681, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T12:06:05.647981+00:00", "event": "ERROR", "error_type": "ConnectionError"}
-{"ts": "2026-10-17T12:21:54.003251+00:00", "event": "SNAPSHOT", "equity": 182863.90260932, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T13:22:07.112649+00:00", "event": "SNAPSHOT", "equity": 182922.69616003, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T14:22:10.664484+00:00", "event": "SNAPSHOT", "equity": 182926.85611487, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T15:22:26.932420+00:00", "event": "SNAPSHOT", "equity": 183082.7823925, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T16:01:51.672626+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-{"ts": "2026-10-17T16:22:42.426940+00:00", "event": "SNAPSHOT", "equity": 183060.63707614, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T17:22:53.660170+00:00", "event": "SNAPSHOT", "equity": 183082.08037801, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T17:34:56.756912+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-{"ts": "2026-10-17T18:22:58.242853+00:00", "event": "SNAPSHOT", "equity": 183087.82227185, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T18:30:20.030280+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-{"ts": "2026-10-17T18:40:31.632281+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-{"ts": "2026-10-17T19:23:07.523230+00:00", "event": "SNAPSHOT", "equity": 183118.78152935, "day_realized_pnl": 0.0}
-{"ts": "2026-10-17T19:33:25.809528+00:00", "event": "ERROR", "error_type": "ReadTimeout"}
-=== 9. ПОЗИЦИИ / ОРДЕРА (нужны РЕАЛЬНЫЕ ключи в env) ===
-Traceback (most recent call last):
-  File "<stdin>", line 4, in <module>
-  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/pybit/_v5_position.py", line 22, in get_positions
-    return self._submit_request(
-  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/pybit/_http_manager.py", line 195, in _submit_request
-    self._check_status_code(response, method, path, req_params)
-  File "/Users/khdmvld/Library/Python/3.9/lib/python/site-packages/pybit/_http_manager.py", line 255, in _check_status_code
-    raise FailedRequestError(
-pybit.exceptions.FailedRequestError: Http status code is not 200. (ErrCode: 401) (ErrTime: 20:14:00).
-Request → GET https://api-testnet.bybit.com/v5/position/list: category=linear&settleCoin=USDT.
 === END ===
