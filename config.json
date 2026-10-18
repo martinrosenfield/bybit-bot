@@ -1,5 +1,5 @@
 {
-  "dry_run": true,
+  "dry_run": false,
   "symbols": [
     "BTCUSDT",
     "ETHUSDT"
