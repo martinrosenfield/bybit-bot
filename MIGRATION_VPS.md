@@ -1,74 +1,91 @@
 # Миграция Bybit-бота на VPS (Нидерланды)
 
-Статус: план, дата составления 14.10.2026. Решение о миграции принято 14.10
-(делегировано Kimi): страна — **Нидерланды** (тот же регион, что рабочий VPN;
-минимальный риск антибот-лимита Bybit; Швеция уже попадала под 403).
+Статус: **готово к созданию VPS** (обновление 18.10.2026, Kimi). Решение о
+миграции принято 14.10: страна — **Нидерланды** (тот же регион, что рабочий
+VPN; минимальный риск антибот-лимита Bybit; Швеция уже попадала под 403).
 
-## Зачем
+## Провайдер — РЕШЕНО: Vultr Amsterdam
 
-- Три инцидента связи Mac→VPN→Bybit за сутки (13.10 ночь, 13.10 reboot,
-  14.10 утро 07:36–08:01 МСК). На VPS свой стабильный канал, без VPN-клиента.
-- Mac больше не должен бодрствовать (крышка, зарядка, сон).
-- Ключи на VPS живут в защищённом файле с правами 600 — переживают ребут,
-  в отличие от RAM на Mac.
+- **Vultr**, Cloud Compute Regular, Amsterdam: 1 vCPU / 1 GB RAM / 25 GB SSD,
+  $5/мес (бэкапы +20% = $6/мес, опционально). Регион Amsterdam есть в
+  списке локаций Vultr. Помесячная оплата, почасовой биллинг с месячным кэпом.
+- **Hetzner — ИСКЛЮЧЁН.** Формально запрещён только майнинг, но поддержка
+  трактует запрет как «любые crypto-related приложения»; по опыту сообщества
+  торговые боты там блокируют. Не рискуем.
+- DigitalOcean AMS — запасной вариант ($6/мес за 1 GiB), шаги идентичны.
+- Contabo — не рекомендуется: агрессивный оверселлинг CPU, для торгового
+  бота, где важен стабильный цикл, лишний риск.
 
-## Провайдер
+Боту нужно ~50–80 МБ RAM; 1 GB с запасом. Python 3.12 (Ubuntu 24.04) +
+venv (PEP 668 не даёт ставить в системный pip — поэтому venv, systemd
+юнит уже настроен на `/opt/bybit-bot/venv/bin/python3`).
 
-Критерии: локация Нидерланды (Amsterdam), Ubuntu 24.04, минимум 1 GB RAM
-(боту хватает ~50 MB), оплата помесячно. Подходят: Hetzner (NB: блокирует
-трейдинг-ботов? — проверить ToS), DigitalOcean AMS, Vultr Amsterdam,
-Contabo. **Перед оплатой проверить у провайдера, разрешены ли торговые боты.**
+## Что сделано (Kimi, 18.10)
 
-## Шаги
+- `scripts/vps_setup.sh` — one-shot скрипт развёртывания: apt-пакеты,
+  системный юзер `bybitbot`, клон в `/opt/bybit-bot`, venv + pybit>=5.8,
+  runtime_state.json из example, права, интерактивный ввод ключей
+  (скрытый) в `/etc/bybit-bot.env` (600, root), systemd-юнит, UFW
+  (только SSH), unattended-upgrades, финальная проверка журнала.
+- `deploy/bybit-bot.service` — ExecStart на venv-python,
+  ReadWritePaths добавлен `runtime_state.json` (ProtectSystem=strict).
 
-1. Создать VPS (Amsterdam, Ubuntu 24.04), включить автоматические бэкапы.
-2. Закрепить IP за VPS (floating/reserved IP, чтобы API-ключ привязать к IP).
-3. На Bybit перевыпустить demo-ключ с привязкой к IP VPS (минимальные права:
-   Read/Write, только деривативы — как сейчас).
-4. Залить код: `git clone https://github.com/martinrosenfield/bybit-bot.git`
-   в `/opt/bybit-bot` (ветка main, сверить `git log` с репозиторием).
-5. `pip3 install "pybit>=5.8"` (системный pip или venv).
-6. Создать `/etc/bybit-bot.env` (права 600, владелец root):
+## Чек-лист Дмитрия (порядок важен)
 
-   ```
-   BYBIT_API_KEY=...
-   BYBIT_API_SECRET=...
-   CONFIRM_LIVE=YES
-   ```
-
-7. Установить systemd-юнит (см. `deploy/bybit-bot.service`):
-
+1. **Vultr:** регистрация → Deploy → Cloud Compute → Regular →
+   Amsterdam → Ubuntu 24.04 → $5/mo. Добавить свой SSH-ключ при создании.
+2. **Записать публичный IP** VPS из панели Vultr.
+3. **Bybit demo-кабинет:** создать **НОВУЮ** пару demo-ключей
+   (Read/Write, только деривативы) с IP-whitelist = IP VPS из шага 2.
+   Старые ключи Mac-контура **не трогать** — они продолжают работать
+   параллельно 24 ч.
+4. **SSH на VPS** и запуск:
    ```bash
-   sudo cp deploy/bybit-bot.service /etc/systemd/system/
-   sudo systemctl daemon-reload
-   sudo systemctl enable --now bybit-bot
+   curl -sSL https://raw.githubusercontent.com/martinrosenfield/bybit-bot/main/scripts/vps_setup.sh -o vps_setup.sh
+   less vps_setup.sh   # прочитать, что выполняется
+   sudo bash vps_setup.sh
    ```
-
-8. Проверки:
-   - `systemctl status bybit-bot` — active (running)
-   - `journalctl -u bybit-bot -f` — PREFLIGHT с equity ~185k, leverage x3
-   - в логе `planned_risk` на каждом входе ≤ 0,25% equity
-   - `curl -s https://api-demo.bybit.com/v5/market/time` с VPS → retCode 0
-9. Параллельная работа: Mac-экземпляр гасим ТОЛЬКО после 24 часов чистой
-   работы VPS-экземпляра (проверка каждые несколько часов по стандартному
-   блоку диагностики). Иначе оба экземпляра могут дублировать входы.
-10. Обновить STATUS_SYNC.md: миграция выполнена, Mac-контур остановлен.
+   Скрипт спросит BYBIT_API_KEY / BYBIT_API_SECRET — вставить новые
+   (ввод скрыт; история shell их не сохраняет).
+5. **Проверки** (шаг 8 скрипта выводит журнал):
+   - `systemctl is-active bybit-bot` → active
+   - `journalctl -u bybit-bot -f` → PREFLIGHT с equity ~183k, leverage x3
+   - `curl -s https://api-demo.bybit.com/v5/market/time` → retCode 0
+   - `planned_risk` на каждом входе ≤ 0,25% equity
+6. **Параллельная работа 24 ч.** Mac-экземпляр гасим ТОЛЬКО после 24 часов
+   чистой работы VPS (проверка journalctl каждые несколько часов). Иначе
+   оба экземпляра могут дублировать входы. При рестарте Mac-контура не
+   забыть: после `git pull` конфиг с диска перечитывается (дефект 17.10).
+7. Обновить STATUS_SYNC.md: миграция выполнена, Mac-контур остановлен.
 
 ## Эксплуатация после миграции
 
 - Диагностика по SSH: `journalctl -u bybit-bot --since today | tail -20`
   и `cat /opt/bybit-bot/logs/events_*.jsonl`.
-- Обновление: `git pull` + `systemctl restart bybit-bot` (аналог шага 1
-  из LAUNCH.md).
-- Автоматические обновления ОС: `unattended-upgrades` (только security).
-- Бэкапы: ежедневный `logs/` и `events_*.jsonl` через cron → rsync/object storage.
-- Уведомления о падении: простейший cron-страж (раз в 5 минут проверяет
-  systemctl is-active, при DOWN шлёт письмо через ssmtp) — до внедрения
-  полноценных Telegram-уведомлений.
+- Обновление: `cd /opt/bybit-bot && sudo -u bybitbot git pull &&
+  sudo systemctl restart bybit-bot` (~30 с простоя, Restart=always
+  поднимет процесс при падении сам).
+- Автоматические security-обновления ОС: уже включены скриптом.
+- Бэкапы: snapshots Vultr (+$1/мес) + `logs/` и `events_*.jsonl`
+  при желании через cron → rsync/object storage.
+- Уведомления о падении: cron-страж (раз в 5 минут `systemctl is-active`,
+  при DOWN — письмо через ssmtp) — до внедрения Telegram-уведомлений.
+  Не забыть: day_realized_pnl не видит серверных закрытий (issue №4) —
+  на VPS это тот же дефект, что и на Mac.
 
 ## Откат
 
 Если VPS-вариант хуже: включить Mac-контур по LAUNCH.md (шаги 2–4),
-`systemctl stop bybit-bot && systemctl disable bybit-bot`. Возврат занимает
-~10 минут, данные (журналы сделок) не теряются — они на GitHub-независимом
-диске брокера + локальные копии.
+`sudo systemctl stop bybit-bot && sudo systemctl disable bybit-bot`.
+Возврат занимает ~10 минут, данные (журналы сделок) не теряются — они на
+стороне брокера + локальные копии. Две пары ключей (Mac + VPS) позволяют
+переключаться мгновенно, без перевыпуска.
+
+## Зачем (неизменно)
+
+- Три инцидента связи Mac→VPN→Bybit за сутки (13.10 ночь, 13.10 reboot,
+  14.10 утро). На VPS свой стабильный канал, без VPN-клиента.
+- Mac больше не должен бодрствовать (крышка, зарядка, сон). Ребут 18.10
+  дал 40 мин ручного простоя.
+- Ключи на VPS живут в защищённом файле с правами 600 — переживают ребут,
+  в отличие от RAM на Mac.
