@@ -9,7 +9,7 @@ User=bybitbot
 Group=bybitbot
 WorkingDirectory=/opt/bybit-bot
 EnvironmentFile=/etc/bybit-bot.env
-ExecStart=/usr/bin/python3 /opt/bybit-bot/bybit_bot.py
+ExecStart=/opt/bybit-bot/venv/bin/python3 /opt/bybit-bot/bybit_bot.py
 Restart=always
 RestartSec=30
 # Hardening
@@ -17,7 +17,7 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=true
-ReadWritePaths=/opt/bybit-bot/logs
+ReadWritePaths=/opt/bybit-bot/logs /opt/bybit-bot/runtime_state.json
 LimitNOFILE=4096
 
 [Install]
