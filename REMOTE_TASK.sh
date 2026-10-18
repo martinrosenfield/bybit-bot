@@ -1,40 +1,60 @@
 #!/bin/bash
-# REMOTE_TASK.sh — коммит верифицированного diff Codex в main (Kimi, 18.10). Решение Дмитрия: КОММИТИТЬ.
-# Порядок: offline-тесты → (только при успехе) commit bybit_bot.py + test_trade_guards.py → push.
-# Ничего другое не коммитить. Бот НЕ перезапускать (процесс уже исполняет этот код).
+# REMOTE_TASK.sh — промежуточный статус бота (Kimi, 18.10.2026 ~14:05 МСК).
+# ТОЛЬКО ЧТЕНИЕ: процессы, свежесть логов, сделки за сегодня, ошибки, MT5.
+BOT="$HOME/Documents/ChatGPT/Трейдинг/bybit-bot"
+cd "$BOT" 2>/dev/null || { echo "!!! bot dir not found: $BOT"; exit 1; }
 
-cd "$(dirname "$0")"
+echo "--- time (локальное на Mac) ---"
+date '+%Y-%m-%d %H:%M:%S %Z'
 
-echo "=== 1. СОСТОЯНИЕ ДО ==="
-git status --short
-git log --oneline -2
+echo
+echo "--- процессы: python / bybit_bot / caffeinate ---"
+pgrep -fl python || echo "!!! python processes: none"
+ps aux | grep -iE "caffeinate|bybit_bot" | grep -v grep || echo "no caffeinate/bybit match"
 
-echo "=== 2. OFFLINE-ТЕСТЫ ==="
-T1=0; T2=0
-python3 -m unittest test_trade_guards -v 2>&1 && T1=1 || echo "ТЕСТЫ test_trade_guards НЕ ПРОШЛИ"
-python3 -m unittest test_restore_demo_bot -v 2>&1 && T2=1 || echo "ТЕСТЫ test_restore_demo_bot НЕ ПРОШЛИ (файл может отсутствовать — см. вывод)"
-
-if [ "$T1" = "1" ] && [ "$T2" = "1" ]; then
-  echo "=== 3. КОММИТ И PUSH ==="
-  git add bybit_bot.py test_trade_guards.py
-  git commit -m "Verification loop v2: tolerate transient API errors, strict reconciled_after_retry fallback with exact SL/TP checks, caffeinate sleep guard, READY event
-
-Authored by Codex on the Mac (15-16.10), reviewed by Kimi 18.10: risk parameters untouched; running PID 21853 already executes this code (ETHUSDT ENTRY 16.10 used the fallback). Tests: +14 fallback mismatch cases." \
-  && git push \
-  && echo "PUSH OK" \
-  || echo "КОММИТ/PUSH НЕ УДАЛСЯ — НИЧЕГО НЕ ПЕРЕЗАПУСКАТЬ, прислать вывод Kimi"
+echo
+echo "--- рост CPU-time (две выборки с паузой 10 c) ---"
+PID=$(pgrep -f bybit_bot.py | head -1)
+if [ -n "$PID" ]; then
+  ps -o pid,etime,%cpu,time -p "$PID"
+  sleep 10
+  echo "  ...через 10 сек..."
+  ps -o pid,etime,%cpu,time -p "$PID"
 else
-  echo "=== КОММИТ ОТМЕНЁН: тесты не прошли. ==="
+  echo "!!! bybit_bot.py НЕ ЗАПУЩЕН"
 fi
 
-echo "=== 4. СОСТОЯНИЕ ПОСЛЕ ==="
-git status --short
-git log --oneline -2
+echo
+echo "--- состояние репо и конфиг ---"
+git log --oneline -1
+grep -E '"dry_run"|"entries_paused"|"risk_per_trade"|"leverage"' config.json || true
 
-echo "=== 5. ПРОВЕРКИ ==="
-echo "--- процесс бота ---"
-ps -eo pid,lstart,time,command | grep -i "[b]ybit" || echo "ПРОЦЕСС НЕ НАЙДЕН"
-echo "--- caffeinate ---"
-pgrep -x caffeinate >/dev/null && ps -eo pid,command | grep "[c]affeinate" || echo "caffeinate НЕ НАЙДЕН"
-echo "--- хвост bot.log ---"
-tail -5 logs/bot.log 2>/dev/null
+echo
+echo "--- свежесть логов ---"
+ls -lt logs/ | head -8
+
+echo
+echo "--- bot.log, последние 30 строк ---"
+tail -30 logs/bot.log 2>/dev/null || echo "!!! bot.log отсутствует"
+
+echo
+echo "--- события за сегодня (ENTRY/закрытия) ---"
+TODAY=$(date +%Y-%m-%d)
+if [ -f "logs/events_${TODAY}.jsonl" ]; then
+  grep -E "ENTRY|EXIT|closed|TP|SL" "logs/events_${TODAY}.jsonl" | tail -25
+  echo "-- всего строк в events за сегодня: $(wc -l < "logs/events_${TODAY}.jsonl")"
+else
+  echo "нет файла events_${TODAY}.jsonl (возможно, событий ещё не было)"
+fi
+
+echo
+echo "--- ошибки в bot.log (последние 15) ---"
+grep -E "ERROR|RuntimeError|FailedRequest|403|ReadTimeout|ConnectionError" logs/bot.log 2>/dev/null | tail -15 || echo "ошибок в логе не найдено"
+
+echo
+echo "--- MT5 (wine) быстрая проверка ---"
+ps aux | grep -iE "metatrader|wine" | grep -v grep | head -5 || echo "MT5 не запущен"
+
+echo
+echo "--- аптайм / нагрузка ---"
+uptime
