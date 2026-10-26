@@ -1,8 +1,8 @@
-=== REMOTE RUN 2026-10-26 19:37:21 MSK | host: DmitryVladimirovich.local ===
+=== REMOTE RUN 2026-10-26 19:39:39 MSK | host: DmitryVladimirovich.local ===
 --- git ---
+1ecf1b4 Read central project context files
+abfaa87 remote run 10-26 19:37
 4e15c2b Prepare read-only ChatGPT folder inventory
-4640548 REMOTE_TASK: interim bot status diagnostics (read-only, 18.10)
-f4a0fe9 MIGRATION_VPS: provider decision (Vultr), setup script, checklist
  M REMOTE_OUT.txt
  M config.json
 ?? BACKTEST_COMPARISON.json
@@ -19,1303 +19,445 @@ f4a0fe9 MIGRATION_VPS: provider decision (Vultr), setup script, checklist
 ?? test_restore_demo_bot.py
 --- TASK OUTPUT ---
 ROOT: /Users/khdmvld/Documents/ChatGPT
-MODE: inventory only; no file contents
-TIME: 2026-10-26T19:37:21+03:00
-[DIR]  ГНБ/
-[DIR]  ОБМЕН Claude-ChatGPT/
-[DIR]  Сервис по возвратам/
-[DIR]  Трейдинг/
-[DIR]  авито/
-[DIR]  отказ от никотина/
-[FILE] .DS_Store	16388 bytes	2026-10-26 19:13:17 MSK
-[FILE] Контакты ГНБ — Ростов и Краснодар.xlsx	9866 bytes	2026-10-26 14:42:33 MSK
-[FILE] Образец комплекта ИД ГНБ.pdf	65891 bytes	2026-10-26 14:33:24 MSK
-[FILE] Объявление Авито — ИД ГНБ (от 5000).txt	2092 bytes	2026-10-26 14:38:13 MSK
-[FILE] Онлайн-направление — отчёт и окупаемость.docx	19515 bytes	2026-10-26 12:21:45 MSK
-[FILE] Онлайн-направление — отчёт и окупаемость.pdf	171225 bytes	2026-10-26 19:12:13 MSK
-[FILE] Продажи ИД ГНБ — тексты и план недели.docx	13789 bytes	2026-10-26 14:37:27 MSK
-[DIR]  ГНБ/output/
-[DIR]  ГНБ/tender-filter/
-[DIR]  ГНБ/tender-filter.backup-2026-10-26-до-Claude/
-[DIR]  ГНБ/tmp/
-[DIR]  ГНБ/база-подрядчиков/
-[FILE] ГНБ/.DS_Store	8196 bytes	2026-10-26 07:44:06 MSK
-[DIR]  ГНБ/output/pdf/
-[FILE] ГНБ/output/.DS_Store	8196 bytes	2026-10-26 07:44:06 MSK
-[FILE] ГНБ/output/pdf/ГНБ-1_77м_демонстрационный-комплект.pdf	162490 bytes	2026-10-26 07:20:33 MSK
-[FILE] ГНБ/output/pdf/ГНБ-1_77м_комплект-бригады_Claude.pdf	1885084 bytes	2026-10-26 07:41:45 MSK
-[FILE] ГНБ/output/pdf/ГНБ-1_77м_комплект-бригады_исправлено_Codex.pdf	1901649 bytes	2026-10-26 08:44:36 MSK
-[FILE] ГНБ/output/pdf/ГНБ-1_ориентировочные-точки.csv	1265 bytes	2026-10-26 07:20:33 MSK
-[DIR]  ГНБ/tender-filter/отбор/
-[FILE] ГНБ/tender-filter/app.js	19135 bytes	2026-10-26 08:02:39 MSK
-[FILE] ГНБ/tender-filter/eis-snapshot-2026-10-26.json	34304 bytes	2026-10-26 07:36:42 MSK
-[FILE] ГНБ/tender-filter/engine.js	11992 bytes	2026-10-26 08:13:16 MSK
-[FILE] ГНБ/tender-filter/index.html	6937 bytes	2026-10-26 08:01:48 MSK
-[FILE] ГНБ/tender-filter/preview.png	42037 bytes	2026-10-26 07:40:40 MSK
-[FILE] ГНБ/tender-filter/scan.py	10694 bytes	2026-10-26 08:13:16 MSK
-[FILE] ГНБ/tender-filter/server.py	19594 bytes	2026-10-26 08:07:38 MSK
-[FILE] ГНБ/tender-filter/style.css	7112 bytes	2026-10-26 07:31:42 MSK
-[FILE] ГНБ/tender-filter/test_engine.js	4332 bytes	2026-10-26 08:01:12 MSK
-[FILE] ГНБ/tender-filter/test_server.py	4702 bytes	2026-10-26 08:01:12 MSK
-[FILE] ГНБ/tender-filter/Запустить.command	579 bytes	2026-10-26 07:33:45 MSK
-[FILE] ГНБ/tender-filter/Отбор ЮФО.command	417 bytes	2026-10-26 08:04:12 MSK
-[FILE] ГНБ/tender-filter/ПРОЧИТАЙТЕ.md	13739 bytes	2026-10-26 08:04:12 MSK
-[FILE] ГНБ/tender-filter/отбор/отбор-2026-10-26.json	17404 bytes	2026-10-26 08:18:29 MSK
-[FILE] ГНБ/tender-filter/отбор/отбор-2026-10-26.md	5351 bytes	2026-10-26 08:18:29 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/app.js	18123 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/eis-snapshot-2026-10-26.json	34304 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/engine.js	8673 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/index.html	6955 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/preview.png	42037 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/server.py	7569 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/style.css	7112 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/test_engine.js	2905 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/test_server.py	2091 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/Запустить.command	579 bytes	2026-10-26 07:58:05 MSK
-[FILE] ГНБ/tender-filter.backup-2026-10-26-до-Claude/ПРОЧИТАЙТЕ.md	10372 bytes	2026-10-26 07:58:05 MSK
-[DIR]  ГНБ/tmp/pdfs/
-[FILE] ГНБ/tmp/pdfs/build_demo.py	16241 bytes	2026-10-26 07:20:33 MSK
-[FILE] ГНБ/tmp/pdfs/build_kit_claude.py	15467 bytes	2026-10-26 07:41:45 MSK
-[FILE] ГНБ/tmp/pdfs/build_kit_corrected.py	18403 bytes	2026-10-26 08:44:35 MSK
-[FILE] ГНБ/tmp/pdfs/check-2.png	110400 bytes	2026-10-26 07:12:46 MSK
-[FILE] ГНБ/tmp/pdfs/check-3.png	115961 bytes	2026-10-26 07:12:46 MSK
-[FILE] ГНБ/tmp/pdfs/check-4.png	134911 bytes	2026-10-26 07:12:46 MSK
-[FILE] ГНБ/tmp/pdfs/claude-2.png	205755 bytes	2026-10-26 07:46:25 MSK
-[FILE] ГНБ/tmp/pdfs/claude-3.png	191695 bytes	2026-10-26 07:46:25 MSK
-[FILE] ГНБ/tmp/pdfs/claude-4.png	189569 bytes	2026-10-26 07:46:25 MSK
-[FILE] ГНБ/tmp/pdfs/claude-review.png	505388 bytes	2026-10-26 07:46:19 MSK
-[FILE] ГНБ/tmp/pdfs/corrected-1.png	375367 bytes	2026-10-26 07:50:32 MSK
-[FILE] ГНБ/tmp/pdfs/corrected-2.png	213664 bytes	2026-10-26 07:50:07 MSK
-[FILE] ГНБ/tmp/pdfs/corrected-3.png	199413 bytes	2026-10-26 07:50:07 MSK
-[FILE] ГНБ/tmp/pdfs/corrected-4.png	225695 bytes	2026-10-26 07:50:08 MSK
-[FILE] ГНБ/tmp/pdfs/demo-check.png	274885 bytes	2026-10-26 07:16:24 MSK
-[FILE] ГНБ/tmp/pdfs/example.png	608233 bytes	2026-10-26 07:07:15 MSK
-[FILE] ГНБ/tmp/pdfs/green-detail.png	24499 bytes	2026-10-26 08:34:48 MSK
-[FILE] ГНБ/tmp/pdfs/green-junction-final.png	30540 bytes	2026-10-26 08:44:36 MSK
-[FILE] ГНБ/tmp/pdfs/green-junction.png	21329 bytes	2026-10-26 08:41:10 MSK
-[FILE] ГНБ/tmp/pdfs/grey-detail.png	26841 bytes	2026-10-26 08:34:17 MSK
-[FILE] ГНБ/tmp/pdfs/page3-final.png	178247 bytes	2026-10-26 07:20:33 MSK
-[FILE] ГНБ/tmp/pdfs/plan1.png	479856 bytes	2026-10-26 07:06:42 MSK
-[FILE] ГНБ/tmp/pdfs/plan2.png	521064 bytes	2026-10-26 07:06:43 MSK
-[FILE] ГНБ/tmp/pdfs/prepare_corrected_kit.py	9670 bytes	2026-10-26 07:49:59 MSK
-[FILE] ГНБ/tmp/pdfs/profile.png	590413 bytes	2026-10-26 07:06:41 MSK
-[FILE] ГНБ/tmp/pdfs/project-text.txt	64320 bytes	2026-10-26 07:06:33 MSK
-[FILE] ГНБ/tmp/pdfs/situation.png	57263 bytes	2026-10-26 07:12:45 MSK
-[FILE] ГНБ/база-подрядчиков/ГНБ_подрядчики_ЮФО_2026-10-25.xlsx	15927 bytes	2026-10-26 12:15:13 MSK
-[FILE] ГНБ/база-подрядчиков/база-подрядчиков-ЮФО-2026-10-25.md	4382 bytes	2026-10-26 12:15:14 MSK
-[DIR]  ОБМЕН Claude-ChatGPT/материалы/
-[DIR]  ОБМЕН Claude-ChatGPT/проекты/
-[FILE] ОБМЕН Claude-ChatGPT/.DS_Store	8196 bytes	2026-10-26 07:43:55 MSK
-[FILE] ОБМЕН Claude-ChatGPT/AGENTS.md	546 bytes	2026-10-26 07:18:59 MSK
-[FILE] ОБМЕН Claude-ChatGPT/README.md	2272 bytes	2026-10-26 19:12:26 MSK
-[FILE] ОБМЕН Claude-ChatGPT/ЖУРНАЛ.md	16232 bytes	2026-10-26 19:12:26 MSK
-[FILE] ОБМЕН Claude-ChatGPT/ЗАДАЧИ.md	424 bytes	2026-10-26 07:18:59 MSK
-[FILE] ОБМЕН Claude-ChatGPT/ПАМЯТЬ-Claude.md	12489 bytes	2026-10-26 19:12:13 MSK
-[DIR]  ОБМЕН Claude-ChatGPT/материалы/гнб/
-[DIR]  ОБМЕН Claude-ChatGPT/материалы/трейдинг/
-[FILE] ОБМЕН Claude-ChatGPT/материалы/гнб/ГНБ-1_77м_комплект-бригады_Claude.pdf	1885084 bytes	2026-10-26 07:41:45 MSK
-[FILE] ОБМЕН Claude-ChatGPT/материалы/гнб/ГНБ_подрядчики_ЮФО_2026-10-25.xlsx	15927 bytes	2026-10-26 12:14:26 MSK
-[FILE] ОБМЕН Claude-ChatGPT/материалы/гнб/база-подрядчиков-ЮФО-2026-10-25.md	4382 bytes	2026-10-26 12:14:26 MSK
-[FILE] ОБМЕН Claude-ChatGPT/материалы/гнб/отчёт-тендеры-2026-10-26.md	3810 bytes	2026-10-26 08:56:59 MSK
-[FILE] ОБМЕН Claude-ChatGPT/материалы/гнб/тексты-и-цены.md	6033 bytes	2026-10-26 07:29:24 MSK
-[FILE] ОБМЕН Claude-ChatGPT/материалы/гнб/черновики-подрядчикам-2026-10-26.md	10224 bytes	2026-10-26 08:50:00 MSK
-[FILE] ОБМЕН Claude-ChatGPT/материалы/трейдинг/funding_arb_backtest.py	2937 bytes	2026-10-26 07:22:50 MSK
-[FILE] ОБМЕН Claude-ChatGPT/материалы/трейдинг/trend_plus_funding_backtest.py	6810 bytes	2026-10-26 07:22:50 MSK
-[FILE] ОБМЕН Claude-ChatGPT/проекты/ИД-ГНБ-и-Авито.md	12954 bytes	2026-10-26 12:15:14 MSK
-[FILE] ОБМЕН Claude-ChatGPT/проекты/Сервис-возвратов.md	485 bytes	2026-10-26 07:18:59 MSK
-[FILE] ОБМЕН Claude-ChatGPT/проекты/Трейдинг.md	10355 bytes	2026-10-26 07:22:45 MSK
-[DIR]  Сервис по возвратам/.cursor/
-[DIR]  Сервис по возвратам/.stfolder/
-[DIR]  Сервис по возвратам/app/
-[DIR]  Сервис по возвратам/exports/
-[DIR]  Сервис по возвратам/research/
-[DIR]  Сервис по возвратам/sync/
-[FILE] Сервис по возвратам/.DS_Store	8196 bytes	2026-10-22 23:58:49 MSK
-[FILE] Сервис по возвратам/.stignore	36 bytes	2026-10-11 16:42:14 MSK
-[FILE] Сервис по возвратам/AGENTS.md	1637 bytes	2026-10-10 23:32:57 MSK
-[FILE] Сервис по возвратам/KIMI_HANDOFF.md	8682 bytes	2026-10-10 23:33:13 MSK
-[FILE] Сервис по возвратам/SYNC-PROTOCOL.md	2892 bytes	2026-10-10 23:40:46 MSK
-[FILE] Сервис по возвратам/auto-leads.md	56802 bytes	2026-10-23 08:14:46 MSK
-[FILE] Сервис по возвратам/lead-gen-map.md	6766 bytes	2026-10-10 10:40:51 MSK
-[FILE] Сервис по возвратам/leads.md	10318 bytes	2026-10-11 22:29:40 MSK
-[FILE] Сервис по возвратам/outreach-kit.md	10282 bytes	2026-10-10 13:42:32 MSK
-[FILE] Сервис по возвратам/product-brief.md	4969 bytes	2026-10-10 13:47:46 MSK
-[FILE] Сервис по возвратам/thread-watch.md	2711 bytes	2026-10-23 08:13:52 MSK
-[FILE] Сервис по возвратам/Концепция_MVP_сервис_защиты_продавцов.md	16327 bytes	2026-09-29 17:39:50 MSK
-[FILE] Сервис по возвратам/Протокол_ручного_пилота.md	19544 bytes	2026-09-29 17:44:42 MSK
-[FILE] Сервис по возвратам/Техническая_архитектура_MVP.md	22906 bytes	2026-09-29 18:19:04 MSK
-[FILE] Сервис по возвратам/Финансовая_модель_MVP.xlsx	30739 bytes	2026-10-02 21:43:40 MSK
-[FILE] Сервис по возвратам/Шаблоны_возражений_споры_возвраты.md	30637 bytes	2026-09-29 18:14:12 MSK
-[DIR]  Сервис по возвратам/.cursor/rules/
-[FILE] Сервис по возвратам/.cursor/rules/kimi-workflow.mdc	1052 bytes	2026-10-10 23:32:46 MSK
-[FILE] Сервис по возвратам/.stfolder/syncthing-folder-d1d72b.txt	127 bytes	2026-10-11 16:39:09 MSK
-[DIR]  Сервис по возвратам/app/api/
-[DIR]  Сервис по возвратам/app/contracts/
-[DIR]  Сервис по возвратам/app/db/
-[DIR]  Сервис по возвратам/app/dist/
-[DIR]  Сервис по возвратам/app/src/
-[FILE] Сервис по возвратам/app/.backend-features.json	144 bytes	2026-10-03 03:35:00 MSK
-[FILE] Сервис по возвратам/app/.dockerignore	35 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/.env.example	1365 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/.gitignore	462 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/.prettierignore	310 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/.prettierrc	310 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/Dockerfile	153 bytes	2026-10-03 03:48:06 MSK
-[FILE] Сервис по возвратам/app/JOINT_PROTOTYPE.md	7825 bytes	2026-10-12 10:42:17 MSK
-[FILE] Сервис по возвратам/app/README.md	2555 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/components.json	461 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/drizzle.config.ts	378 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/eslint.config.js	616 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/index.html	347 bytes	2026-10-12 07:32:44 MSK
-[FILE] Сервис по возвратам/app/info.md	1385 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/package-lock.json	400072 bytes	2026-10-12 07:33:36 MSK
-[FILE] Сервис по возвратам/app/package.json	3665 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/postcss.config.js	80 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/tailwind.config.js	2777 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/tsconfig.app.json	930 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/tsconfig.json	401 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/tsconfig.node.json	653 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/tsconfig.server.json	616 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/vite.config.ts	810 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/vitest.config.ts	489 bytes	2026-10-03 03:34:28 MSK
-[DIR]  Сервис по возвратам/app/api/kimi/
-[DIR]  Сервис по возвратам/app/api/lib/
-[DIR]  Сервис по возвратам/app/api/queries/
-[FILE] Сервис по возвратам/app/api/auth-router.ts	725 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/boot.ts	1165 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/cases-router.ts	14575 bytes	2026-10-03 03:40:24 MSK
-[FILE] Сервис по возвратам/app/api/context.ts	572 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/dashboard-router.ts	3222 bytes	2026-10-03 03:39:46 MSK
-[FILE] Сервис по возвратам/app/api/evidence-router.ts	3869 bytes	2026-10-03 03:38:12 MSK
-[FILE] Сервис по возвратам/app/api/middleware.ts	1083 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/pilot.test.ts	6276 bytes	2026-10-12 10:42:18 MSK
-[FILE] Сервис по возвратам/app/api/router.ts	579 bytes	2026-10-03 03:38:30 MSK
-[FILE] Сервис по возвратам/app/api/seller-router.ts	2586 bytes	2026-10-03 03:39:46 MSK
-[FILE] Сервис по возвратам/app/api/kimi/auth.ts	3937 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/kimi/platform.ts	712 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/kimi/session.ts	1130 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/kimi/types.ts	307 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/lib/cookies.ts	462 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/lib/env.ts	579 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/lib/http.ts	1996 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/lib/storage.ts	30675 bytes	2026-10-03 03:36:20 MSK
-[FILE] Сервис по возвратам/app/api/lib/vite.ts	742 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/queries/connection.ts	447 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/api/queries/users.ts	858 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/contracts/constants.ts	335 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/contracts/errors.ts	501 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/contracts/types.ts	61 bytes	2026-10-03 03:34:28 MSK
-[DIR]  Сервис по возвратам/app/db/migrations/
-[FILE] Сервис по возвратам/app/db/relations.ts	27 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/db/schema.ts	7655 bytes	2026-10-03 03:36:10 MSK
-[FILE] Сервис по возвратам/app/db/seed.ts	9761 bytes	2026-10-03 03:39:04 MSK
-[FILE] Сервис по возвратам/app/db/migrations/.gitkeep	0 bytes	2026-10-03 03:34:28 MSK
-[DIR]  Сервис по возвратам/app/dist/public/
-[FILE] Сервис по возвратам/app/dist/boot.js	2463965 bytes	2026-10-12 10:42:24 MSK
-[DIR]  Сервис по возвратам/app/dist/public/assets/
-[FILE] Сервис по возвратам/app/dist/public/index.html	445 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/Accounts-BlMDLSt2.js	8924 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/AuthLayout-Cvar10jG.js	116029 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/CaseDetail-Bu79xKl5.js	18760 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/CasesList-BdXax9dp.js	7451 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/Dashboard-T4_hRm93.js	8272 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/Home-B959Y-Vr.js	12593 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/Login-BzjooV8j.js	1043 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/Model-B7ntjsud.js	62483 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/NotFound-D-ELun6h.js	925 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/Templates--HYAvEJn.js	2394 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/arrow-right-BxLNkIRn.js	166 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/badge-JkckPWC5.js	1226 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/card-BfmRwgdX.js	30803 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/circle-check-BP_cnofA.js	174 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/generateCategoricalChart-Bj0tAa3M.js	381942 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/index-BY5TY1Nz.css	96840 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/index-Ba2-40Q2.js	386268 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/index-BsGriBAj.js	7349 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/index-Cq1ywcTT.js	292 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/input-Cl13r7NT.js	880 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/scale-cTqxzdG4.js	333 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/select-C4w8f4SL.js	23842 bytes	2026-10-12 10:42:24 MSK
-[FILE] Сервис по возвратам/app/dist/public/assets/trash-2-VHkdnj7g.js	329 bytes	2026-10-12 10:42:24 MSK
-[DIR]  Сервис по возвратам/app/src/components/
-[DIR]  Сервис по возвратам/app/src/hooks/
-[DIR]  Сервис по возвратам/app/src/lib/
-[DIR]  Сервис по возвратам/app/src/pages/
-[DIR]  Сервис по возвратам/app/src/providers/
-[FILE] Сервис по возвратам/app/src/App.css	606 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/App.tsx	1506 bytes	2026-10-12 07:34:18 MSK
-[FILE] Сервис по возвратам/app/src/const.ts	36 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/src/index.css	2118 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/main.tsx	411 bytes	2026-10-03 03:35:00 MSK
-[DIR]  Сервис по возвратам/app/src/components/ui/
-[FILE] Сервис по возвратам/app/src/components/AuthLayout.tsx	9344 bytes	2026-10-03 03:45:12 MSK
-[FILE] Сервис по возвратам/app/src/components/AuthLayoutSkeleton.tsx	1618 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/accordion.tsx	2039 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/alert-dialog.tsx	3850 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/alert.tsx	1614 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/aspect-ratio.tsx	280 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/avatar.tsx	1083 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/badge.tsx	1633 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/breadcrumb.tsx	2357 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/button-group.tsx	2209 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/button.tsx	2218 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/calendar.tsx	7793 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/card.tsx	1987 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/carousel.tsx	5542 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/chart.tsx	10069 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/checkbox.tsx	1219 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/collapsible.tsx	786 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/command.tsx	4804 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/context-menu.tsx	8274 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/dialog.tsx	3981 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/drawer.tsx	4255 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/dropdown-menu.tsx	8410 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/empty.tsx	2396 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/field.tsx	6145 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/form.tsx	3764 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/hover-card.tsx	1532 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/input-group.tsx	5065 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/input-otp.tsx	2240 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/input.tsx	962 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/item.tsx	4494 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/kbd.tsx	862 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/label.tsx	611 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/menubar.tsx	8380 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/navigation-menu.tsx	6664 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/pagination.tsx	2717 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/popover.tsx	1635 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/progress.tsx	726 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/radio-group.tsx	1466 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/resizable.tsx	1980 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/scroll-area.tsx	1645 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/select.tsx	6344 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/separator.tsx	699 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/sheet.tsx	4076 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/sidebar.tsx	21638 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/skeleton.tsx	276 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/slider.tsx	1996 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/sonner.tsx	1020 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/spinner.tsx	331 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/switch.tsx	1177 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/table.tsx	2434 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/tabs.tsx	1969 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/textarea.tsx	759 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/toggle-group.tsx	2300 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/toggle.tsx	1556 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/components/ui/tooltip.tsx	1892 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/hooks/use-mobile.ts	565 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/hooks/useAuth.ts	1471 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/src/lib/labels.ts	2486 bytes	2026-10-03 03:42:14 MSK
-[FILE] Сервис по возвратам/app/src/lib/model.ts	6218 bytes	2026-10-03 03:22:52 MSK
-[FILE] Сервис по возвратам/app/src/lib/pilot-storage.ts	1331 bytes	2026-10-12 10:42:18 MSK
-[FILE] Сервис по возвратам/app/src/lib/pilot.ts	13431 bytes	2026-10-12 10:42:18 MSK
-[FILE] Сервис по возвратам/app/src/lib/utils.ts	166 bytes	2026-10-03 03:21:22 MSK
-[FILE] Сервис по возвратам/app/src/pages/Accounts.tsx	6034 bytes	2026-10-03 03:46:18 MSK
-[FILE] Сервис по возвратам/app/src/pages/CaseDetail.tsx	17002 bytes	2026-10-03 03:46:18 MSK
-[FILE] Сервис по возвратам/app/src/pages/CasesList.tsx	5408 bytes	2026-10-03 03:45:48 MSK
-[FILE] Сервис по возвратам/app/src/pages/Dashboard.tsx	6633 bytes	2026-10-03 03:42:42 MSK
-[FILE] Сервис по возвратам/app/src/pages/Home.tsx	9999 bytes	2026-10-03 03:45:48 MSK
-[FILE] Сервис по возвратам/app/src/pages/JointPilot.tsx	39918 bytes	2026-10-12 10:42:18 MSK
-[FILE] Сервис по возвратам/app/src/pages/Login.tsx	1253 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/src/pages/Model.tsx	18193 bytes	2026-10-03 03:41:10 MSK
-[FILE] Сервис по возвратам/app/src/pages/NotFound.tsx	724 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/app/src/pages/PilotProcess.tsx	16018 bytes	2026-10-12 10:42:18 MSK
-[FILE] Сервис по возвратам/app/src/pages/PilotReferences.tsx	2999 bytes	2026-10-12 10:42:18 MSK
-[FILE] Сервис по возвратам/app/src/pages/Templates.tsx	2041 bytes	2026-10-03 03:44:54 MSK
-[FILE] Сервис по возвратам/app/src/pages/joint-pilot.css	14396 bytes	2026-10-12 10:42:18 MSK
-[FILE] Сервис по возвратам/app/src/providers/trpc.tsx	954 bytes	2026-10-03 03:34:28 MSK
-[FILE] Сервис по возвратам/exports/CLAUDE_READ_FIRST.md	3635 bytes	2026-10-22 06:15:25 MSK
-[FILE] Сервис по возвратам/exports/VOZVRATOV_CLAUDE_2026-10-22.zip	750289 bytes	2026-10-22 06:15:25 MSK
-[FILE] Сервис по возвратам/research/returns-disputes-2026-10-12.md	10758 bytes	2026-10-12 08:07:12 MSK
-[DIR]  Сервис по возвратам/sync/backups/
-[DIR]  Сервис по возвратам/sync/inbox/
-[DIR]  Сервис по возвратам/sync/kimi/
-[DIR]  Сервис по возвратам/sync/outbox/
-[FILE] Сервис по возвратам/sync/DECISIONS.md	4418 bytes	2026-10-12 10:44:58 MSK
-[FILE] Сервис по возвратам/sync/README.md	3409 bytes	2026-10-10 23:42:34 MSK
-[FILE] Сервис по возвратам/sync/TASKS.md	16064 bytes	2026-10-22 06:15:25 MSK
-[FILE] Сервис по возвратам/sync/WORKFLOW.md	7590 bytes	2026-10-10 23:40:46 MSK
-[FILE] Сервис по возвратам/sync/manifest.json	4396 bytes	2026-10-12 10:44:58 MSK
-[FILE] Сервис по возвратам/sync/share_project.py	2666 bytes	2026-10-10 23:40:09 MSK
-[FILE] Сервис по возвратам/sync/shared-project.json	323 bytes	2026-10-10 23:40:19 MSK
-[FILE] Сервис по возвратам/sync/visibility-probe.txt	463 bytes	2026-10-10 23:41:43 MSK
-[FILE] Сервис по возвратам/sync/backups/JOINT-007-original.zip	86732 bytes	2026-10-12 07:37:32 MSK
-[FILE] Сервис по возвратам/sync/backups/PROCESS-011-original.zip	44964 bytes	2026-10-12 08:10:22 MSK
-[FILE] Сервис по возвратам/sync/inbox/KIMI_ACK_001.md	5209 bytes	2026-10-10 23:36:10 MSK
-[FILE] Сервис по возвратам/sync/inbox/KIMI_ACK_002.md	3014 bytes	2026-10-10 23:41:54 MSK
-[FILE] Сервис по возвратам/sync/inbox/KIMI_ACK_004.md	3093 bytes	2026-10-11 00:01:41 MSK
-[FILE] Сервис по возвратам/sync/inbox/KIMI_ACK_011.md	7842 bytes	2026-10-13 07:45:29 MSK
-[FILE] Сервис по возвратам/sync/inbox/KIMI_HANDOFF_001.md	8682 bytes	2026-10-10 23:33:13 MSK
-[LINK] Сервис по возвратам/sync/kimi/auto-leads.md	80 bytes	2026-10-10 23:34:28 MSK
-[LINK] Сервис по возвратам/sync/kimi/lead-gen-map.md	82 bytes	2026-10-10 23:34:28 MSK
-[LINK] Сервис по возвратам/sync/kimi/leads.md	75 bytes	2026-10-10 23:34:28 MSK
-[LINK] Сервис по возвратам/sync/kimi/outreach-kit.md	82 bytes	2026-10-10 23:34:28 MSK
-[LINK] Сервис по возвратам/sync/kimi/product-brief.md	83 bytes	2026-10-10 23:34:28 MSK
-[DIR]  Сервис по возвратам/sync/outbox/evidence/
-[FILE] Сервис по возвратам/sync/outbox/CODEX_COMMENT_WATCH_005.md	3404 bytes	2026-10-11 15:10:01 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_DELIVERY_CHECK_012.md	1424 bytes	2026-10-13 07:40:20 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_EXPORT_019.md	1036 bytes	2026-10-22 06:15:25 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_FORUM_SEARCH_006.md	6949 bytes	2026-10-11 08:15:26 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_HANDOFF_001.md	2505 bytes	2026-10-10 23:32:46 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_JOINT_007.md	3877 bytes	2026-10-12 07:37:44 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_KIMI_PING_013.md	1502 bytes	2026-10-13 07:44:33 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_OUTREACH_004.md	6464 bytes	2026-10-11 00:01:57 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_OUTREACH_015.md	2900 bytes	2026-10-14 09:31:18 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_OUTREACH_016.md	3731 bytes	2026-10-14 15:33:03 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_PLATFORMS_009.md	4447 bytes	2026-10-12 07:25:30 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_PROCESS_011.md	4733 bytes	2026-10-12 10:44:58 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_QUESTIONS_014.md	6850 bytes	2026-10-13 10:12:54 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_RECEIPT_001.md	1839 bytes	2026-10-10 23:36:56 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_RECEIPT_002.md	1033 bytes	2026-10-10 23:42:34 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_RESEARCH_010.md	1833 bytes	2026-10-12 08:07:12 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_REVIEW_003.md	2840 bytes	2026-10-10 23:50:27 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_WATCH_017.md	3085 bytes	2026-10-14 23:32:30 MSK
-[FILE] Сервис по возвратам/sync/outbox/CODEX_WATCH_018.md	2310 bytes	2026-10-16 14:42:13 MSK
-[FILE] Сервис по возвратам/sync/outbox/JOINT-007-files.json	12827 bytes	2026-10-12 07:37:44 MSK
-[FILE] Сервис по возвратам/sync/outbox/KIMI_OUTREACH_007.md	3406 bytes	2026-10-11 10:20:53 MSK
-[FILE] Сервис по возвратам/sync/outbox/KIMI_OUTREACH_008.md	2929 bytes	2026-10-11 22:30:03 MSK
-[FILE] Сервис по возвратам/sync/outbox/comment-watch-9864450.json	1264 bytes	2026-10-17 17:44:52 MSK
-[FILE] Сервис по возвратам/sync/outbox/outreach-014-replies.json	1794 bytes	2026-10-17 17:44:52 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/2026-10-11_vc_fastrocket_comment_9864625.jpg	16530 bytes	2026-10-11 08:55:58 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/2026-10-12_vc_fastrocket_evening_check.jpg	29756 bytes	2026-10-12 20:02:34 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/2026-10-12_vc_fastrocket_thread_check.jpg	32417 bytes	2026-10-12 08:05:04 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/2026-10-13_vc_fastrocket_thread_check.jpg	58953 bytes	2026-10-13 08:03:20 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/CODEX_OUTREACH_004_kimi-notified.png	506298 bytes	2026-10-11 00:01:40 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/CODEX_OUTREACH_004_vc-comment-9864450.jpg	65667 bytes	2026-10-10 23:57:10 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/JOINT-007-desktop.png	181143 bytes	2026-10-12 07:37:08 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/JOINT-007-mobile.png	169751 bytes	2026-10-12 07:37:09 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/OUTREACH-014-followup-9868796-reply-9868799.png	88179 bytes	2026-10-13 10:12:18 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/OUTREACH-014-question-9868758.png	83454 bytes	2026-10-13 09:53:47 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/OUTREACH-014-tatiana-reply-9868762.png	46245 bytes	2026-10-13 09:53:01 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/OUTREACH-016-offer-9871705.png	94047 bytes	2026-10-14 15:32:20 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/PROCESS-011-desktop.jpg	62528 bytes	2026-10-12 10:43:44 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/PROCESS-011-mobile.jpg	34628 bytes	2026-10-12 10:40:21 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/WATCH-018-2026-10-16.json	7393 bytes	2026-10-16 14:42:13 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/automation-3-latest-check.json	7149 bytes	2026-10-17 17:44:52 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/oborot-post-2026-10-11.jpg	232826 bytes	2026-10-11 22:26:55 MSK
-[FILE] Сервис по возвратам/sync/outbox/evidence/oborot-post-i50811-2026-10-11.jpg	39031 bytes	2026-10-11 22:29:20 MSK
-[DIR]  Трейдинг/.mt5-control/
-[DIR]  Трейдинг/analysis/
-[DIR]  Трейдинг/bybit-bot/
-[DIR]  Трейдинг/bybit_bot/
-[DIR]  Трейдинг/exports/
-[DIR]  Трейдинг/tradingagents-observer/
-[FILE] Трейдинг/.DS_Store	10244 bytes	2026-10-25 12:12:39 MSK
-[FILE] Трейдинг/.gitignore	27 bytes	2026-10-12 07:35:21 MSK
-[FILE] Трейдинг/BYBIT_MONITOR_STATE.json	118334 bytes	2026-10-21 07:59:34 MSK
-[FILE] Трейдинг/BYBIT_PUBLIC_CHECK.json	3343 bytes	2026-10-12 17:09:18 MSK
-[FILE] Трейдинг/BYBIT_RESTORE_CLOSE_CHECK.json	233 bytes	2026-10-14 07:25:03 MSK
-[FILE] Трейдинг/BYBIT_RESTORE_HISTORY.json	494 bytes	2026-10-14 07:19:44 MSK
-[FILE] Трейдинг/BYBIT_SETUP_STATUS.md	41178 bytes	2026-10-19 19:16:56 MSK
-[FILE] Трейдинг/BYBIT_SIGNAL_CHECK.json	1513 bytes	2026-10-12 17:13:53 MSK
-[FILE] Трейдинг/DemoInstrumentCatalog.mq5	1555 bytes	2026-10-12 16:41:39 MSK
-[FILE] Трейдинг/DemoRoundTrip.mq5	4993 bytes	2026-10-12 07:41:15 MSK
-[FILE] Трейдинг/DemoStatusReport.mq5	1756 bytes	2026-10-12 07:52:27 MSK
-[FILE] Трейдинг/MT5_INSTRUMENT_CHECK.json	10809 bytes	2026-10-12 16:45:20 MSK
-[FILE] Трейдинг/MT5_MONITOR_STATE.json	6270 bytes	2026-10-21 07:59:25 MSK
-[FILE] Трейдинг/MT5_PROBE_RESULT.json	1421 bytes	2026-10-12 07:55:03 MSK
-[FILE] Трейдинг/MT5_STATUS.md	10109 bytes	2026-10-15 19:00:48 MSK
-[FILE] Трейдинг/RESTORE_SERVICE.log	4556 bytes	2026-10-13 22:07:18 MSK
-[FILE] Трейдинг/TRADING_CHAT_SYNC_STATE.json	4970 bytes	2026-10-16 06:24:40 MSK
-[FILE] Трейдинг/TRADING_SYNC.md	41721 bytes	2026-10-19 19:16:56 MSK
-[FILE] Трейдинг/bybit_public_check.py	3209 bytes	2026-10-12 17:13:45 MSK
-[FILE] Трейдинг/msedgewebview2.dxvk-cache	681 bytes	2026-10-12 07:35:56 MSK
-[FILE] Трейдинг/mt5_local_control.py	4687 bytes	2026-10-12 07:36:50 MSK
-[FILE] Трейдинг/settings.dat	280 bytes	2026-10-12 07:35:54 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/
-[DIR]  Трейдинг/.mt5-control/Tester/
-[DIR]  Трейдинг/.mt5-control/bases/
-[DIR]  Трейдинг/.mt5-control/config/
-[DIR]  Трейдинг/.mt5-control/llm-agent/
-[DIR]  Трейдинг/.mt5-control/logs/
-[DIR]  Трейдинг/.mt5-control/temp/
-[FILE] Трейдинг/.mt5-control/catalog.ini	1424 bytes	2026-10-12 16:38:27 MSK
-[FILE] Трейдинг/.mt5-control/metaeditor64.exe	116096896 bytes	2026-10-12 07:21:20 MSK
-[FILE] Трейдинг/.mt5-control/probe.ini	1408 bytes	2026-10-12 07:39:11 MSK
-[FILE] Трейдинг/.mt5-control/report.ini	1414 bytes	2026-10-12 07:52:27 MSK
-[FILE] Трейдинг/.mt5-control/terminal64.exe	132971952 bytes	2026-10-12 07:21:20 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/Experts/
-[DIR]  Трейдинг/.mt5-control/MQL5/Files/
-[DIR]  Трейдинг/.mt5-control/MQL5/Images/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/
-[DIR]  Трейдинг/.mt5-control/MQL5/Indicators/
-[DIR]  Трейдинг/.mt5-control/MQL5/Libraries/
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/
-[DIR]  Трейдинг/.mt5-control/MQL5/Scripts/
-[DIR]  Трейдинг/.mt5-control/MQL5/Services/
-[DIR]  Трейдинг/.mt5-control/MQL5/logs/
-[FILE] Трейдинг/.mt5-control/MQL5/experts.dat	75070 bytes	2026-10-13 22:11:42 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/Experts/Advisors/
-[DIR]  Трейдинг/.mt5-control/MQL5/Experts/Examples/
-[DIR]  Трейдинг/.mt5-control/MQL5/Experts/Free Robots/
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMACD.ex5	142630 bytes	2026-10-12 07:37:13 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMACD.mq5	6074 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMAMA.ex5	149856 bytes	2026-10-12 07:37:13 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMAMA.mq5	6427 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMAPSAR.ex5	149748 bytes	2026-10-12 07:37:14 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMAPSAR.mq5	6342 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMAPSARSizeOptimized.ex5	154484 bytes	2026-10-12 07:37:15 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Advisors/ExpertMAPSARSizeOptimized.mq5	6710 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers CCI.ex5	47348 bytes	2026-10-12 07:37:20 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers CCI.mq5	23577 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers MFI.ex5	45218 bytes	2026-10-12 07:37:20 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers MFI.mq5	23582 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers RSI.ex5	47328 bytes	2026-10-12 07:37:20 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers RSI.mq5	23595 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers Stoch.ex5	46746 bytes	2026-10-12 07:37:21 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BlackCrows WhiteSoldiers Stoch.mq5	24062 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing CCI.ex5	46926 bytes	2026-10-12 07:37:21 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing CCI.mq5	25070 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing MFI.ex5	46266 bytes	2026-10-12 07:37:21 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing MFI.mq5	25066 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing RSI.ex5	46854 bytes	2026-10-12 07:37:21 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing RSI.mq5	25064 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing Stoch.ex5	47912 bytes	2026-10-12 07:37:22 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Engulfing Stoch.mq5	25559 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami CCI.ex5	47376 bytes	2026-10-12 07:37:22 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami CCI.mq5	25144 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami MFI.ex5	47112 bytes	2026-10-12 07:37:23 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami MFI.mq5	25140 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami RSI.ex5	48204 bytes	2026-10-12 07:37:23 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami RSI.mq5	25138 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami Stoch.ex5	47070 bytes	2026-10-12 07:37:23 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish Harami Stoch.mq5	25599 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines CCI.ex5	46076 bytes	2026-10-12 07:37:23 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines CCI.mq5	23595 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines MFI.ex5	45340 bytes	2026-10-12 07:37:24 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines MFI.mq5	23591 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines RSI.ex5	46662 bytes	2026-10-12 07:37:24 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines RSI.mq5	23595 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines Stoch.ex5	47956 bytes	2026-10-12 07:37:25 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/BullishBearish MeetingLines Stoch.mq5	24047 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine CCI.ex5	46916 bytes	2026-10-12 07:37:25 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine CCI.mq5	25013 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine MFI.ex5	46198 bytes	2026-10-12 07:37:25 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine MFI.mq5	25012 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine RSI.ex5	47358 bytes	2026-10-12 07:37:26 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine RSI.mq5	25013 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine Stoch.ex5	47848 bytes	2026-10-12 07:37:26 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/DarkCloud PiercingLine Stoch.mq5	25492 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer CCI.ex5	47036 bytes	2026-10-12 07:37:26 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer CCI.mq5	24583 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer MFI.ex5	45942 bytes	2026-10-12 07:37:27 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer MFI.mq5	24583 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer RSI.ex5	47354 bytes	2026-10-12 07:37:27 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer RSI.mq5	24592 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer Stoch.ex5	47698 bytes	2026-10-12 07:37:27 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/HangingMan Hammer Stoch.mq5	25084 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji CCI.ex5	47156 bytes	2026-10-12 07:37:28 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji CCI.mq5	26197 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji MFI.ex5	46466 bytes	2026-10-12 07:37:28 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji MFI.mq5	26170 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji RSI.ex5	47000 bytes	2026-10-12 07:37:28 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji RSI.mq5	26192 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji Stoch.ex5	47778 bytes	2026-10-12 07:37:29 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Experts/Free Robots/MorningEvening StarDoji Stoch.mq5	26665 bytes	2026-10-12 07:35:43 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/Files/Temp/
-[FILE] Трейдинг/.mt5-control/MQL5/Files/DemoRoundTrip_2610120739.attempted	96 bytes	2026-10-12 07:43:16 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Files/instrument_catalog.csv	1124655 bytes	2026-10-12 16:39:40 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Files/instrument_catalog_all.csv	1237050 bytes	2026-10-12 16:44:10 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Images/dollar.bmp	4152 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Images/euro.bmp	4152 bytes	2026-10-12 07:35:43 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Arrays/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Canvas/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/ChartObjects/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Charts/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Controls/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Expert/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Files/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Generic/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Graphics/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Indicators/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Math/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/OpenCL/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Strings/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Tools/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/Trade/
-[DIR]  Трейдинг/.mt5-control/MQL5/Include/WinAPI/
-[FILE] Трейдинг/.mt5-control/MQL5/Include/MovingAverages.mqh	10737 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Object.mqh	2036 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/StdLibErr.mqh	683 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/VirtualKeys.mqh	5755 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/Array.mqh	6965 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayChar.mqh	24826 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayColor.mqh	24841 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayDatetime.mqh	25106 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayDouble.mqh	25433 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayFloat.mqh	25358 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayInt.mqh	24704 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayLong.mqh	24776 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayObj.mqh	25319 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayShort.mqh	24921 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayString.mqh	25106 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayUChar.mqh	24915 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayUInt.mqh	24792 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayULong.mqh	24865 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/ArrayUShort.mqh	25009 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/List.mqh	21080 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/Tree.mqh	14241 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Arrays/TreeNode.mqh	6801 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Canvas/Canvas.mqh	156459 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Canvas/Canvas3D.mqh	17325 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Canvas/FlameCanvas.mqh	27042 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObject.mqh	41365 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectPanel.mqh	8273 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectSubChart.mqh	17330 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsArrows.mqh	23807 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsBmpControls.mqh	21277 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsChannels.mqh	11883 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsElliott.mqh	9567 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsFibo.mqh	17506 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsGann.mqh	17095 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsLines.mqh	15506 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsShapes.mqh	7288 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/ChartObjects/ChartObjectsTxtControls.mqh	38305 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Charts/Chart.mqh	63640 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/BmpButton.mqh	11454 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Button.mqh	6887 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/CheckBox.mqh	7677 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/CheckGroup.mqh	14034 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/ComboBox.mqh	13397 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/DateDropList.mqh	15174 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/DatePicker.mqh	10702 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Defines.mqh	12589 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Dialog.mqh	38896 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Edit.mqh	8938 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Label.mqh	4309 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/ListView.mqh	20085 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Panel.mqh	5871 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Picture.mqh	5602 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/RadioButton.mqh	6989 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/RadioGroup.mqh	13444 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Rect.mqh	11086 bytes	2026-10-12 07:35:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Scrolls.mqh	26733 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/SpinEdit.mqh	10338 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/Wnd.mqh	30356 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/WndClient.mqh	12237 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/WndContainer.mqh	16382 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Controls/WndObj.mqh	10629 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Expert/Expert.mqh	61291 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Expert/ExpertBase.mqh	27603 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Expert/ExpertMoney.mqh	4963 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Expert/ExpertSignal.mqh	20246 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Expert/ExpertTrade.mqh	6502 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Expert/ExpertTrailing.mqh	1738 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Files/File.mqh	12206 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Files/FileBMP.mqh	6995 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Files/FileBin.mqh	20944 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Files/FilePipe.mqh	12882 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Files/FileTxt.mqh	2825 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/ArrayList.mqh	25191 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/HashMap.mqh	25714 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/HashSet.mqh	37086 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/LinkedList.mqh	21261 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/Queue.mqh	14906 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/RedBlackTree.mqh	37408 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/SortedMap.mqh	14431 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/SortedSet.mqh	25573 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Generic/Stack.mqh	8953 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Graphics/Axis.mqh	12581 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Graphics/ColorGenerator.mqh	3120 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Graphics/Curve.mqh	22801 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Graphics/Graphic.mqh	86562 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/BillWilliams.mqh	33009 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/Custom.mqh	8168 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/Indicator.mqh	19825 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/Indicators.mqh	12252 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/Oscilators.mqh	73859 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/Series.mqh	12629 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/TimeSeries.mqh	63360 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/Trend.mqh	73766 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Indicators/Volumes.mqh	17740 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/OpenCL/OpenCL.mqh	28662 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Strings/String.mqh	13847 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Tools/DateTime.mqh	17883 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/AccountInfo.mqh	18130 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/DealInfo.mqh	16313 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/HistoryOrderInfo.mqh	20018 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/OrderInfo.mqh	22087 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/PositionInfo.mqh	15820 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/SymbolInfo.mqh	35851 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/TerminalInfo.mqh	10730 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/Trade/Trade.mqh	69541 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/errhandlingapi.mqh	1933 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/fileapi.mqh	9487 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/handleapi.mqh	1165 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/libloaderapi.mqh	2952 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/memoryapi.mqh	5838 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/processenv.mqh	1589 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/processthreadsapi.mqh	10250 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/securitybaseapi.mqh	16588 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/sysinfoapi.mqh	4827 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/winapi.mqh	827 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/winbase.mqh	44329 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/windef.mqh	8839 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/wingdi.mqh	64995 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/winnt.mqh	97680 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/winreg.mqh	6133 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Include/WinAPI/winuser.mqh	82945 bytes	2026-10-12 07:35:44 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/Indicators/Examples/
-[DIR]  Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/AD.ex5	8402 bytes	2026-10-12 07:37:29 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/AD.mq5	3375 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ADX.ex5	14420 bytes	2026-10-12 07:37:29 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ADX.mq5	5609 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ADXW.ex5	15252 bytes	2026-10-12 07:37:29 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ADXW.mq5	6836 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/AMA.ex5	11966 bytes	2026-10-12 07:37:30 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/AMA.mq5	5035 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ASI.ex5	9820 bytes	2026-10-12 07:37:30 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ASI.mq5	4129 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ATR.ex5	9892 bytes	2026-10-12 07:37:30 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ATR.mq5	3880 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Accelerator.ex5	10126 bytes	2026-10-12 07:37:29 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Accelerator.mq5	5306 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Alligator.ex5	16584 bytes	2026-10-12 07:37:30 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Alligator.mq5	6064 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Awesome_Oscillator.ex5	10088 bytes	2026-10-12 07:37:30 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Awesome_Oscillator.mq5	4591 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/BB.ex5	14890 bytes	2026-10-12 07:37:31 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/BB.mq5	5817 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/BW-ZoneTrade.ex5	10018 bytes	2026-10-12 07:37:31 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/BW-ZoneTrade.mq5	5020 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Bears.ex5	10562 bytes	2026-10-12 07:37:31 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Bears.mq5	3688 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Bulls.ex5	9794 bytes	2026-10-12 07:37:31 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Bulls.mq5	3693 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/CCI.ex5	11230 bytes	2026-10-12 07:37:32 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/CCI.mq5	3641 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/CHO.ex5	17832 bytes	2026-10-12 07:37:32 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/CHO.mq5	5356 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/CHV.ex5	17534 bytes	2026-10-12 07:37:32 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/CHV.mq5	4440 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ColorBars.ex5	8346 bytes	2026-10-12 07:37:32 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ColorBars.mq5	3059 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ColorCandlesDaily.ex5	9164 bytes	2026-10-12 07:37:33 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ColorCandlesDaily.mq5	3136 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ColorLine.ex5	8212 bytes	2026-10-12 07:37:33 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ColorLine.mq5	5175 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Custom Moving Average.ex5	15010 bytes	2026-10-12 07:37:33 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Custom Moving Average.mq5	7326 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/DEMA.ex5	11092 bytes	2026-10-12 07:37:33 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/DEMA.mq5	2940 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/DPO.ex5	11206 bytes	2026-10-12 07:37:34 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/DPO.mq5	2876 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/DeMarker.ex5	12046 bytes	2026-10-12 07:37:33 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/DeMarker.mq5	4177 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Envelopes.ex5	15042 bytes	2026-10-12 07:37:34 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Envelopes.mq5	4337 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Force_Index.ex5	12980 bytes	2026-10-12 07:37:34 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Force_Index.mq5	3927 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/FrAMA.ex5	10756 bytes	2026-10-12 07:37:35 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/FrAMA.mq5	3675 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Fractals.ex5	9048 bytes	2026-10-12 07:37:34 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Fractals.mq5	3424 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Gator.ex5	17498 bytes	2026-10-12 07:37:35 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Gator.mq5	10247 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Gator_2.ex5	16210 bytes	2026-10-12 07:37:35 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Gator_2.mq5	9877 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Heiken_Ashi.ex5	8328 bytes	2026-10-12 07:37:35 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Heiken_Ashi.mq5	3733 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Ichimoku.ex5	14762 bytes	2026-10-12 07:37:35 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Ichimoku.mq5	5204 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MACD.ex5	14910 bytes	2026-10-12 07:37:36 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MACD.mq5	4901 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MFI.ex5	12268 bytes	2026-10-12 07:37:36 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MFI.mq5	4823 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MI.ex5	15860 bytes	2026-10-12 07:37:36 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MI.mq5	4876 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MarketFacilitationIndex.ex5	10606 bytes	2026-10-12 07:37:36 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/MarketFacilitationIndex.mq5	5003 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Momentum.ex5	10284 bytes	2026-10-12 07:37:37 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Momentum.mq5	2870 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/OBV.ex5	10058 bytes	2026-10-12 07:37:37 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/OBV.mq5	3410 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/OsMA.ex5	15478 bytes	2026-10-12 07:37:37 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/OsMA.mq5	5177 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/PVT.ex5	9892 bytes	2026-10-12 07:37:39 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/PVT.mq5	3309 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ParabolicSAR.ex5	12420 bytes	2026-10-12 07:37:38 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ParabolicSAR.mq5	7056 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Price_Channel.ex5	10022 bytes	2026-10-12 07:37:39 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Price_Channel.mq5	4521 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ROC.ex5	10364 bytes	2026-10-12 07:37:39 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ROC.mq5	2682 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/RSI.ex5	12972 bytes	2026-10-12 07:37:39 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/RSI.mq5	4453 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/RVI.ex5	12396 bytes	2026-10-12 07:37:39 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/RVI.mq5	4258 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/StdDev.ex5	14606 bytes	2026-10-12 07:37:40 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/StdDev.mq5	5185 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Stochastic.ex5	13172 bytes	2026-10-12 07:37:40 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Stochastic.mq5	4996 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/TEMA.ex5	12008 bytes	2026-10-12 07:37:40 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/TEMA.mq5	3236 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/TRIX.ex5	11928 bytes	2026-10-12 07:37:40 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/TRIX.mq5	3343 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Ultimate_Oscillator.ex5	14030 bytes	2026-10-12 07:37:41 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Ultimate_Oscillator.mq5	6907 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/VIDYA.ex5	11004 bytes	2026-10-12 07:37:41 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/VIDYA.mq5	3799 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/VROC.ex5	11616 bytes	2026-10-12 07:37:41 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/VROC.mq5	3968 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Volumes.ex5	8890 bytes	2026-10-12 07:37:41 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/Volumes.mq5	3368 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/WPR.ex5	10966 bytes	2026-10-12 07:37:42 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/WPR.mq5	4246 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/W_AD.ex5	7806 bytes	2026-10-12 07:37:42 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/W_AD.mq5	3381 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ZigZag.ex5	14712 bytes	2026-10-12 07:37:42 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ZigZag.mq5	9409 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ZigzagColor.ex5	14364 bytes	2026-10-12 07:37:42 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Examples/ZigzagColor.mq5	9567 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Camarilla Channel.ex5	20048 bytes	2026-10-12 07:37:42 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Camarilla Channel.mq5	10647 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/DeMark Channel.ex5	15254 bytes	2026-10-12 07:37:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/DeMark Channel.mq5	8529 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Donchian Channel.ex5	14158 bytes	2026-10-12 07:37:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Donchian Channel.mq5	7172 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Fibonacci Channel.ex5	20674 bytes	2026-10-12 07:37:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Fibonacci Channel.mq5	11225 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Keltner Channel.ex5	16838 bytes	2026-10-12 07:37:43 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Keltner Channel.mq5	9871 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/MarketProfile Canvas.ex5	35824 bytes	2026-10-12 07:37:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/MarketProfile Canvas.mq5	19467 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/MarketProfile.ex5	18730 bytes	2026-10-12 07:37:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/MarketProfile.mq5	8828 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/MurreyMath Channel.ex5	26434 bytes	2026-10-12 07:37:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/MurreyMath Channel.mq5	15173 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/NRTR Channel.ex5	17320 bytes	2026-10-12 07:37:45 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/NRTR Channel.mq5	11473 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Parabolic Channel.ex5	15130 bytes	2026-10-12 07:37:45 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Parabolic Channel.mq5	7589 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Pivot Channel.ex5	19826 bytes	2026-10-12 07:37:45 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Pivot Channel.mq5	11242 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Woodie Channel.ex5	19202 bytes	2026-10-12 07:37:46 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Indicators/Free Indicators/Woodie Channel.mq5	10104 bytes	2026-10-12 07:35:44 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/Agents/
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/Charts/
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/Community/
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/Symbolsets/
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/Templates/
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/Tester/
-[DIR]  Трейдинг/.mt5-control/MQL5/Profiles/deleted/
-[FILE] Трейдинг/.mt5-control/MQL5/Profiles/Agents/metatrader-default.md	13831 bytes	2026-10-12 07:35:44 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Profiles/Tester/Moving Average.set	616 bytes	2026-10-13 22:11:42 MSK
-[DIR]  Трейдинг/.mt5-control/MQL5/Scripts/Examples/
-[DIR]  Трейдинг/.mt5-control/MQL5/Scripts/UnitTests/
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoAccountPin.mqh	41 bytes	2026-10-12 07:39:11 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoInstrumentCatalog.ex5	10896 bytes	2026-10-12 16:41:53 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoInstrumentCatalog.log	3566 bytes	2026-10-12 16:41:53 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoInstrumentCatalog.mq5	1555 bytes	2026-10-12 16:41:39 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoRoundTrip.ex5	30684 bytes	2026-10-12 07:41:28 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoRoundTrip.log	6320 bytes	2026-10-12 07:41:28 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoRoundTrip.mq5	4993 bytes	2026-10-12 07:41:15 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoStatusReport.ex5	10290 bytes	2026-10-12 07:52:37 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoStatusReport.log	3536 bytes	2026-10-12 07:52:37 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/Scripts/DemoStatusReport.mq5	1756 bytes	2026-10-12 07:52:27 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/logs/20261012.log	5298 bytes	2026-10-12 21:16:47 MSK
-[FILE] Трейдинг/.mt5-control/MQL5/logs/20261013.log	5934 bytes	2026-10-13 22:11:42 MSK
-[DIR]  Трейдинг/.mt5-control/Tester/logs/
-[FILE] Трейдинг/.mt5-control/Tester/logs/20261012.log	320 bytes	2026-10-12 21:16:47 MSK
-[FILE] Трейдинг/.mt5-control/Tester/logs/20261013.log	214 bytes	2026-10-13 22:11:42 MSK
-[DIR]  Трейдинг/.mt5-control/bases/Custom/
-[DIR]  Трейдинг/.mt5-control/bases/Default/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/
-[DIR]  Трейдинг/.mt5-control/bases/signals/
-[FILE] Трейдинг/.mt5-control/bases/alerts.dat	432 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/bases/books.dat	428 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/bases/objects.dat	2544 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/bases/options.dat	428 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/bases/strategy.dat	32328 bytes	2026-10-13 22:11:42 MSK
-[DIR]  Трейдинг/.mt5-control/bases/Custom/history/
-[DIR]  Трейдинг/.mt5-control/bases/Custom/ticks/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/history/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/mail/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/news/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/subscriptions/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/symbols/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/ticks/
-[DIR]  Трейдинг/.mt5-control/bases/MetaQuotes-Demo/trades/
-[FILE] Трейдинг/.mt5-control/bases/MetaQuotes-Demo/mail/mail-5057224030.dat	635 bytes	2026-10-12 07:35:49 MSK
-[FILE] Трейдинг/.mt5-control/bases/MetaQuotes-Demo/news/news.dat	428 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/bases/MetaQuotes-Demo/subscriptions/subscriptions-5057224030.dat	77824 bytes	2026-10-12 07:52:59 MSK
-[FILE] Трейдинг/.mt5-control/bases/MetaQuotes-Demo/symbols/selected-5057224030.dat	5230428 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/bases/MetaQuotes-Demo/symbols/symbols-5057224030.dat	5529600 bytes	2026-10-13 22:11:41 MSK
-[FILE] Трейдинг/.mt5-control/bases/signals/signals.dat	266616 bytes	2026-10-13 22:11:41 MSK
-[DIR]  Трейдинг/.mt5-control/config/certificates/
-[FILE] Трейдинг/.mt5-control/config/accounts.dat	18988 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/config/agents.dat	47148 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/config/assistant.ini	970 bytes	2026-10-12 07:37:06 MSK
-[FILE] Трейдинг/.mt5-control/config/common.ini	1204 bytes	2026-10-12 07:36:50 MSK
-[FILE] Трейдинг/.mt5-control/config/dnsperf.dat	388248 bytes	2026-10-13 08:33:14 MSK
-[FILE] Трейдинг/.mt5-control/config/hotkeys.ini	2 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/config/servers.dat	32912 bytes	2026-10-13 22:11:41 MSK
-[FILE] Трейдинг/.mt5-control/config/settings.ini	5908 bytes	2026-10-13 22:11:42 MSK
-[FILE] Трейдинг/.mt5-control/config/terminal.ini	17586 bytes	2026-10-13 22:11:42 MSK
-[DIR]  Трейдинг/.mt5-control/llm-agent/config/
-[FILE] Трейдинг/.mt5-control/logs/20261012.log	23046 bytes	2026-10-12 21:16:47 MSK
-[FILE] Трейдинг/.mt5-control/logs/20261013.log	7420 bytes	2026-10-13 22:11:44 MSK
-[FILE] Трейдинг/.mt5-control/logs/metaeditor.log	75558 bytes	2026-10-12 16:41:53 MSK
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/AutoLaunchProtocolsComponent/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/BrowserMetrics/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/CertificateRevocation/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/Default/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/GrShaderCache/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/OriginTrials/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/ShaderCache/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/Speech Recognition/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/Subresource Filter/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/Trust Protection Lists/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/WidevineCdm/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/ZxcvbnData/
-[DIR]  Трейдинг/.mt5-control/temp/EBWebView/hyphen-data/
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Last Version	13 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Local State	2759 bytes	2026-10-12 07:36:04 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Variations	86 bytes	2026-10-12 07:35:51 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/ExtensionActivityComp	4096 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/ExtensionActivityComp-journal	0 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/ExtensionActivityEdge	32768 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/ExtensionActivityEdge-journal	0 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Favicons	20480 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Favicons-journal	0 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/History	151552 bytes	2026-10-12 07:36:06 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/History-journal	0 bytes	2026-10-12 07:36:06 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/LOCK	0 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/LOG	0 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Login Data	49152 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Login Data-journal	0 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Network Action Predictor	36864 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Network Action Predictor-journal	0 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Preferences	11638 bytes	2026-10-12 07:36:35 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/PreferredApps	33 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/README	182 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Secure Preferences	95 bytes	2026-10-12 07:36:04 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Top Sites	20480 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Top Sites-journal	0 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Visited Links	131072 bytes	2026-10-12 07:35:56 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Web Data	137216 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/Web Data-journal	0 bytes	2026-10-12 07:35:54 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/heavy_ad_intervention_opt_out.db	16384 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/Default/heavy_ad_intervention_opt_out.db-journal	0 bytes	2026-10-12 07:35:59 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/GrShaderCache/data_0	8192 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/GrShaderCache/data_1	270336 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/GrShaderCache/data_2	8192 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/GrShaderCache/data_3	8192 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/GrShaderCache/index	262512 bytes	2026-10-12 07:35:55 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/ShaderCache/data_0	8192 bytes	2026-10-12 07:35:53 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/ShaderCache/data_1	270336 bytes	2026-10-12 07:36:03 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/ShaderCache/data_2	8192 bytes	2026-10-12 07:35:53 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/ShaderCache/data_3	8192 bytes	2026-10-12 07:35:53 MSK
-[FILE] Трейдинг/.mt5-control/temp/EBWebView/ShaderCache/index	262512 bytes	2026-10-12 07:35:53 MSK
-[DIR]  Трейдинг/analysis/claude_strategy_validation_2026-10-20/
-[DIR]  Трейдинг/analysis/daily_bybit_2026-10-20/
-[DIR]  Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/
-[DIR]  Трейдинг/analysis/nautilus_check_2026-10-23/
-[DIR]  Трейдинг/analysis/youtube_strategies_2026-10-21/
-[FILE] Трейдинг/analysis/.DS_Store	10244 bytes	2026-10-26 07:16:46 MSK
-[FILE] Трейдинг/analysis/daily_bot_update_2026-10-21_evening.zip	661772 bytes	2026-10-21 17:20:36 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/bot_guard_audit.json	548 bytes	2026-10-20 23:02:36 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/check_bot_guards.py	2448 bytes	2026-10-20 23:02:36 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/engine.py	14875 bytes	2026-10-20 23:03:48 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/execution_guard.py	4351 bytes	2026-10-20 23:05:49 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/extended_checks.py	3105 bytes	2026-10-20 23:03:49 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/paper_plan.py	2883 bytes	2026-10-20 23:02:36 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/paper_plan_2026-10-20.json	1126 bytes	2026-10-20 23:02:37 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/results.json	14265381 bytes	2026-10-20 23:03:51 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/summary.csv	13093 bytes	2026-10-20 23:00:40 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/test_engine.py	4184 bytes	2026-10-20 23:01:09 MSK
-[FILE] Трейдинг/analysis/claude_strategy_validation_2026-10-20/test_execution_guard.py	3735 bytes	2026-10-20 23:05:49 MSK
-[DIR]  Трейдинг/analysis/daily_bybit_2026-10-20/logs/
-[DIR]  Трейдинг/analysis/daily_bybit_2026-10-20/old_research/
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/.DS_Store	10244 bytes	2026-10-26 07:19:18 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/EXECUTION_UPDATE_2026-10-21.md	10711 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/README.md	3720 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/REPORT.md	13041 bytes	2026-10-20 22:50:05 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/SAFETY_UPDATE_2026-10-21.md	4697 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/SHA256SUMS.json	2179 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/TEST_RESULTS.txt	12648 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/UPDATE_2026-10-21_recovery.md	5488 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/backtest.py	7576 bytes	2026-10-20 22:48:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/bybit-daily-review.canvas.tsx	15840 bytes	2026-10-20 22:50:05 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/bybit_daily_bot.before_status_2026-10-22.py	30404 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/bybit_daily_bot.py	32364 bytes	2026-10-22 06:02:50 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/check_daily_demo.command	504 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/check_daily_demo.py	4253 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/daily_bot.lock	0 bytes	2026-10-21 07:19:33 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/daily_execution.py	18324 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/daily_execution_state.before_reconcile.20261021T044704988996.json	560 bytes	2026-10-21 07:47:04 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/daily_execution_state.before_reconcile.20261021T044924776618.json	560 bytes	2026-10-21 07:49:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/daily_execution_state.json	2266 bytes	2026-10-25 03:20:17 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/daily_requirements.txt	41 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/launch_daily_demo.py	8143 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/make_report.py	19321 bytes	2026-10-20 22:50:05 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/notify.py	2116 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/reconcile_daily_demo.py	4063 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/results.json	4722490 bytes	2026-10-20 22:48:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/start_daily_demo.command	928 bytes	2026-10-23 12:25:17 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/start_daily_demo.command.bak_20261023_0925	471 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/summary.csv	6843 bytes	2026-10-20 22:48:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/telegram_chat_id.txt	9 bytes	2026-10-23 12:28:17 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/test_daily_execution.py	31036 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/test_daily_recovery.py	7771 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/test_daily_safety.py	8511 bytes	2026-10-21 17:20:47 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/test_status_report.py	2418 bytes	2026-10-22 06:02:50 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/trades.csv	18817 bytes	2026-10-20 22:48:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/logs/.DS_Store	6148 bytes	2026-10-25 12:17:44 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/logs/daily_2026-10-21.jsonl	55194 bytes	2026-10-22 02:56:51 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/logs/daily_2026-10-22.jsonl	58251 bytes	2026-10-23 02:56:20 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/logs/daily_2026-10-23.jsonl	48179 bytes	2026-10-24 02:55:03 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/logs/daily_2026-10-24.jsonl	26150 bytes	2026-10-24 22:50:08 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/logs/daily_2026-10-25.jsonl	9942 bytes	2026-10-25 09:43:42 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/logs/daily_bot.log	179664 bytes	2026-10-25 12:04:10 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/old_research/REPORT.md	13041 bytes	2026-10-21 16:59:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/old_research/backtest.py	7576 bytes	2026-10-21 16:59:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/old_research/make_report.py	19321 bytes	2026-10-21 16:59:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/old_research/results.json	4722490 bytes	2026-10-21 16:59:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/old_research/summary.csv	6843 bytes	2026-10-21 16:59:24 MSK
-[FILE] Трейдинг/analysis/daily_bybit_2026-10-20/old_research/trades.csv	18817 bytes	2026-10-21 16:59:24 MSK
-[DIR]  Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/logs/
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/EXECUTION_UPDATE_2026-10-21.md	10711 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/REPORT.md	13041 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/SAFETY_UPDATE_2026-10-21.md	4697 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/backtest.py	7576 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/bybit-daily-review.canvas.tsx	15840 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/bybit_daily_bot.py	22087 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/check_daily_demo.command	504 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/check_daily_demo.py	4253 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/daily_execution.py	15659 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/daily_execution_state.before_reconcile.20261021T044704988996.json	560 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/daily_execution_state.before_reconcile.20261021T044924776618.json	560 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/daily_execution_state.json	738 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/daily_requirements.txt	41 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/launch_daily_demo.py	4377 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/make_report.py	19321 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/reconcile_daily_demo.py	4063 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/results.json	4722490 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/start_daily_demo.command	471 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/summary.csv	6843 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/test_daily_execution.py	26229 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/test_daily_safety.py	8511 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/trades.csv	18817 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/logs/daily_2026-10-21.jsonl	31879 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/daily_bybit_backup_2026-10-21_before_update/logs/daily_bot.log	34188 bytes	2026-10-21 17:20:32 MSK
-[FILE] Трейдинг/analysis/nautilus_check_2026-10-23/README.md	1205 bytes	2026-10-23 00:23:27 MSK
-[FILE] Трейдинг/analysis/nautilus_check_2026-10-23/compare.csv	617 bytes	2026-10-23 00:23:27 MSK
-[FILE] Трейдинг/analysis/nautilus_check_2026-10-23/compare.py	2087 bytes	2026-10-23 00:23:27 MSK
-[FILE] Трейдинг/analysis/nautilus_check_2026-10-23/nt_backtest.py	8849 bytes	2026-10-23 00:23:28 MSK
-[FILE] Трейдинг/analysis/nautilus_check_2026-10-23/ref_engine.py	4501 bytes	2026-10-23 00:23:28 MSK
-[DIR]  Трейдинг/analysis/youtube_strategies_2026-10-21/data/
-[DIR]  Трейдинг/analysis/youtube_strategies_2026-10-21/sources/
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/REPORT.md	12291 bytes	2026-10-21 18:49:44 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/RULES.md	10983 bytes	2026-10-21 18:46:06 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/SHA256SUMS.json	2233 bytes	2026-10-21 18:50:03 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/backtest.py	11578 bytes	2026-10-21 18:46:59 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/download_public.py	1870 bytes	2026-10-21 18:43:25 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/make_report.py	17917 bytes	2026-10-21 18:49:43 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/results.json	43284257 bytes	2026-10-21 18:47:03 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/run.log	11775 bytes	2026-10-21 18:47:03 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/summary.csv	12518 bytes	2026-10-21 18:47:03 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/test_backtest.py	2284 bytes	2026-10-21 18:46:06 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/trades.csv	123179 bytes	2026-10-21 18:47:03 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/youtube-strategies.canvas.tsx	181401 bytes	2026-10-21 18:50:03 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/data/BTCUSDT_1d_bybit.csv	122557 bytes	2026-10-21 18:46:13 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/data/BTCUSDT_240.json	1011305 bytes	2026-10-21 18:44:19 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/data/BTCUSDT_funding_bybit.csv	197915 bytes	2026-10-21 18:46:13 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/data/ETHUSDT_1d_bybit.csv	107712 bytes	2026-10-21 18:46:13 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/data/ETHUSDT_240.json	1012198 bytes	2026-10-21 18:45:06 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/data/ETHUSDT_funding_bybit.csv	181203 bytes	2026-10-21 18:46:13 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/sources/donchian.json	31316 bytes	2026-10-21 18:41:39 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/sources/donchian2.json	33188 bytes	2026-10-21 18:42:42 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/sources/g-PLctW8aU0.json	26419 bytes	2026-10-21 18:41:40 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/sources/gUeeddny_Dc.json	2339 bytes	2026-10-21 18:41:39 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/sources/k_kSCjdf8D0.json	36159 bytes	2026-10-21 18:41:39 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/sources/pCmJ8wsAS_w.en.vtt	9423 bytes	2026-10-21 18:46:14 MSK
-[FILE] Трейдинг/analysis/youtube_strategies_2026-10-21/sources/rsi2.json	26376 bytes	2026-10-21 18:42:27 MSK
-[DIR]  Трейдинг/bybit-bot/deploy/
-[DIR]  Трейдинг/bybit-bot/logs/
-[DIR]  Трейдинг/bybit-bot/scripts/
-[FILE] Трейдинг/bybit-bot/.gitignore	102 bytes	2026-10-15 06:45:27 MSK
-[FILE] Трейдинг/bybit-bot/BACKTEST_COMPARISON.json	12773 bytes	2026-10-17 17:27:19 MSK
-[FILE] Трейдинг/bybit-bot/BACKTEST_COMPARISON.md	2788 bytes	2026-10-17 17:27:19 MSK
-[FILE] Трейдинг/bybit-bot/CHECK_2026-10-16.md	9465 bytes	2026-10-16 19:38:19 MSK
-[FILE] Трейдинг/bybit-bot/CHECK_2026-10-16_2004.md	3725 bytes	2026-10-16 20:04:39 MSK
-[FILE] Трейдинг/bybit-bot/CHECK_2026-10-17.md	1828 bytes	2026-10-17 16:24:30 MSK
-[FILE] Трейдинг/bybit-bot/LAUNCH.md	6214 bytes	2026-10-15 06:19:11 MSK
-[FILE] Трейдинг/bybit-bot/MIGRATION_VPS.md	6544 bytes	2026-10-26 19:37:21 MSK
-[FILE] Трейдинг/bybit-bot/README.md	126 bytes	2026-10-12 23:41:03 MSK
-[FILE] Трейдинг/bybit-bot/RECONCILIATION_2026-10-15.md	8073 bytes	2026-10-15 06:46:59 MSK
-[FILE] Трейдинг/bybit-bot/REMOTE_OUT.txt	98221 bytes	2026-10-26 19:37:21 MSK
-[FILE] Трейдинг/bybit-bot/REMOTE_RUN.sh	974 bytes	2026-10-15 06:19:11 MSK
-[FILE] Трейдинг/bybit-bot/REMOTE_TASK.sh	2122 bytes	2026-10-26 19:37:21 MSK
-[FILE] Трейдинг/bybit-bot/STATUS_SYNC.md	2894 bytes	2026-10-15 06:19:11 MSK
-[FILE] Трейдинг/bybit-bot/SYNC.md	19281 bytes	2026-10-22 06:02:57 MSK
-[FILE] Трейдинг/bybit-bot/VERIFIED_RUN.md	5232 bytes	2026-10-15 06:46:15 MSK
-[FILE] Трейдинг/bybit-bot/backtest_comparison.py	21733 bytes	2026-10-17 17:26:39 MSK
-[FILE] Трейдинг/bybit-bot/bot.log	379 bytes	2026-10-19 07:05:26 MSK
-[FILE] Трейдинг/bybit-bot/bot.out	53854 bytes	2026-10-21 07:33:33 MSK
-[FILE] Трейдинг/bybit-bot/bybit_bot.py	22566 bytes	2026-10-16 20:08:47 MSK
-[FILE] Трейдинг/bybit-bot/bybit_report.py	3643 bytes	2026-10-15 06:45:27 MSK
-[FILE] Трейдинг/bybit-bot/config.json	334 bytes	2026-10-21 07:30:46 MSK
-[FILE] Трейдинг/bybit-bot/instance.lock	0 bytes	2026-10-19 07:05:26 MSK
-[FILE] Трейдинг/bybit-bot/restart_demo.command	161 bytes	2026-10-16 20:08:47 MSK
-[FILE] Трейдинг/bybit-bot/restore_demo_bot.py	5174 bytes	2026-10-16 20:09:45 MSK
-[FILE] Трейдинг/bybit-bot/runtime_state.example.json	100 bytes	2026-10-15 06:45:27 MSK
-[FILE] Трейдинг/bybit-bot/runtime_state.json	1680 bytes	2026-10-21 07:02:24 MSK
-[FILE] Трейдинг/bybit-bot/start_demo.command	142 bytes	2026-10-15 06:53:50 MSK
-[FILE] Трейдинг/bybit-bot/test_restore_demo_bot.py	3955 bytes	2026-10-16 20:09:45 MSK
-[FILE] Трейдинг/bybit-bot/test_trade_guards.py	8250 bytes	2026-10-16 20:07:52 MSK
-[FILE] Трейдинг/bybit-bot/deploy/bybit-bot.service	556 bytes	2026-10-26 19:37:21 MSK
-[FILE] Трейдинг/bybit-bot/logs/bot.log	71881 bytes	2026-10-21 07:33:33 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-12.jsonl	563 bytes	2026-10-15 06:41:09 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-13.jsonl	3149 bytes	2026-10-15 06:41:09 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-14.jsonl	7542 bytes	2026-10-15 06:41:09 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-15.jsonl	5858 bytes	2026-10-16 02:14:02 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-16.jsonl	10865 bytes	2026-10-17 02:31:19 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-17.jsonl	3945 bytes	2026-10-17 23:30:03 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-18.jsonl	5752 bytes	2026-10-19 02:41:30 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-19.jsonl	5952 bytes	2026-10-20 02:59:46 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-20.jsonl	27174 bytes	2026-10-21 02:59:19 MSK
-[FILE] Трейдинг/bybit-bot/logs/events_2026-10-21.jsonl	21925 bytes	2026-10-21 07:33:33 MSK
-[FILE] Трейдинг/bybit-bot/logs/managed_console.log	16853 bytes	2026-10-17 23:30:03 MSK
-[FILE] Трейдинг/bybit-bot/scripts/vps_setup.sh	3595 bytes	2026-10-26 19:37:21 MSK
-[DIR]  Трейдинг/exports/bybit_mac_review_2026-10-21/
-[FILE] Трейдинг/exports/BYBIT_BOT_MAC_CURRENT_2026-10-21.zip	28819 bytes	2026-10-21 06:22:44 MSK
-[FILE] Трейдинг/exports/daily_bot_execution_update_2026-10-21.zip	25482 bytes	2026-10-21 07:01:59 MSK
-[FILE] Трейдинг/exports/daily_bot_full_review_2026-10-21.zip	30914 bytes	2026-10-21 07:49:00 MSK
-[FILE] Трейдинг/exports/daily_bot_latest_2026-10-21_1647_MSK.zip	655935 bytes	2026-10-21 16:47:49 MSK
-[FILE] Трейдинг/exports/daily_bot_readonly_check_2026-10-21import.zip	22238 bytes	2026-10-21 07:18:41 MSK
-[FILE] Трейдинг/exports/daily_bot_safety_update_2026-10-21.zip	10948 bytes	2026-10-21 06:40:28 MSK
-[FILE] Трейдинг/exports/daily_bot_verified_demo_2026-10-21.zip	33912 bytes	2026-10-21 07:53:39 MSK
-[DIR]  Трейдинг/exports/bybit_mac_review_2026-10-21/deploy/
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/LAUNCH.md	6214 bytes	2026-10-15 06:19:11 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/MANIFEST.json	3181 bytes	2026-10-21 06:21:45 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/MIGRATION_VPS.md	4486 bytes	2026-10-15 06:19:11 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/OFFLINE_TEST_RESULT.txt	173 bytes	2026-10-21 06:22:44 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/PROCESS_SNAPSHOT.json	1003 bytes	2026-10-21 06:21:45 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/README_REVIEW.md	6209 bytes	2026-10-21 06:22:44 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/REMOTE_RUN.sh	974 bytes	2026-10-15 06:19:11 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/REMOTE_TASK.sh	2137 bytes	2026-10-17 23:21:41 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/RUNTIME_FLAGS_REVIEW.json	222 bytes	2026-10-21 06:21:45 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/bybit_bot.py	22566 bytes	2026-10-16 20:08:47 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/config.json	380 bytes	2026-10-18 11:41:35 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/requirements.txt	14 bytes	2026-10-21 06:21:45 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/restart_demo.command	161 bytes	2026-10-16 20:08:47 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/restore_demo_bot.py	5174 bytes	2026-10-16 20:09:45 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/runtime_state.example.json	100 bytes	2026-10-15 06:45:27 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/start_demo.command	142 bytes	2026-10-15 06:53:50 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/test_restore_demo_bot.py	3955 bytes	2026-10-16 20:09:45 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/test_trade_guards.py	8250 bytes	2026-10-16 20:07:52 MSK
-[FILE] Трейдинг/exports/bybit_mac_review_2026-10-21/deploy/bybit-bot.service	507 bytes	2026-10-15 06:19:11 MSK
-[DIR]  Трейдинг/tradingagents-observer/data/
-[DIR]  Трейдинг/tradingagents-observer/vendor/
-[FILE] Трейдинг/tradingagents-observer/.gitignore	40 bytes	2026-10-17 06:45:51 MSK
-[FILE] Трейдинг/tradingagents-observer/README.md	6100 bytes	2026-10-17 06:48:10 MSK
-[FILE] Трейдинг/tradingagents-observer/analysis_worker.py	2453 bytes	2026-10-17 06:48:10 MSK
-[FILE] Трейдинг/tradingagents-observer/chatgpt_access.py	1667 bytes	2026-10-17 06:48:10 MSK
-[FILE] Трейдинг/tradingagents-observer/observer.py	10259 bytes	2026-10-17 06:48:55 MSK
-[FILE] Трейдинг/tradingagents-observer/requirements.installed.txt	1611 bytes	2026-10-17 06:47:06 MSK
-[FILE] Трейдинг/tradingagents-observer/test_observer.py	3730 bytes	2026-10-17 06:46:55 MSK
-[DIR]  Трейдинг/tradingagents-observer/data/auth/
-[FILE] Трейдинг/tradingagents-observer/data/assessments.jsonl	536 bytes	2026-10-17 06:48:10 MSK
-[FILE] Трейдинг/tradingagents-observer/data/collector.lock	0 bytes	2026-10-17 06:46:06 MSK
-[FILE] Трейдинг/tradingagents-observer/data/collector.log	87 bytes	2026-10-17 23:30:03 MSK
-[FILE] Трейдинг/tradingagents-observer/data/collector.pid	6 bytes	2026-10-17 06:48:17 MSK
-[FILE] Трейдинг/tradingagents-observer/data/comparison.json	2189 bytes	2026-10-17 23:36:03 MSK
-[FILE] Трейдинг/tradingagents-observer/data/signals.jsonl	5643 bytes	2026-10-17 23:30:03 MSK
-[FILE] Трейдинг/tradingagents-observer/data/state.json	1404 bytes	2026-10-17 23:36:03 MSK
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/.github/
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/assets/
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/build/
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents/
-[DIR]  Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents.egg-info/
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/.dockerignore	133 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/.env.enterprise.example	203 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/.env.example	3015 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/.gitignore	4670 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/CHANGELOG.md	50340 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/Dockerfile	712 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/LICENSE	11357 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/README.md	27258 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/docker-compose.yml	726 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/main.py	655 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/pyproject.toml	2477 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/requirements.txt	147 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/assets/TauricResearch.png	63581 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/assets/analyst.png	216595 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/assets/researcher.png	140473 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/assets/risk.png	165683 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/assets/schema.png	365329 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/assets/trader.png	161842 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/__init__.py	0 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/display.py	23542 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/main.py	8780 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/models.py	359 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/prefs.py	4013 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/prompts.py	31060 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/run.py	22177 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/selections.py	16289 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/stats_handler.py	2354 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/cli/updates.py	8855 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/__init__.py	1 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/conftest.py	4704 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_alpha_vantage_hardening.py	9799 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_analyst_execution.py	1323 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_anthropic_effort.py	3924 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_api_key_env.py	7125 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_backtest.py	11485 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_bedrock_provider.py	3106 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cache_writes.py	5443 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_capabilities.py	7372 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_chatgpt_auth.py	17513 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_chatgpt_provider.py	11734 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_checkpoint_lifecycle.py	5820 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_checkpoint_resume.py	10711 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_commands.py	9098 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_config_precedence.py	5470 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_display.py	6394 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_env_skip.py	7438 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_headless.py	14340 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_memory_log.py	7549 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_no_console.py	2137 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_prefs.py	6754 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_symbol_handling.py	2629 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_cli_updates.py	15536 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_crypto_asset_mode.py	1766 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_dataflows_config.py	7493 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_date_boundaries.py	2218 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_debate_opening.py	4157 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_deepseek_reasoning.py	9927 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_env_overrides.py	5331 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_fred.py	13886 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_fundamentals_lookahead.py	5398 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_fundamentals_units.py	3418 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_get_scrubbed.py	2469 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_google_api_key.py	1167 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_google_thinking_level.py	2583 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_graph_end_to_end.py	17955 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_i18n_coverage.py	2655 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_instrument_identity.py	5481 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_layering.py	1133 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_llm_max_retries.py	3242 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_llm_max_tokens.py	4156 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_memory_log.py	59920 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_memory_pointintime.py	3976 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_minimax.py	2926 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_model_validation.py	3823 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_news_analyst_prompt.py	804 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_news_lookahead.py	17424 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_no_data_handling.py	4444 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_ohlcv_cache_freshness.py	4525 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_ohlcv_date_column.py	3046 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_ohlcv_latest_bar.py	9047 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_ollama_base_url.py	6694 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_openai_compatible_provider.py	4310 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_openai_reasoning_effort.py	1548 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_openai_responses_base_url.py	1713 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_openrouter_model_select.py	5072 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_polymarket.py	5160 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_portfolio_context.py	9419 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_post_screen.py	10259 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_prompt_integrity.py	3883 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_provider_registry.py	5249 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_rating_integrity.py	13785 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_reddit_fallback.py	14655 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_report_html.py	8372 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_reporting.py	5528 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_risk_router_path_map.py	3143 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_safe_ticker_component.py	2202 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_sec_edgar.py	14928 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_signal_processing.py	3204 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_social_lookahead.py	9401 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_statement_knowledge_time.py	3453 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_stocktwits_resilience.py	3942 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_structured_agent_prompts.py	6497 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_structured_agents.py	22883 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_suite_isolation.py	2097 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_symbol_normalization_paths.py	3104 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_symbols.py	4543 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_temperature_config.py	2824 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_ticker_symbol_handling.py	957 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_tier_providers.py	3661 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_tool_date_enforcement.py	6408 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_undated_tools_as_of.py	11528 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_vendor_errors.py	5055 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_vendor_routing.py	5390 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_version.py	625 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_yahoo_rate_limit.py	11178 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_yahoo_snapshot.py	3437 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tests/test_yfinance_stale_ohlcv_guard.py	3917 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents/__init__.py	610 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents/backtest.py	9445 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents/default_config.py	11200 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents/portfolio.py	2979 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents/report_html.py	14821 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents/reporting.py	5685 bytes	2026-10-17 06:44:13 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents.egg-info/PKG-INFO	28398 bytes	2026-10-17 06:44:45 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents.egg-info/SOURCES.txt	6570 bytes	2026-10-17 06:44:45 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents.egg-info/dependency_links.txt	1 bytes	2026-10-17 06:44:45 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents.egg-info/entry_points.txt	47 bytes	2026-10-17 06:44:45 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents.egg-info/requires.txt	466 bytes	2026-10-17 06:44:45 MSK
-[FILE] Трейдинг/tradingagents-observer/vendor/TradingAgents/tradingagents.egg-info/top_level.txt	18 bytes	2026-10-17 06:44:45 MSK
-[DIR]  авито/avito-api-check/
-[DIR]  авито/avito-assistant/
-[DIR]  авито/avito-assistant 2/
-[DIR]  авито/generated_images/
-[DIR]  авито/pisma-dlya-magazina/
-[DIR]  авито/отчет-wordstat-2026-10-15/
-[FILE] авито/.DS_Store	8196 bytes	2026-10-20 21:20:35 MSK
-[FILE] авито/avito-api-check.zip	5726 bytes	2026-10-19 16:08:31 MSK
-[FILE] авито/avito-assistant-8420132616.zip	12142 bytes	2026-10-19 16:48:20 MSK
-[FILE] авито/avito-documents-starter.zip	149891 bytes	2026-10-19 15:29:04 MSK
-[FILE] авито/avito-api-check/README.txt	1791 bytes	2026-10-19 16:08:31 MSK
-[FILE] авито/avito-api-check/check.py	10297 bytes	2026-10-19 16:08:31 MSK
-[FILE] авито/avito-api-check/Запустить.command	318 bytes	2026-10-19 16:08:31 MSK
-[FILE] авито/avito-assistant/README.txt	6000 bytes	2026-10-19 16:48:20 MSK
-[FILE] авито/avito-assistant/assistant.py	21349 bytes	2026-10-19 16:48:19 MSK
-[FILE] авито/avito-assistant/test_assistant.py	4456 bytes	2026-10-19 16:47:34 MSK
-[FILE] авито/avito-assistant/Запустить.command	324 bytes	2026-10-19 16:47:34 MSK
-[FILE] авито/avito-assistant 2/README.txt	6000 bytes	2026-10-19 16:48:20 MSK
-[FILE] авито/avito-assistant 2/assistant.py	21349 bytes	2026-10-19 16:48:18 MSK
-[FILE] авито/avito-assistant 2/message-status.json	158 bytes	2026-10-20 05:18:17 MSK
-[FILE] авито/avito-assistant 2/test_assistant.py	4456 bytes	2026-10-19 16:47:34 MSK
-[FILE] авито/avito-assistant 2/Запустить.command	324 bytes	2026-10-19 16:47:34 MSK
-[FILE] авито/generated_images/exec-d21a84bb-b9bc-478a-ab35-3b122a204ce4.png	1554845 bytes	2026-10-19 15:48:08 MSK
-[DIR]  авито/pisma-dlya-magazina/.openai/
-[DIR]  авито/pisma-dlya-magazina/dist/
-[DIR]  авито/pisma-dlya-magazina/launch/
-[FILE] авито/pisma-dlya-magazina/.gitignore	37 bytes	2026-10-20 05:20:09 MSK
-[FILE] авито/pisma-dlya-magazina/STATUS.md	3765 bytes	2026-10-20 05:54:17 MSK
-[FILE] авито/pisma-dlya-magazina/partner-form-review.png	443739 bytes	2026-10-20 06:06:13 MSK
-[FILE] авито/pisma-dlya-magazina/site.tar.gz	15378 bytes	2026-10-20 05:30:34 MSK
-[FILE] авито/pisma-dlya-magazina/.openai/hosting.json	106 bytes	2026-10-20 05:17:56 MSK
-[DIR]  авито/pisma-dlya-magazina/dist/guides/
-[FILE] авито/pisma-dlya-magazina/dist/_headers	283 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/dist/about.html	4751 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/dist/app.js	4264 bytes	2026-10-20 05:20:09 MSK
-[FILE] авито/pisma-dlya-magazina/dist/favicon.svg	202 bytes	2026-10-20 05:20:09 MSK
-[FILE] авито/pisma-dlya-magazina/dist/index.html	12879 bytes	2026-10-20 05:20:09 MSK
-[FILE] авито/pisma-dlya-magazina/dist/robots.txt	26 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/dist/styles.css	8143 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/dist/templates.txt	2122 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/dist/guides/email-plan.html	5029 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/dist/guides/first-email.html	5539 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/dist/guides/subscribers.html	5364 bytes	2026-10-20 05:21:20 MSK
-[FILE] авито/pisma-dlya-magazina/launch/README.md	5500 bytes	2026-10-20 05:38:42 MSK
-[FILE] авито/pisma-dlya-magazina/launch/ads.md	6711 bytes	2026-10-20 05:19:18 MSK
-[FILE] авито/pisma-dlya-magazina/launch/partner-message.md	4508 bytes	2026-10-20 05:19:18 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/КОНКУРЕНЦИЯ-СТАТУС.md	5170 bytes	2026-10-15 22:35:55 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/ПРОДОЛЖЕНИЕ-2026-10-19.md	5233 bytes	2026-10-19 14:53:59 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/ПРОЧИТАТЬ.md	1313 bytes	2026-10-15 21:20:24 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/данные.json	18020 bytes	2026-10-15 21:20:24 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/динамика.csv	1812 bytes	2026-10-15 21:20:24 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/конкуренция-статус-и-расчет.json	16113 bytes	2026-10-15 22:35:55 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/контекст-химчистка.json	458 bytes	2026-10-15 21:20:24 MSK
-[FILE] авито/отчет-wordstat-2026-10-15/отчет.html	27386 bytes	2026-10-15 21:20:24 MSK
-ENTRIES_SHOWN: 1295
+TIME: 2026-10-26T19:39:40+03:00
+MODE: allowlisted Markdown context only
+
+===== FILE: ОБМЕН Claude-ChatGPT/AGENTS.md =====
+# Инструкция для Codex / ChatGPT
+Это общая папка обмена с Claude. Перед любой работой по проектам Дмитрия Владимировича прочитай `README.md`, конец `ЖУРНАЛ.md`, `ЗАДАЧИ.md` и файл проекта в `проекты/`. После работы допиши запись в конец `ЖУРНАЛ.md` и обнови файл проекта. Чужие записи не перезаписывай. Секреты сюда не пиши.
+
+===== END FILE: ОБМЕН Claude-ChatGPT/AGENTS.md =====
+
+===== FILE: ОБМЕН Claude-ChatGPT/README.md =====
+# Обмен Claude ↔ ChatGPT/Codex
+
+Общая папка для двух помощников Дмитрия Владимировича. Здесь хранится актуальный статус по всем проектам, чтобы любой помощник мог продолжить работу без пересказа.
+
+## Правила (для обоих помощников)
+1. **Перед работой** прочитай `ЖУРНАЛ.md` (последние 10–15 записей) и файл нужного проекта в `проекты/`.
+2. **После работы** допиши в `ЖУРНАЛ.md` одну запись в конец (не правь чужие записи):
+   `## 2026-10-26 09:40 МСК — Claude | Трейдинг` → что сделано, что проверено, открытые вопросы, следующий шаг.
+3. **Файл проекта** (`проекты/*.md`) — это текущее состояние, а не история. Обновляй разделы «Статус», «Решения», «Следующие шаги»; старое переноси в журнал, а не удаляй молча.
+4. Задачи друг другу — в `ЗАДАЧИ.md` с пометкой `[для Claude]` / `[для ChatGPT]`; выполнивший ставит `[x]` и пишет итог в журнал.
+5. Не храни здесь ключи API, пароли, токены, номера карт и паспортные данные.
+6. Не объявляй обмен «автоматическим»: каждый помощник видит файлы, только когда сам их читает.
+7. Подробные рабочие файлы остаются в папках проектов (`../Трейдинг`, `../ГНБ`, `../авито`, `../Сервис по возвратам`); здесь — ссылки на них и выводы.
+8. `ПАМЯТЬ-Claude.md` — выгрузка долговременной памяти Claude о Дмитрии Владимировиче и проектах (профиль, предпочтения, решения). Читать для общего контекста; обновляет Claude.
+
+===== END FILE: ОБМЕН Claude-ChatGPT/README.md =====
+
+===== FILE: ОБМЕН Claude-ChatGPT/ЗАДАЧИ.md =====
+# Задачи между помощниками
+Формат: `- [ ] [для Claude|для ChatGPT] проект — задача (кто поставил, дата)`
+
+- [ ] [для ChatGPT] Трейдинг — прочитать `проекты/Трейдинг.md` и раздел про арбитраж фандинга; при несогласии с выводами написать в журнал (Claude, 26.10)
+
+===== END FILE: ОБМЕН Claude-ChatGPT/ЗАДАЧИ.md =====
+
+===== FILE: ОБМЕН Claude-ChatGPT/ПАМЯТЬ-Claude.md =====
+# Память Claude о Дмитрии Владимировиче (выгрузка)
+
+Выгружено: 26.10.2026, 19:15 МСК. Это копия долговременной памяти Claude (что Claude знает о пользователе и проектах между чатами), чтобы ChatGPT/Codex видел тот же контекст.
+Источник истины — память Claude; этот файл обновляется выгрузкой по просьбе пользователя и после крупных задач. Пометка [stated] = «сказал сам пользователь».
+Правила обмена — в `README.md`; текущий статус проектов — в `проекты/`, история — в `ЖУРНАЛ.md`.
+
+---
+
+## 1. Профиль
+- Зовут Дмитрий Владимирович (Хаустов). В аккаунте записан как Martin Rosenfield. Роль: продажи. Часовой пояс: Москва.
+- Ведёт ГНБ-бизнес (проколы) с отцом 50 на 50, Краснодарский край и Ростовская обл.; хочет со временем отойти от проколов, сохранив доход от них как дополнение. Стаж в ГНБ больше 10 лет.
+- Работает по договору через ИП Лучук Жана Суриковна (Ростов-на-Дону); клиентам пишет как представитель ИП: Дмитрий, +7 989 620-82-84. Почта для рассылок: iCloud dmkhaus@icloud.com.
+
+## 2. Как работать с ним (предпочтения)
+- Claude говорит о себе в мужском роде; обращается на «ты», по имени-отчеству «Дмитрий Владимирович».
+- По завершении долгой задачи — только пуш на телефон (приложение Claude), без писем и лишних вопросов в конце.
+- Сводка новостей (курсы, мир, финансы, немного технологий) — только по запросу, отдельной страницей + 2–3 строки в чате.
+- Все отчёты, файлы и память — в общую папку с ChatGPT: /Users/khdmvld/Documents/ChatGPT (материалы по ГНБ — в подпапку ГНБ). Claude и ChatGPT обмениваются информацией по всем проектам через «ОБМЕН Claude-ChatGPT».
+- Бригадам и подрядчикам писать только в будни; в выходные — готовить тексты.
+
+## 3. Деньги и цель
+- Цель: собрать 100 000 ₽+ к 10 декабря 2026. Варианты: ИД ГНБ на аутсорсе (основное), трейдинг (Bybit-бот), Авито.
+- 26.10: отчёт «Онлайн-направление — отчёт и окупаемость» (в корне папки): рекомендовано удалённое бюро ИД + ИИ-ассистенты для малого бизнеса + Word/PDF-воронка; старт ~25 т.р.
+
+## 4. ИД ГНБ на аутсорсе (основное направление с 25.10)
+- Работу ищет не в проколах; основное направление — исполнительная документация (ИД) на аутсорсе для подрядчиков ГНБ (Ростов, Краснодарский край, далее вся Россия). Делать ИД может только вместе с Claude.
+- Цена (решение 26.10): от 5 000 ₽ за переход, чтобы привлечь внимание; абонемент для бригад.
+- Авито Ростов: «ИД ГНБ, профиль прокола» и «ГНБ проколы» — откликов нет (25.10: 6 и 19 просмотров за 30 дней, 0 контактов). Решение: Авито проверять раз в неделю; клиентов искать напрямую (подрядчики, генподрядчики, тендеры, чаты, письма). Из облачных запусков Авито не открывается.
+- В низкий сезон — готовить образцы, прайс и базу компаний к весне.
+- Также ищет клиентов через hh.ru (резюме «Инженер ПТО»); в откликах хочет выглядеть как специалист по ИД, а не партнёр семейного бизнеса.
+- Идея-воронка: боль — заказчик не принимает ИД → не подписывает КС-2 → деньги висят; приманка — чек-лист ИД или бесплатная проверка одного перехода; ступени — аудит → ИД под ключ → ПТО на аутсорсе.
+- Рассылки: см. `проекты/ИД-ГНБ-и-Авито.md` (раздел 5) и `ЖУРНАЛ.md`. 26.10 найдено 20 компаний («Контакты ГНБ — Ростов и Краснодар.xlsx»); 10 писем запланированы к отправке с iCloud 27.10 в 9:30 (Исток и ГНБ161 исключены — им уже писали, следующее касание 01.11).
+
+## 5. Формат ИД / профилей ГНБ (утверждён)
+- Комплект для бригады (по одному PDF на профиль): 1) оригинальная векторная страница профиля из проектного PDF (без перерисовки); 2) схема вводного и приёмного котлованов (закрытый переход, скважина, труба, размеры под профиль); 3) краткий протокол бурения; 4) подробный протокол по штангам (по образцу ГНБ№9).
+- Перерисованный профиль (matplotlib) был отклонён как непрофессиональный. Цифры не выдумывать: только из проекта/данных; неизвестное — пустые поля. Если лист уже содержит подробную таблицу (как ГНБ№4, лист 20, 60 м) — брать её числа как есть.
+- Проекты: РИЦ.25-8.РД.ЭС (2КЛ-10 кВ РП-1–ТП-8, Ростов); РИЦ.26-15.РД.ЭС (КЛ-10 кВ РП-1–ТП-44, мкр. Суворовский). Бригада по ГНБ№4 — ООО «Элгранд», инженер Хаустов Д. В.
+- Назревает новый объект с профилями переходов — думает поручить их Claude вместо проектировщика.
+
+## 6. Проколы ГНБ (своя работа с отцом)
+- Прокол и протяжка трубы, диаметр до 315 мм, до 90 м за проходку, цена за метр. Объявление на Авито «ГНБ проколы под дорогой, водопровод, канализация».
+- Тендеры: ищет небольшие лоты и субподряд (ЭДО, без огромных сумм); ресурсов «под ключ» нет. Спрос на ГНБ в 2026 очень низкий.
+
+## 7. Другие направления
+- Word/PDF: объявление «Оформление документов Word и PDF» (Ростов), пакет 700 ₽ до 5 страниц — мастера и стройкомпании.
+- Сервис защиты продавцов от необоснованных возвратов — прототип; клиентов пока нет.
+- «Реклама + ИИ-бот для малого бизнеса»: сам регистрируется на Kwork и Профи.ру; решил не использовать WhatsApp в текстах и продукте.
+
+## 8. Трейдинг (Bybit, демо BTCUSDT/ETHUSDT)
+- Старый M15-бот (EMA20/50 + ATR14) остановлен. Действует дневной бот: long/cash, 50% капитала на символ — ансамбль EMA (30/120, 40/160, 50/150, 50/200; ATR-трейл k=3.5; vol-sizing) + Donchian 55; без плеча; решение раз в день ~00:05 UTC.
+- Бэктест 2021-10-18→2026-10-17 (perp, реальный фандинг): EMA +35.7% (maxDD −20.4%), Donchian55 +30.2% (−18.6%), смесь 50/50 +33.0% (−12.9%); buy&hold BTC +32%, ETH −38%.
+- С 25.10 бот работает на Windows-компьютере (start_daily_demo.bat), на Mac остановлен; перенос на VPS — на следующей неделе. Telegram-отчёты работают. 23.10 продал выданные Bybit 1 BTC и 1 ETH — новая точка отсчёта equity.
+- Файлы: ~/Documents/ChatGPT/Трейдинг/analysis/daily_bybit_2026-10-20/; синхронизация по боту — SYNC.md в папке bybit-bot. Подробно — `проекты/Трейдинг.md`.
+- Слабые места: нет блокировки двух процессов, нет биржевых стопов, пропуск дня, неполная сверка ордеров. Правила паузы: просадка ~−30% или два пропущенных дня.
+
+## 9. Дом и техника
+- Роутер Keenetic KN-4010 (Racer), прошивка 5.1.8. С 26.10 роутер держит VPN через свой сервер Amnezia (AmneziaWG, VPS на amnezia-vps.ru, тариф Start); запасной вариант — Nova VPN через Happ на Windows-компьютере (SOCKS5 192.168.1.68:10808). Компьютер — «Политика по умолчанию» (через VPN роутера, игры в обход).
+- Игры (Windows): Dota 2, GTA 5 Online, CS2 (Steam), Warcraft 3 на iCCup — важен стабильный пинг.
+- Клавиатура Red Square Alumix TKL (RSQ-20048): Профиль 1 заводской, все бинды в Профиле 2 (мак-раскладка на Windows, Caps → смена языка, Fn+S → подпись).
+- Телефон Galaxy Z Fold 6. Приложение Claude на телефоне — пуши приходят; на Mac уведомления «ответ готов» не приходят.
+- Чтобы Claude работал с Авито: расширение Claude в Chrome на компьютере + коннектор Claude in Chrome в чате.
+- Переживает, что аккаунт Claude заблокируют; хочет работать с Claude долго.
+
+## 10. Семья
+- Есть жена (оформляла подписку Nova VPN) и дочка (смотрит мультики на YouTube на ТВ).
+
+## 11. Здоровье
+- Отказ от никотина (в основном снюс Odens, ~8 пакетиков в день, также сигареты); ничего не употребляет с 15.10.2026.
+
+## 12. Учёба и идеи
+- Английский: хочет Claude как репетитора; цель — читать газеты, книги и новости на английском.
+- Книги через конспекты Claude: «Книга пяти колец», «Deep Work», «Money Unlocked» + список из 10 (Канеман, Клир, Кийосаки, Кови, Хилл, Феррис, «Голубой океан», Чалдини, «Лидер на катке»).
+- Голосовой помощник «Джарвис» на Mac: горячая клавиша, позже слово-пробуждение; общается как кореш с уважением; приложения, почта (зачитывать перед отправкой), глубокий поиск, Календарь macOS, утренняя сводка; умный дом не нужен.
+- На заметку: claude-ads, HyperFrames, Vibe-Trading, гайд «5 проверок в Claude» (Артём Романов — идея сверки ИД ГНБ с РД), Replica, Agent Reach.
+
+===== END FILE: ОБМЕН Claude-ChatGPT/ПАМЯТЬ-Claude.md =====
+
+===== FILE: ОБМЕН Claude-ChatGPT/проекты/ИД-ГНБ-и-Авито.md =====
+# ГНБ: исполнительная документация (ИД), Авито, поиск заказов
+
+Обновлено: Claude, 26.10.2026 07:45 МСК. Тексты объявлений и сообщений целиком — `../материалы/гнб/тексты-и-цены.md`.
+
+## 1. Коротко
+- Семейный бизнес: ГНБ-проколы с отцом 50/50, Краснодарский край и Ростовская обл. Цель — со временем отойти от проколов, оставив их доход как дополнение.
+- Основное направление сейчас — **исполнительная документация по ГНБ на аутсорсе**. Работает по договору через **ИП Лучук Ж. С.** (Ростов-на-Дону). ИД делает вместе с Claude.
+- Цель по деньгам: **100 тыс. ₽+ к 10.12.2026**. Арифметика: ≈30 переходов по 3 500 ₽ за 6 недель = 3–4 постоянных бригады-клиента.
+- Работу ищет не в проколах, а в ИД/ПТО.
+
+## 2. Услуга и цены (стартовые)
+| Услуга | Цена | Срок |
+|---|---|---|
+| Комплект ИД на 1 переход до 100 м | 3 500 ₽ | 24 ч |
+| Каждый следующий переход того же объекта | 2 500 ₽ | 24 ч |
+| Только исполнительный профиль по данным локатора | 1 200 ₽ | 12 ч |
+| Комплект АОСР (3–4 акта) | 1 500 ₽ | 12 ч |
+| Пакет «объект целиком» (5+ переходов) | от 10 000 ₽ | по согласованию |
+| Срочно (день в день) | +30% | — |
+- Первый переход — скидка 30% / первый профиль бесплатно (в разных текстах по-разному — свести к одному). Правки по замечаниям заказчика 14 дней бесплатно. Оплата после просмотра комплекта (водяной знак до оплаты).
+- На Авито в объявлении сейчас: 3 000 ₽ за прокол, шаблоны 1 490 ₽ (правка от 21.10).
+- Комплект: исполнительный профиль и план перехода, АОСР (бурение, расширение, протягивание), протокол (журнал) бурения, реестр ИД. Заказчики в регионе: Россети, Водоканал, газовые службы, связисты — у каждого свои формы (уточнять в первом диалоге).
+
+## 3. Формат передачи профиля бригаде (утверждён пользователем)
+Проект «2КЛ-10 кВ от РП-1 до ТП-8, Ростов-на-Дону», шифр РИЦ.25-8.РД.ЭС. PDF для профессиональной бригады:
+1. **Настоящая векторная страница профиля из PDF проекта** (вырезать pypdf как есть, не перерисовывать — перерисовка в matplotlib была признана непрофессиональной);
+2. лист-схема вводного и приёмного котлована (закрытый переход, скважина, труба, размеры по профилю);
+3. краткий протокол бурения;
+4. полный протокол бурения (по образцу ГНБ№9).
+Неизвестные/угаданные числа не выдавать за факт — оставлять пустыми для бригады.
+- Другой проект в работе: «Реконструкция части КЛ 10 кВ от РП-1 до ТП-44, мкр. Суворовский», шифр РИЦ.26-15.РД.ЭС (ООО «РИЦ-Энерго», заказчик ООО «Югстрой-Электросеть») — текст проекта в `../ГНБ/tmp/pdfs/project-text.txt`.
+- Демонстрационный комплект: `../ГНБ/output/pdf/ГНБ-1_77м_демонстрационный-комплект.pdf` (+ CSV точек; локация НЕ фактическая).
+- Комплект Claude в утверждённом формате (оригинальный лист ГЧ-5, котлованы, краткий протокол и протокол по штангам с проектными цифрами): `../материалы/гнб/ГНБ-1_77м_комплект-бригады_Claude.pdf` (26.10). Какой из двух вариантов брать за образец — решает Дмитрий Владимирович. Расхождения в проекте: Ø160 (ГЧ-4) и Ф200 (ГЧ-5), 77,00 / 77,10 м.
+
+## 4. Авито (Ростов)
+- Объявление 1 (главное): «Исполнительная документация ГНБ, профиль прокола» — https://www.avito.ru/rostov-na-donu/predlozheniya_uslug/ispolnitelnaya_dokumentatsiya_gnb_profil_prokola_8358051275
+  - До правки 21.10 за 7 дней: показы 8, просмотры 2, избранное 1, контакты 0, место в поиске 26. После правки 21.10 (новая категория, заголовок, цены) — сравнение запланировано.
+- Объявление 2: «ГНБ проколы под дорогой, водопровод, канализация» — https://www.avito.ru/rostov-na-donu/predlozheniya_uslug/gnb_prokoly_pod_dorogoy_vodoprovod_kanalizatsiya_2459867796
+- Объявление «Оформление документов Word и PDF» (700 ₽ до 5 стр.) — для мастеров и стройкомпаний: прайсы, КП.
+- Статистика на 25.10 (данные Дмитрия Владимировича): «ИД ГНБ, профиль прокола» — 22 место, 6 просмотров за 30 дней, 0 контактов, 0 чатов; «ГНБ проколы» — 28 место, 19 просмотров, 0 контактов, срок истекал 25.10. Решение: проверять раз в неделю, а не каждый день.
+- Ежедневный мониторинг статистики в 08:47 МСК (Claude, только чтение, через Chrome на Mac; из облака Авито не открывается). Журнал — в проекте Claude `avito-monitoring-log.md`.
+- Предложенные правки (план Claude): заголовки «Исполнительная ГНБ за 24 часа — профиль, АОСР» и др.; первым фото — обезличенный профиль; категория «Строительство и ремонт». Внесены ли — не подтверждено.
+
+## 5. Прямые продажи (почта, iCloud)
+Трекер лидов (Claude): https://claude.ai/artifact/8MKd6yPgvSyjnJmkZ9Roir
+| Контакт | Почта | 21.10 | 25.10 | Следующее |
+|---|---|---|---|---|
+| ООО «Исток» (ГНБ) | ooo.istok.gnb@yandex.ru | КП + образец | напоминание | 01.11 |
+| ГНБ161 (Ростов) | info@gnb161.ru | КП + образец | напоминание | 01.11 |
+| Андрей Сергеев | andrej_sergeev_68@mail.ru | КП + образец | напоминание | 01.11 |
+| Кросс | info@kross-ltd.ru | КП + образец | напоминание | 01.11 |
+| 7640847@mail.ru | 7640847@mail.ru | КП + образец | напоминание | 01.11 |
+| Профи ПТО (вероятно конкурент) | info@profipto.com | «Сотрудничество» | предложение субподряда | 01.11 |
+| СтройДок АБВ (вероятно конкурент) | mail@stroydoc-abv.ru | «Сотрудничество» | предложение субподряда | 01.11 |
+- Ответов на 25.10 нет.
+- 26.10: запланированной отправки на 08:30 уже нет (снята ранее, после отправки 25.10) — повтора не будет. Следующее касание всем 7 — 01.11 (follow-up 2).
+
+## 6. Поиск работы (hh.ru)
+- Ежедневно в будни 07:46 МСК — поиск тендеров ГНБ по ЮФО (Claude): небольшие лоты, кандидаты на субподряд, победители — только находит и сообщает.
+- 26.10 09:00 — Claude готовит отклики на вакансии инженера ПТО / ИД (без отправки до «да»). Подпись: Дмитрий, представитель ИП Лучук Ж. С.
+- Компании: Ростов — Интел-Электро, Релект, СМУ61, Сфера-М, Спецстрой, Экси-Дон, ТРАНССТРОЙ, МЕГАПОЛИС, Донстройинвест; Краснодар — Югспецавтоматика, Шанс, ПСК МетСтрой, Ктм Групп, ГК АСТЕРМ, ГК Юг-Энерго, Идеал-Строй.
+
+## 6а. Программа отбора тендеров «ПРОКОЛ»
+- `../ГНБ/tender-filter` (автор ChatGPT, доработка Claude 26.10). Отбор: «Отбор ЮФО.command» → `отбор/отбор-ДАТА.md`. Подробности — `ПРОЧИТАЙТЕ.md` там же.
+- Кандидаты 26.10: СК «Кубаньстройсети», АО «ГК ЕКС», ООО «Прогрессор» (исполняемые контракты с ГНБ, Краснодарский край); тендеры Севастопольгаз (до 09.11) и Калининградгазификация (ННБ + ИД, до 06.11). Письма отправлены 26.10 08:56 (iCloud), тексты — `../материалы/гнб/черновики-подрядчикам-2026-10-26.md`; follow-up 1 — 30–31.10.
+
+## 6б. База подрядчиков ЮФО (25.10, Claude)
+- `../ГНБ/база-подрядчиков/ГНБ_подрядчики_ЮФО_2026-10-25.xlsx` + выводы `../ГНБ/база-подрядчиков/база-подрядчиков-ЮФО-2026-10-25.md`. 15 компаний Ростовской обл. и Краснодарского края, 6 с приоритетом A: ГНБДОНСТРОЙ, ГНБСПЕЦСТРОЙ, АСК (Азов), Бурильщик, ГНБПРО, Тех-Резка. Никому не писали.
+- «ИСТОК ГНБ» из базы, вероятно, тот же «Исток», которому уже писали (следующее касание 01.11).
+- Решение 25.10: Авито не даёт результата (спрос на ГНБ в этом году низкий) — проверять раз в неделю; искать заказчиков напрямую, сначала ЮФО, потом вся Россия (МАС ГНБ); в низкий сезон готовить образцы, прайс и базу к весне.
+
+## 7. Правила
+- Бригадам писать только в будни, лучше до 8:30 или после 18:00; в выходные не писать.
+- Первое сообщение — без вложений и длинных КП; образец — только после «да».
+- Ничего не отправлять, не публиковать и не оплачивать без подтверждения Дмитрия Владимировича.
+
+## 8. План недели 26.10–01.11 (из документа Claude)
+Пн — обновить объявления, follow-up по КП; Вт — список 30 бригад (Авито, 2ГИС, Яндекс Карты; Ростов и Краснодар); Ср — 10 холодных (А) + 5 подрядчикам (В) + 3 мастерам Word/PDF; Чт — 10 сообщений (Б), звонки молчащим; Пт — правка оффера по ответам, follow-up 2; Сб — без рассылок; Вс — итоги. Ориентир: из 50 касаний 5–8 ответов и 1–2 теста; при нуле ответов к 01.11 менять сегмент (ПТО подрядчиков вместо бригад).
+
+## 9. Источники
+- План и все тексты: документ «Авито ГНБ и защита от возвратов — план и тексты» https://claude.ai/artifact/VXGCgJBBc1WUz3P7J3nTXd
+- Рабочие файлы: `../ГНБ/`, `../авито/` (avito-assistant, avito-api-check, отчёт wordstat 15.10, письма для магазина).
+
+===== END FILE: ОБМЕН Claude-ChatGPT/проекты/ИД-ГНБ-и-Авито.md =====
+
+===== FILE: ОБМЕН Claude-ChatGPT/проекты/Сервис-возвратов.md =====
+# Сервис защиты продавцов от необоснованных возвратов
+
+## Статус (26.10.2026)
+- Прототип в `../Сервис по возвратам/` (там свой AGENTS.md и папка `sync/` для обмена с Kimi).
+- Клиентов пока нет: на форумах почти не отвечали.
+
+## Следующие шаги
+- Найти первых 3–5 продавцов для интервью/пилота.
+
+===== END FILE: ОБМЕН Claude-ChatGPT/проекты/Сервис-возвратов.md =====
+
+===== FILE: ОБМЕН Claude-ChatGPT/проекты/Трейдинг.md =====
+# Трейдинг — бот Bybit (демо)
+
+Обновлено: Claude, 26.10.2026 07:30 МСК. Это сводка текущего состояния; подробная история — в файлах, на которые даны ссылки.
+
+## 1. Коротко
+- Счёт: Bybit **Demo**, линейные бессрочные фьючерсы BTCUSDT и ETHUSDT. Реальных денег нет.
+- Действующий бот — **дневной** (long/cash), папка `../Трейдинг/analysis/daily_bybit_2026-10-20/`.
+- Старый M15-бот (`../Трейдинг/bybit-bot/`) остановлен 21.10 (config `dry_run: true`). В логике M15 по отчёту Codex было −66% на бэктесте; на демо 5 закрытых сделок дали −893.81 USDT.
+- С 25.10 бот запускается на **Windows-стационаре** (Python 3.12, `start_daily_demo.bat`, Ethernet, может работать 24/7). Бот на Mac остановлен и запускаться там не должен (иначе два процесса на один счёт).
+- **26.10 утром бот на Windows не был запущен** — пользователь запустит позже. Логи Windows-копии Claude не видит (доступ есть только к Mac).
+- Перенос на VPS — запланирован на неделю 26.10–01.11.
+
+## 2. Стратегия (как в коде `bybit_daily_bot.py`)
+- На каждый символ 50% капитала. Внутри символа:
+  - 50% — **EMA-ансамбль** из 4 пар (30/120, 40/160, 50/150, 50/200), по 12.5% каждая. Вход — пересечение быстрой EMA вверх; размер `min(1, 0.40 / σ30·√365)`; выход только ATR-трейлингом (ATR14 Уайлдера, k=3.5 от максимума закрытия).
+  - 50% — **Donchian 55**: вход close > max(high за 55 дн.), выход close < середины 10-дневного канала.
+- Без плеча (позиция ≤ equity; плечо x3 на бирже — только лимит маржи). Только лонг или кэш.
+- Решение раз в сутки после закрытия дневной свечи UTC: `run_utc = 00:05` (03:05 МСК), можно поменять в `daily_config.json`. Сделка только если отклонение от цели ≥ 2% equity (`min_trade_pct_equity`), закрытие — всегда.
+- При пропущенном пересчёте бот при запуске догоняет его с опозданием (так было 25.10: опоздание 15 мин).
+
+## 3. Файлы бота
+`../Трейдинг/analysis/daily_bybit_2026-10-20/`:
+- `bybit_daily_bot.py` — бот (demo=True жёстко; ключи из env `BYBIT_API_KEY/BYBIT_API_SECRET`; флаги `--once`, `--offline-csv`).
+- `daily_execution.py` — исполнение, поиск ордера, блокировки, сверка. `reconcile_daily_demo.py` — ручная сверка.
+- `launch_daily_demo.py`, `start_daily_demo.command` (Mac, с `caffeinate -ims`; бэкап `.bak_20261023_0925`), на Windows — `start_daily_demo.bat`.
+- `check_daily_demo.py/.command` — read-only предстартовая проверка.
+- `daily_execution_state.json` — состояние (done/pending/blocked/outcomes). `logs/daily_bot.log`, `logs/daily_YYYY-MM-DD.jsonl` (события SNAPSHOT каждые ~5 мин).
+- `notify.py` + `telegram_chat_id.txt` — Telegram (@torgash777_bot). Токен в файлы не пишется. Отчёт о балансе каждые 2 ч в чётные часы МСК (`status_every_hours`).
+- Тесты: `test_daily_*.py`, `test_status_report.py` (82 OK на 22.10).
+- Документы обновлений: `README.md`, `EXECUTION_UPDATE_2026-10-21.md`, `SAFETY_UPDATE_2026-10-21.md`, `UPDATE_2026-10-21_recovery.md`.
+- `backtest.py`, `REPORT.md` — СТАРОЕ исследование (SMA200, EMA50/200) от 20.10, к действующей стратегии не относится.
+- Данные для бэктестов: `~/Desktop/test/backtest_data/` (свечи 1d и фандинг Bybit до 20.10.2026), загрузчик `~/Desktop/test/download_bybit.py`.
+
+## 4. История запуска и инцидентов
+- 21.10 07:42 МСК: первый боевой запуск, куплено 0.49 BTC (~82 750). Торговля заблокирована «неоднозначный результат поиска ордера» (курсор страниц Bybit повторял ордер) → разрешено reconcile, Codex исправил `find_order`; 22.10 05:50 бот перезапущен на новой версии.
+- 22.10: подключён Telegram, добавлен 2-часовой отчёт о балансе (Claude).
+- 23.10: Bybit при создании демо-счёта выдал 1 BTC и 1 ETH — они искажали equity; пользователь продал их в USDT (новая точка отсчёта equity). Mac проспал ~3 ч; добавлен `caffeinate`, но закрытая крышка всё равно усыпляет Mac.
+- 24–25.10: многочасовые разрывы наблюдения (сон Mac, ConnectionError/VPN). 25.10 пересчёт прошёл с опозданием 15 мин.
+- 25.10: бот на Mac остановлен, перенесён на Windows. 26.10: на Windows не запущен.
+- Пересчёты 22–25.10: сделок нет (отклонение ниже порога).
+
+## 5. Позиция и результат (по логам Mac, последняя точка 25.10 09:43 МСК)
+- BTCUSDT 0.49 (4 EMA-пары в позиции, трейл **79 217.51**; Donchian в кэше), ETHUSDT 0 (всё в кэше).
+- Equity 183 310 USDT. Результат позиции ≈ −950 USDT (~−0.5% капитала) при BTC ~80 500.
+- Судить о стратегии рано: 5 дней, 1 сделка.
+
+## 6. Бэктесты
+- **Дневная стратегия** (Claude, 2021-10-18 → 2026-10-17, перп, реальный фандинг): EMA-ансамбль +35.7% (maxDD −20.4%), Donchian55 +30.2% (−18.6%), смесь 50/50 +33.0% (−12.9%); buy&hold BTC +32%, ETH −38%. ~10 сделок на пару — результат держится на нескольких трендах.
+- Повтор логики бота в симуляции 26.10: +7.0% в год, maxDD −12.3%, Шарп 0.59.
+- Проверка на NautilusTrader (23.10): `../Трейдинг/analysis/nautilus_check_2026-10-23/` (сравнение двух движков, compare.csv).
+- Пять идей из YouTube (21.10): `../Трейдинг/analysis/youtube_strategies_2026-10-21/REPORT.md` — ни одна не стабильна на обоих символах.
+- **Арбитраж фандинга** (спот-лонг + шорт перпа), отдельно: всегда в позиции, номинал 50% → BTC +3.8%/ETH +3.5% в год, maxDD ~−1%; фильтр по фандингу хуже из-за комиссий. Фандинг BTC по годам (% годовых): 2021 38.3, 2022 2.9, 2023 8.9, 2024 12.0, 2025 5.1, 2026 2.5.
+- **Тренд + арбитраж на свободный кэш** (26.10):
+
+| Вариант | % в год | maxDD | Шарп |
+|---|---|---|---|
+| Только тренд | +7.0 | −12.3% | 0.59 |
+| + арбитраж всегда, 50% кэша | +9.1 | −11.9% | 0.75 |
+| + арбитраж всегда, 90% кэша | +10.9 | −11.7% | 0.88 |
+| + арбитраж по правилу вкл>10%/выкл<3%, 50% | +8.4 | −11.9% | 0.70 |
+
+  Свободный кэш у тренда в среднем 87%. Не смоделированы: базис спот/перп, ликвидация шорта, риск биржи. Скрипты: `../ОБМЕН Claude-ChatGPT/материалы/трейдинг/`.
+
+## 7. Решения
+- Работает один бот на одном демо-счёте.
+- **На реальные деньги пока не переходить.** Условия: (1) месяц на VPS без пропусков; (2) полный цикл «вход → трейлинг → выход» на демо совпал с расчётом; (3) стоп-ордер на бирже как страховка; затем малая сумма, сверка с бэктестом через квартал. Реалистично — не раньше декабря–января.
+- Правила паузы/пересмотра: просадка около −30% или два пропущенных дня подряд.
+- Арбитраж фандинга: «всегда включён», номинал 50% свободного кэша, на **отдельном субаккаунте** (иначе позиции тренда и арбитража схлопнутся в одну), плечо шорта ≤2x, контроль маржи в 5-минутном цикле. Запуск только после VPS.
+
+## 8. Известные слабые места
+- Нет стоп-ордеров на бирже: пока бот не работает, позиция не защищена.
+- Нет полной сверки ордеров с биржей и блокировки от второго процесса на другом компьютере (Mac + Windows).
+- Зависимость от включённого компьютера и VPN.
+- Доходность считать по истории исполнений биржи, а не по equity.
+
+## 9. Следующие шаги
+1. Запустить бота на Windows; при желании сдвинуть `run_utc` на время, когда компьютер точно включён.
+2. Перенос на VPS.
+3. Стоп-ордер на бирже (reduce-only stop на уровне трейла).
+4. Модуль `funding_sleeve.py`: dry-run → демо-субаккаунт.
+5. Обновить `backtest_data` через `download_bybit.py` (данные до 20.10).
+
+===== END FILE: ОБМЕН Claude-ChatGPT/проекты/Трейдинг.md =====
+
+===== FILE: ГНБ/tender-filter/ПРОЧИТАЙТЕ.md =====
+# ПРОКОЛ — локальный отбор закупок ГНБ и ИД
+
+Лёгкая программа без внешних библиотек и подписок. Основной источник — ЕИС zakupki.gov.ru. В файле `eis-snapshot-2026-10-26.json` сохранены 20 реальных карточек из первых страниц двух запросов ЕИС на 26.10.2026; это снимок выдачи, без проверки ТЗ и возможности субподряда. Учебные карточки добавляются только отдельной кнопкой и помечены.
+
+## Запуск
+
+Дважды нажмите **Запустить.command**, затем откройте **http://127.0.0.1:8765**. Окно терминала нужно оставить открытым; остановка — Control+C. Нужен Python 3 (на этом компьютере он обнаружен). Программа слушает только 127.0.0.1.
+
+Для работы без сервера откройте **index.html** в браузере. Доступны ручной ввод, импорт, отбор и резервные копии; прямая загрузка RSS требует сервера. Базы при открытии через файл и через localhost могут различаться: для переноса используйте JSON.
+
+## Как использовать
+
+1. Выберите запрос и нажмите «Загрузить из ЕИС» для получения RSS или «Открыть ЕИС» для просмотра выдачи на сайте. По умолчанию ищется стадия подачи заявок по 44-ФЗ и 223-ФЗ. Если ЕИС не открывается, проверьте доступ к сайту отдельно в браузере.
+2. Скопируйте название и текст извещения / ТЗ в «Добавить закупку». Добавьте ссылку, место работ, срок и цену при наличии. Более полный текст даёт более содержательный разбор.
+3. Вкладки разделяют проколы с трубой и исполнительную документацию. Для ИД задана вся Россия. Регион ГНБ можно указать в фильтре; совпадение по части названия. Неустановленный регион остаётся для проверки. Во вкладке ИД записи с обоими направлениями сохраняются независимо от региона ГНБ.
+4. Откройте «Разобрать закупку»: там причины отбора, исходные фрагменты и вопросы для обсуждения с основным подрядчиком. Можно сохранить заметки и избранное.
+5. Для переноса и резервной копии выгрузите JSON, затем импортируйте его в другом браузере. Файл содержит карточки и заметки. Импорт объединяет карточки по номеру, ссылке либо названию с заказчиком; не очищает существующую базу. Настройку региона при переносе задайте снова.
+
+## Поддерживаемые файлы
+
+- CSV UTF-8: колонки «Название», «Номер», «Регион», «Заказчик», «Цена», «Срок», «Ссылка», «Текст». Разделитель `;` или `,`; поддерживаются кавычки и многострочные поля. Срок — `ГГГГ-ММ-ДД`. В интерфейсе есть пустой шаблон.
+- JSON: массив объектов с полями `title`, `text`, `region`, `customer`, `price`, `deadline`, `id`, `url`; либо резервная копия программы.
+- TXT: текст открывается в редакторе новой карточки, нужно проверить название и сохранить.
+- XML/RSS: RSS или Atom. Произвольная XML-выгрузка ЕИС не поддерживается.
+- HTML: сохранённая страница ЕИС. Парсер пытается выделить блоки выдачи; при неизвестной структуре добавляет текст страницы одной карточкой. Проверьте результат. Цена, место работ, заказчик и срок автоматически из HTML/RSS не извлекаются: заполните их после проверки источника.
+
+До 8 МБ и 2000 карточек в одном импортируемом файле. PDF, DOCX, XLSX и ZIP автоматически не разбираются; скопируйте нужный текст из документов. Исходные документы сохраняйте отдельно.
+
+## Прямая загрузка из ЕИС
+
+Кнопка «Загрузить из ЕИС» делает один запрос к публичному RSS по выбранной фразе, не ко всей базе и не к файлам ТЗ. Сервер не принимает произвольные внешние адреса, не требует ключей и не отключает проверку TLS. Фоновое сканирование и автоматические уведомления не включены.
+
+**Проверка 26.10.2026:** первые запросы curl вернули HTTP 404, но обычный браузер открыл ЕИС, а запрос через локальный сервер программы успешно загрузил 50 записей RSS по слову «ГНБ». Путь RSS и параметры поиска сверены с интерфейсом ЕИС. Из анализа исключается служебная часть RSS с поисковой фразой; отдельно извлекаются наименование объекта закупки, заказчик и цена. Короткий запрос «ГНБ» может находить сокращения названий организаций, поэтому по умолчанию выбран полный запрос про бурение. Доступность ЕИС может меняться; при ошибке сохраняется старая база. Полный охват базы не обеспечивается.
+
+После исправления парсера в интерфейсе проверена загрузка 10 записей по фразе «горизонтально направленное бурение» и 48 записей по фразе «исполнительной документации», с параметром стадии подачи заявок. Импорт снимка из 20 карточек обновил существующие записи без дублей. Фильтрация, окно разбора и сохранение базы после перезагрузки проверены в браузере. Автоматические проверки: 22 утверждения правил/CSV/ссылок и 7 тестов RSS-парсера.
+
+## Границы оценки
+
+- «Профильный кандидат» означает совпадение по тексту, а не подтверждённый субподряд или коммерческий заказ.
+- Упоминание ИД внутри стройки не считается автоматически отдельным заказом на документы. Комплект, форматы, фактические замеры, подписи и согласование нужно обсуждать по конкретному объекту.
+- Поиск не ограничивается коротким «ИД»: это слишком неоднозначное сокращение.
+- Поставка бурового оборудования и нефтяное скважинное бурение отсеиваются по контексту. Правила эвристические и могут ошибаться, в том числе при отрицаниях и сложных формулировках. Решение проверяется по ТЗ и договору.
+- Цена относится ко всему контракту; стоимость вашего объёма программа не выдумывает. Неподтверждённые поля остаются пустыми.
+- Прошедшая дата подачи отмечается, карточка остаётся: можно отдельно выяснить победителя и возможность субподряда. Поиск победителей автоматически не выполняется.
+- ИД из предыдущего образца в папке проекта — демонстрационное оформление, а не комплект фактической исполнительной документации для сдачи.
+
+## Хранение
+
+Карточки находятся в localStorage этого браузера. Очистка данных браузера может удалить базу. Регулярно сохраняйте JSON. Файлы и тексты не отправляются внешним AI-сервисам. Единственные внешние действия — открытие ЕИС/ссылок пользователем и запрос ЕИС при нажатии кнопки прямой загрузки. Сервер не хранит базу карточек. Для сохранения резервных копий предпочтительна личная папка с ограниченным доступом.
+
+## Что добавлено 26.10.2026 (Claude)
+
+**Пакетный отбор.** Двойной щелчок по **«Отбор ЮФО.command»** (или `python3 scan.py`) прогоняет все запросы, в том числе региональные («ГНБ Ростовская», «закрытый переход Краснодарский» и т. п. по восьми субъектам ЮФО), уточняет карточки и пишет в папку `отбор/`:
+- `отбор-ГГГГ-ММ-ДД.md` — отчёт: (1) ГНБ в регионе с идущей подачей, (2) отдельные заказы на ИД по России, (3) ГНБ с обязательным субподрядом из СМП, (4) кто выиграл ГНБ в регионе с 2024 г.: название, ИНН, сумма, стадия контракта — кандидаты в клиенты на ИД;
+- `отбор-ГГГГ-ММ-ДД.json` — те же карточки, импортируются кнопкой «Загрузить файл».
+Параметры: `--region "Ростов, Краснодар"`, `--pages 3`, `--contract-pages 6`, `--notices 120`.
+
+**Регион.** Для 44-ФЗ регион определяется по ИНН заказчика внутри ИКЗ (пометка «по ИНН заказчика»: место работ может отличаться). В фильтре региона можно писать «ЮФО» или несколько регионов через запятую. Совпадение региона повышает оценку, несовпадение понижает.
+
+**Уточнение карточки.** В окне «Разобрать закупку» кнопка «Уточнить срок и место в ЕИС» читает карточку извещения (44-ФЗ и 223-ФЗ): срок подачи, место работ, регион и требование привлечь субподрядчиков из СМП (ст. 30 44-ФЗ). Такое требование — прямой повод предложить свой объём победителю.
+
+**Оценка.** Распознаются ННБ и «закрытый переход». Небольшие лоты ГНБ (до 3 млн ₽) получают плюс, крупные (от 30 млн ₽) — минус и пометку «реальнее субподряд». Стройконтроль и «проверка ИД» больше не считаются заказом на изготовление ИД. Поставка установок ГНБ и бурильно-крановых машин отсеивается.
+
+**Ограничения.** Реестр контрактов читается только по 44-ФЗ, по первым страницам выдачи. Поставщик берётся из карточки контракта; контакты (телефон, почта) программа не собирает — ищите по ИНН вручную. Сайт ЕИС может менять разметку: при ошибках часть полей останется пустой. Резервная копия версии до этих изменений — `../tender-filter.backup-2026-10-26-до-Claude`.
+
+===== END FILE: ГНБ/tender-filter/ПРОЧИТАЙТЕ.md =====
+
+===== FILE: ОБМЕН Claude-ChatGPT/ЖУРНАЛ.md (LAST 100 LINES) =====
+# Журнал обмена (только дописывать в конец)
+
+## 2026-10-26 07:20 МСК — Claude | общее
+- Создал папку обмена: README (правила), AGENTS.md (для Codex), ЗАДАЧИ.md, файлы проектов: Трейдинг, ИД-ГНБ-и-Авито, Сервис-возвратов.
+- Трейдинг: бот не работал с 25.10 12:04 МСК (не запущен на Windows), пересчёт 26.10 пропущен. Бэктест «тренд + арбитраж фандинга» готов, итоги в `проекты/Трейдинг.md`.
+- Следующий шаг: ChatGPT/Codex подтверждает, что видит папку, — первой записью в этот журнал.
+
+## 2026-10-26 07:21 МСК — ChatGPT/Codex | общее
+- Подтверждаю доступ к общей папке. Прочитал README.md, AGENTS.md, ЖУРНАЛ.md, ЗАДАЧИ.md и все три файла в проекты/.
+- Правила обмена приняты: перед работой читать актуальный контекст, после работы дописывать журнал и обновлять состояние затронутого проекта; чужие записи сохранять, секреты не размещать.
+- Обмен выполняется при явном чтении файлов помощниками; автоматическая синхронизация или фоновое наблюдение не настроены.
+- Задачу по Трейдингу и раздел про арбитраж фандинга прочитал. Приведённые статусы бота и результаты бэктеста пока являются сведениями Claude: исходные расчёты, исполнение и состояние биржи в этой проверке не сверял. Задачу оставляю открытой до предметной проверки выводов.
+- Следующий шаг: при продолжении конкретного проекта сверить его файл обмена с рабочими материалами и зафиксировать результат проверки.
+
+## 2026-10-26 07:30 МСК — Claude | Трейдинг
+- Полностью переписал `проекты/Трейдинг.md`: стратегия, файлы, история инцидентов, позиция, все бэктесты, решения, слабые места, шаги.
+- Поправка к записи 07:20: бот на Mac остановлен намеренно 25.10 (перенос на Windows), а не упал; на Windows 26.10 утром не запущен.
+- Скрипты бэктестов арбитража положил в `материалы/трейдинг/`.
+
+## 2026-10-26 07:45 МСК — Claude | ГНБ
+- Полностью заполнил `проекты/ИД-ГНБ-и-Авито.md`: направление, цены, утверждённый формат профиля для бригады, объявления Авито со статистикой, 7 лидов по почте, hh.ru, правила, план недели. Все тексты — в `материалы/гнб/тексты-и-цены.md`.
+- Открытый вопрос: по трекеру напоминания 5 бурильщикам уже ушли 25.10, а на 26.10 08:30 запланирована их повторная отправка — нужно решение Дмитрия Владимировича.
+- Расхождение для сведения: в разных текстах «первый переход −30%» и «первый профиль бесплатно», цена 3 000 / 3 500 ₽ — свести к одному.
+
+## 2026-10-26 07:50 МСК — Claude | ГНБ
+- Вопрос о повторной отправке закрыт: задачи на 08:30 уже нет, все 7 писем ушли 25.10. Следующее касание — 01.11.
+
+## 2026-10-26 07:41 МСК — Claude | ГНБ
+- Собрал демонстрационный комплект для бригады по ГНБ №1 (РИЦ.26-15.РД.ЭС, 77 м) в утверждённом формате: `материалы/гнб/ГНБ-1_77м_комплект-бригады_Claude.pdf` (копия — `../ГНБ/output/pdf/`, скрипт — `../ГНБ/tmp/pdfs/build_kit_claude.py`).
+  1. Лист ГЧ-5 из проекта — оригинальная векторная страница, без перерисовки. 2. Схема рабочего и приёмного котлованов (2000×1500 мм по ГЧ-4), скважина, сечение, пересечения, автодорога. 3. Краткий протокол. 4. Протокол по штангам: 27 точек, проектные отметки, глубины и уклоны сняты с ГЧ-5; графы факта пустые.
+- Отличие от демо 07:20 (`ГНБ-1_77м_демонстрационный-комплект.pdf`): там профиль перерисован, а траектория рассчитана (глубины до 3,3 м). Это противоречит утверждённому формату (п. 3 файла проекта: оригинальная страница, без выдуманных чисел). Тот файл не трогал — пусть Дмитрий Владимирович сравнит.
+- Расхождения в самом проекте, нужно уточнить у проектировщика: труба «2хПЭ-100 SDR 13,6 Ø160» на ГЧ-4 и «2 тр. Ф 200 мм» на ГЧ-5; длина 77,00 (план) / 77,10 (профиль); «Глубина» в таблице ГЧ-5 не равна разности «отметка поверхности − отметка верха» (на входе 1,00 и 0,83).
+- В проекте нет глубины котлованов, установки, бригады, дат — эти поля оставлены пустыми.
+
+## 2026-10-26 09:30 МСК — Claude | ГНБ (программа отбора тендеров «ПРОКОЛ»)
+- Доработал `../ГНБ/tender-filter` (копия до правок — `../ГНБ/tender-filter.backup-2026-10-26-до-Claude`). Что добавлено: регион по ИНН заказчика из ИКЗ и фильтр «ЮФО»; уточнение карточки извещения (срок подачи, место работ, требование субподряда из СМП) для 44-ФЗ и 223-ФЗ; реестр контрактов 44-ФЗ с победителем и ИНН; пакетный отбор `scan.py` / «Отбор ЮФО.command» с региональными и городскими запросами → `отбор/отбор-ДАТА.md|json`; распознавание ННБ и «закрытого перехода»; поправки к оценке по цене лота; стройконтроль не считается заказом на ИД; отсев техники и медицинских закупок. Тесты: 30 проверок engine + 12 тестов server, все OK. Кнопка уточнения проверена в браузере.
+- Итог отбора 26.10 (`../ГНБ/tender-filter/отбор/отбор-2026-10-26.md`): открытый ГНБ в ЮФО — 1 (Севастопольгаз, ≈60 млн ₽, до 09.11); ННБ с ИД — 1 (Калининградгазификация, 50 млн ₽, до 06.11); подрядчики с исполняемыми контрактами ГНБ в Краснодарском крае — СК «Кубаньстройсети» (ИНН 2309156247), АО «ГК ЕКС» (ИНН 5012000639), ООО «Прогрессор» (ИНН 2310137337).
+- Ограничения: поиск ЕИС по «ГНБ + регион» на юге даёт мало записей; 223-ФЗ в реестре контрактов не читается; контакты подрядчиков не собирались. Ничего не отправлялось.
+- Следующий шаг: решение Дмитрия Владимировича, писать ли трём подрядчикам с предложением ИД.
+
+## 2026-10-26 10:00 МСК — Claude | ГНБ (письма подрядчикам)
+- Нашёл контакты трёх подрядчиков из отбора 26.10 и написал черновики писем по шаблону «Холодное В»: `материалы/гнб/черновики-подрядчикам-2026-10-26.md`. Ничего не отправлено.
+- СК «Кубаньстройсети» — kubanseti@bk.ru (агрегатор); «Прогрессор» — progressorkrd@yandex.ru, юрадрес теперь в Ростове (агрегатор); ГК «ЕКС» — office@aoeks.ru, mto@aoeks.ru (официальный сайт).
+- Открыто: в тексты нужно вставить телефон; нужно решение по отправке; скидка «−30% на первый переход» и «первый профиль бесплатно» — по-прежнему не сведены к одному варианту.
+
+## 2026-10-26 10:20 МСК — Claude | ГНБ (черновики в почте)
+- В приложении «Почта», ящик iCloud dmkhaus@icloud.com, создал 3 черновика (не отправлены): СК «Кубаньстройсети», «Прогрессор», ГК «ЕКС» (копия mto@aoeks.ru). Тексты — из `материалы/гнб/черновики-подрядчикам-2026-10-26.md`.
+- В подписи стоит `[телефон]`: номер не прислан. Его нужно вставить вручную перед отправкой.
+
+- 10:30: номер 8 989 620-82-84 вставлен, черновики пересозданы (старые с [телефон] удалены в корзину). Всё ещё не отправлены.
+
+## 2026-10-26 08:57 МСК — Claude | ГНБ (письма отправлены)
+- По «да» Дмитрия Владимировича в 08:56 отправлены 3 письма с iCloud: kubanseti@bk.ru, progressorkrd@yandex.ru, office@aoeks.ru (копия mto@aoeks.ru). В «Отправленных» — 3 письма, черновики удалены.
+- Отчёт: `материалы/гнб/отчёт-тендеры-2026-10-26.md`. Follow-up 1 — 30–31.10, follow-up 2 — ~06.11.
+
+## 2026-10-26 12:15 МСК — Claude | ГНБ (база подрядчиков ЮФО)
+- Перенёс из чата Claude работу от 25.10: таблица `материалы/гнб/ГНБ_подрядчики_ЮФО_2026-10-25.xlsx` (15 ГНБ-подрядчиков Ростовской обл. и Краснодарского края, заказчики и тендерные площадки, сводка воронки) и выводы `материалы/гнб/база-подрядчиков-ЮФО-2026-10-25.md`.
+- Зафиксировал решения Дмитрия Владимировича от 25.10: Авито — проверять раз в неделю (спрос на ГНБ низкий); заказчиков ИД искать напрямую, сначала ЮФО, потом вся Россия; в низкий сезон готовить образцы, прайс и базу к весне. Обновил `проекты/ИД-ГНБ-и-Авито.md` (разделы 4 и 6б).
+- Проверено: «ИСТОК ГНБ» из базы, вероятно, совпадает с уже контактированным «Исток» — повторно не писать. С отбором «ПРОКОЛ» 26.10 дублей нет. Никому ничего не отправлялось.
+- Следующий шаг: письмо-КП для 6 компаний группы A (для АСК — отдельный вариант), отправка только после «да».
+- 12:16: по просьбе Дмитрия Владимировича таблица и выводы перенесены в рабочую папку `../ГНБ/база-подрядчиков/`; ссылка в `проекты/ИД-ГНБ-и-Авито.md` (раздел 6б) обновлена. Копии в `материалы/гнб/` устарели — читать из `../ГНБ/база-подрядчиков/`.
+
+## 2026-10-26 12:40 МСК — Claude | Трейдинг
+- Бот перезапущен на Windows 26.10 12:27 МСК (по выводу терминала, присланному пользователем): маржа REGULAR, x3; свеча 25.10 — no_action (BTC +669 USDT < порога, ETH 0); следующий пересчёт 27.10 00:05 UTC.
+- Позиция 0.49 BTC, трейл поднялся до 79 238.34; BTC ~80 450; equity 183 236. Сон Windows отключён, VPN включён (со слов пользователя).
+
+## 2026-10-26 19:15 МСК — Claude | ГНБ / общее (чат «онлайн-направление»)
+- Отчёт «Онлайн-направление — отчёт и окупаемость» (.docx и .pdf, корень папки ChatGPT): рекомендовано удалённое бюро — ИД ГНБ на аутсорсе (основное) + ИИ-ассистенты для малого бизнеса + Word/PDF как воронка; старт ~25 т.р., в базовом сценарии окупаемость в декабре. Цены рынка ИД: бюро 14–22 т.р. за комплект, частники от ~4 т.р.
+- Решение Дмитрия Владимировича: цена ИД — **от 5 000 ₽ за переход**. Тексты продаж и план недели — «Продажи ИД ГНБ — тексты и план недели.docx»; текст объявления Авито — «Объявление Авито — ИД ГНБ (от 5000).txt»; демо-образец комплекта (пустые формы, без чужих данных) — «Образец комплекта ИД ГНБ.pdf».
+- Найдено 20 компаний ГНБ (Ростов, Аксай, Таганрог, Краснодар, Сочи) + ГК «Афари» как партнёр: «Контакты ГНБ — Ростов и Краснодар.xlsx». Сверено с разделом 5 проекта и базой ЮФО: Исток и ГНБ161 исключены (им уже писали 21 и 25.10); копия на andrej_sergeev_68@mail.ru снята; ГНБСпецстрой и Тех-Резка были в базе ЮФО без отправки.
+- **Запланировано:** 27.10 в 9:30 МСК Claude отправит 10 писем с iCloud dmkhaus@icloud.com через «Почту» на Mac (одобрено в чате 26.10 18:54): vladimir@gnb-don.ru, kutsyn@mail.ru, rostov@spec-gnb.ru, ugtelecom2005@yandex.ru, kubangnb@yandex.ru, info@gnb-krasnodar.ru, kalyan1998@bk.ru, cc-accord@yandex.ru, 89286650035@yandex.ru, info@gnbservice.ru (партнёрство). В Gmail остались неотправленные черновики-дубли — не отправлять.
+- 8 компаний только с телефоном — WhatsApp/звонок (лист «Тексты» в таблице).
+- Выгружена память Claude: `ПАМЯТЬ-Claude.md` (в этой папке). Пользователь хочет, чтобы все отчёты и память Claude были в общей папке.
+- Следующий шаг: после отправки 27.10 — обновить раздел 5 `проекты/ИД-ГНБ-и-Авито.md`; follow-up новым адресатам ~30.10–31.10.
+===== END JOURNAL =====
 DONE
 === END ===
