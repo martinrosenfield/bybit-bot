@@ -1,8 +1,8 @@
-=== REMOTE RUN 2026-10-26 19:39:39 MSK | host: DmitryVladimirovich.local ===
+=== REMOTE RUN 2026-10-26 19:44:23 MSK | host: DmitryVladimirovich.local ===
 --- git ---
+6445447 remote run 10-26 19:39
 1ecf1b4 Read central project context files
 abfaa87 remote run 10-26 19:37
-4e15c2b Prepare read-only ChatGPT folder inventory
  M REMOTE_OUT.txt
  M config.json
 ?? BACKTEST_COMPARISON.json
@@ -19,7 +19,7 @@ abfaa87 remote run 10-26 19:37
 ?? test_restore_demo_bot.py
 --- TASK OUTPUT ---
 ROOT: /Users/khdmvld/Documents/ChatGPT
-TIME: 2026-10-26T19:39:40+03:00
+TIME: 2026-10-26T19:44:23+03:00
 MODE: allowlisted Markdown context only
 
 ===== FILE: ОБМЕН Claude-ChatGPT/AGENTS.md =====
